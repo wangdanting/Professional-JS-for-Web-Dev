@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提交表单</title>
+</head>
+<body>
+<form id="form1">
+    <!--通用提交按钮-->
+    <input type="submit" value="Submit Form">
+    <!--自定义提交按钮-->
+    <Button type="submit">Sumbit Form</Button>
+    <!--图像按钮-->
+    <input type="image" src="graphic.gif">
+</form>
+
+<!--无需包含表单提交按钮，也可以任何时候提交表单 调用方法后不会触发submit事件，所以要提前验证表单-->
+<script>
+    let form1 = document.getElementById('form1');
+    form1.submit();
+</script>
+
+<!--以这种方式提交表单时，浏览器会在将请求发送给服务器之前触发submit事件，就有机会验证表单，并决定是否提交表单。阻止这个事件的默认行为就可以取消表单提交-->
+<script>
+    let form = document.getElementById('form1');
+    form.addEventListener('submit',(event) => {
+        // 阻止默认事件
+        event.preventDefault();
+    } )
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重置表单</title>
+</head>
+<body>
+<form id="form1">
+    <!--通用重置按钮-->
+    <input type="reset" value="Reset Form">
+    <!--自定义重置按钮-->
+    <Button type="reset">Reset Form</Button>
+</form>
+
+<!--通过js来重置表单 调用方法后会触发reset事件-->
+<script>
+    let form1 = document.getElementById('form1');
+    form1.reset();
+</script>
+
+<!--用户单机重置按钮重置表单时，会触发reset事件-->
+<script>
+    let form = document.getElementById('form1');
+    form.addEventListener('reset', (event) => {
+        event.preventDefault();
+    })
+</script>
+</body>
+</html>

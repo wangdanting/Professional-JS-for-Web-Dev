@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form元素是HTMLFormElement类型</title>
+</head>
+<body>
+<form method="post" id="myForm" accept-charset="utf-8">
+    <ul>
+        <li>
+            <input type="radio" name="color" value="red">Red
+        </li>
+        <li>
+            <input type="radio" name="color" value="green">Green
+        </li>
+        <li>
+            <input type="radio" name="color" value="blue">Blue
+        </li>
+    </ul>
+</form>
+
+<form id="form1" name="form2">
+    <input type="submit" value="Submit Form">
+</form>
+<script>
+    let form = document.getElementById('myForm');
+    console.log(document.forms, '取得页面中所有的表单');
+    console.log(document.forms[0], '取得页面中的第一个表单');
+    console.log(document.forms['myForm'], '取得页面中名称为myForm的表单');
+    console.log(document.forms['form1'], '取得页面中名称为myForm的表单 id 或 name');
+    console.log(document.forms['form2'], '取得页面中名称为myForm的表单 id 或 name');
+</script>
+</body>
+</html>

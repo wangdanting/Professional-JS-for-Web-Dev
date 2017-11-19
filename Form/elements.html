@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单字段</title>
+</head>
+<body>
+<form method="post" id="myForm">
+    <ul>
+        <li><input type="radio" name="color" value="red">Red</li>
+        <li><input type="radio" name="color" value="green">Green</li>
+        <li><input type="radio" name="color" value="blue">Blue</li>
+    </ul>
+</form>
+
+<script>
+    let form = document.getElementById('myForm');
+    console.log(form.elements[0], '获取表单中的第一个表单字段');
+    console.log(form.elements.length, '取得表单中包含的字段数量')
+    console.log(form.elements['color'], '取得名为color的字段')
+</script>
+</body>
+</html>
