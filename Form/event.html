@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>共有的表单字段事件</title>
+</head>
+<body>
+<ul>
+    <li>blur: 当前字段失去焦点时触发</li>
+    <li>change: 对于input和textarea元素，在它们失去焦点且value值改变时触发，对于select元素，在其选项该改变时触发</li>
+    <li>focus: 当前字段获得焦点时触发</li>
+</ul>
+<form>
+    <input type="text" size="4" maxlength="3">
+
+    <!--不能在html中给textarea指定最大字符数-->
+    <textarea id="textbox1" rows="25" cols="5">sdfsf</textarea>
+</form>
+
+<script>
+    let textbox = document.forms[0].elements[0];
+    textbox.addEventListener('focus', (event) => {
+        let target = event.target;
+
+        if(target.style.backgroundColor != 'red') {
+            target.style.backgroundColor = 'yellow';
+        }
+    });
+
+    textbox.addEventListener('blur', (event) => {
+        let target = event.target;
+
+        if(/[^\d]/.test(target.value)) {
+            target.style.backgroundColor = 'red';
+        } else {
+            target.style.backgroundColor = '';
+        }
+    });
+
+    textbox.addEventListener('change', (event) => {
+        let target = event.target;
+
+        if(/[^\d]/.test(target.value)) {
+            target.style.backgroundColor = 'red';
+        } else {
+            target.style.backgroundColor = '';
+        }
+    });
+
+//  建议像下面这样使用value属性读取或设置文本框的值，不建议使用标准的Dom方法，例如setAttribute去设置input的value特性，因为对value属性所做的修改，不一定会反应在DOM上
+    let textArea = document.forms[0].elements['textbox1'];
+    console.log(textArea.value);
+    textArea.value='some do someting';
+</script>
+
+<!---->
+</body>
+</html>

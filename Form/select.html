@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择文本</title>
+</head>
+<body>
+<h3>input和textarea都支持select()方法，这个方法用于选择文本框中的所有文本</h3>
+<form>
+    <input type="text" value="dsfdgehld">
+    <textarea>是的方式的方式</textarea>
+</form>
+<!--select方法-->
+<script>
+    let textbox = document.forms[0].elements[0];
+    textbox.addEventListener('focus', (event) => {
+        let target = event.target;
+        target.select();
+    })
+</script>
+<!--select事件 只要选中某一个字符都会-->
+<script>
+    function getSelectedText(textbox) {
+        return textbox.value.substring(textbox.selectionStart, textbox.selectionEnd);
+    }
+    let textbox1 = document.forms[0].elements[1];
+    textbox1.addEventListener('select', (event) => {
+        let target = event.target;
+        console.log(target.value);
+        console.log(getSelectedText(target));
+    })
+</script>
+
+<!--setSelectRange()-->
+<script>
+    let textbox2 = document.forms[0].elements[1];
+    textbox1.addEventListener('focus', (event) => {
+        let target = event.target;
+        target.setSelectionRange(0, 3);
+    })
+</script>
+</body>
+</html>

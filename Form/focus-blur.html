@@ -5,6 +5,21 @@
     <title>共有的表单字段的方法</title>
 </head>
 <body>
+<form id="myForm">
+    <input type="text" value="">
+    <input type="submit" value="Submit-btn">
+</form>
 
+<form id="form1">
+    <input type="text" value="" autofocus>
+    <input type="submit" value="Submit-btn">
+</form>
+
+<script>
+    window.addEventListener('load', () => {
+        document.forms[0].elements[0].focus();
+    }
+//    如果第一个表单字段是一个input元素，且起type特性的值为hidde，那么以上代码会导致错误，另外,如果使用css的display的visibility属性隐藏了该字段，也会报错
+</script>
 </body>
 </html>
