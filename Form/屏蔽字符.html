@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>屏蔽字符</title>
+</head>
+<body>
+
+<form>
+    <input type="text" name="tel">
+</form>
+
+<script>
+    let tel = document.forms[0].elements['tel'];
+    tel.addEventListener('keypress', (event) => {
+
+        console.log(event, 'event');
+        let charCode = tel.getCharCode(event);
+
+        if(!/\d/.test(String.fromCharCode(charCode))) {
+            event.preventDefault();
+        }
+    })
+</script>
+</body>
+</html>
