@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML事件处理程序</title>
+</head>
+<body>
+<!--onclick特性的值不能使用未经转译的HTML语法字符-->
+<input type="button" value="Click me" onclick="alert('clicked')">
+
+<script>
+    let showMessage = () => {
+        alert('Hello World');
+    }
+</script>
+
+<input type="button" value="Click me" onclick="showMessage()">
+
+<!--输出 click-->
+<input type="button" value="Click me" onclick="alert(event.type)">
+
+<!--输出 Click me-->
+<input type="button" value="Click me" onclick="alert(this.value)">
+
+<!--输出 Click me-->
+<input type="button" value="Click me" onclick="alert(value)">
+
+<from>
+    <input type="text" name="username" value="">
+    <input type="button" name="Echo username" onclick="alert(username.value)">
+</from>
+</body>
+</html>

@@ -17,7 +17,7 @@
         console.log(event, 'event');
         let charCode = tel.getCharCode(event);
 
-        if(!/\d/.test(String.fromCharCode(charCode))) {
+        if(!/\d/.test(String.fromCharCode(charCode) && charCode > 9 && !event.ctrlKey)) {
             event.preventDefault();
         }
     })

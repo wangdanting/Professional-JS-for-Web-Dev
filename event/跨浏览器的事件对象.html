@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨浏览器的事件对象</title>
+</head>
+<body>
+
+<button id="myBtn">点击我</button>
+
+<script>
+    let EventUtil = {
+        // 处理指定事件处理程序
+        addHandler: (element, type, handler, isBubbles = false) => {
+            if (element.addEventListener) {
+                element.addEventListener(type, handler, isBubbles);
+            } else if (element.attachEvent) {
+                element.attachEvent(`on${type}`, handler);
+            } else {
+                element[`on${type}`] = handler;
+            }
+        },
+
+        // 删除指定事件处理程序
+        removeHandler: (element, type, handler, isBubbles = false) => {
+            if (element.removeEventListener) {
+                element.removeEventListener(type, handler, isBubbles);
+            } else if (element.detachEvent) {
+                element.detachEvent(`on${type}`, handler);
+            } else {
+                element[`on${type}`] = null;
+            }
+        },
+
+        // 获取事件对象
+        getEvent: (event) => {
+            return event ? event : window.event;
+        },
+
+        // 获取事件目标
+        getTarget: (event) => {
+            return event.target || event.srcElement;
+        },
+
+        // 取消事件默认行为
+        preventDefault: (event) => {
+            if (event.preventDefault) {
+                event.preventDefault();
+            } else {
+                event.returnValue = false;
+            }
+        },
+
+        // 阻止时间继续冒泡或捕获 IE只支持冒泡
+        stopPropagation: (event) => {
+            if(event.stopPropagation) {
+                event.stopPropagation();
+            } else {
+                event.cancelBubble = true;
+            }
+        }
+
+    };
+
+    let myBtn = document.getElementById('myBtn');
+    let handler = (event) => {
+        alert('click');
+    };
+
+    EventUtil.addHandler(myBtn, 'click', handler, false);
+
+    EventUtil.removeHandler(myBtn, 'click', handler, false);
+
+    myBtn.onClick = (event) => {
+        event = EventUtil.getEvent(event);
+    };
+</script>
+</body>
+</html>
