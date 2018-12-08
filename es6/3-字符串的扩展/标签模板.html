@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+
+  alert`123`
+  // 等同于
+  alert(123)
+
+  let a = 5;
+  let b = 10;
+  let tab = () => ({})
+
+  tag`Hello ${ a + b } world ${ a * b }`;
+  // 等同于
+  tag(['Hello ', ' world ', ''], 15, 50);
+
+
+  let total = 30;
+  let msg = passthru`The total is ${total} (${total*1.05} with tax)`;
+
+  function passthru(literals) {
+    let result = '';
+    let i = 0;
+    while (i < literals.length) {
+      result += literals[i++];
+      if (i < arguments.length) {
+        result += arguments[i];
+      }
+    }
+
+    return result;
+  }
+
+  msg // "The total is 30 (31.5 with tax)"
+
+  // passthru函数采用 rest 参数的写法如下。
+  function passthru1(literals, ...values) {
+    let output = "";
+    let index;
+    for (index = 0; index < values.length; index++) {
+      output += literals[index] + values[index];
+    }
+
+    output += literals[index]
+    return output;
+  }
+
+
+// 过滤 HTML 字符串
+  function SaferHTML(templateData) {
+    let s = templateData[0];
+    for (let i = 1; i < arguments.length; i++) {
+      let arg = String(arguments[i]);
+
+      s += arg.replace(/&/g, "&amp;")
+              .replace(/</g, "&lt;")
+              .replace(/>/g, "&gt;");
+      s += templateData[i]         
+    }
+    return s
+  }
+
+  function SaferHTML(templateData) {
+    let s = [];
+    
+    for (let i = 1; i < arguments.length; i++) {
+      let arg = String(arguments[i]); 
+      
+      s[i-1] = arg.replace(/&/g, "&amp;")
+                  .replace(/</g, "&lt;")
+                  .replace(/>/g, "&gt;");
+    }
+    return String.raw({ raw: templateData }, ...s);
+  }
+
+
+  let sender = '<a>alert("abc")</a>';
+  let message = SaferHTML`<p>${sender} has sent you a message.</p>`;
+  console.log(message, 'message'); 
+
+</script>
+</body>
+</html>
