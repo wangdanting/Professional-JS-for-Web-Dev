@@ -18,10 +18,60 @@ for(let i = 0; i < 3; i++) {
 
 
 for(let i = 0; i < 3; i++) {
-  console.log(i, 'parent i') //暂时性死区  Uncaught ReferenceError: i is not defined
+  console.log(i, 'parent i'); //暂时性死区  Uncaught ReferenceError: i is not defined
   let i = 'abc';
   console.log(i, 'content i');
 }
+
+// 不能在函数内部重新声明参数
+function func(arg) {
+  let arg = 0; // 报错
+}
+
+function funcc(arg) {
+  {
+    let arg = 0; // 不报错
+  }
+}
+
+// 将对象本身冻结，对象的属性也应该冻结
+const foo = {abc: {w: 2, b: {c: 4}}};
+
+let constantize = (obj) => {
+  Object.freeze(obj);
+  Object.keys(obj).forEach((key, i) => {
+    if(typeof obj[key] === 'object') {
+      constantize(obj[key]);
+    }
+  })
+}
+
+constantize(foo)
+
+// let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性
+var a = 0;
+let b = 9;
+window.a //0
+window.b //undefined
+
+// 获取顶层对象
+// 方法一
+const a = typeof window !== 'undefined'
+   ? window
+   : (typeof process === 'object' &&
+      typeof require === 'function' &&
+      typeof global === 'object')
+     ? global
+     : this
+
+// 方法二
+let getGlobal = function () {
+  if (typeof self !== 'undefined') { return self; }
+  if (typeof window !== 'undefined') { return window; }
+  if (typeof global !== 'undefined') { return global; }
+  throw new Error('unable to locate global object');
+};
+
 </script>
 </body>
 </html>
