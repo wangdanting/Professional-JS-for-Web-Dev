@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    let {a = 3} = {}
+    let {x: y = 3} = {};
+    // a => 3
+    // y => 3
+
+    let {b = 3} = {b: undefined};
+    // b => 3
+
+    let {d = 3} = {d: null};
+    // d => null
+
+    let {e} = {d: 'dd'};
+    // e => undefined
+
+    // let {foo: {bar}} = {baz: 'baz'};
+    // 报错
+
+    // let f;
+    // {f} = {f: 1}；
+    // 报错
+
+    let f;
+    ({f} = {f: 1});
+
+    // 不报错
+    ({} = [true, false]);
+    ({} = 'abc');
+    ({} = []);
+
+    // 数组本质是特殊的对象
+    let arr = [1, 2, 3];
+    let {0: first, [arr.length - 1]: last} = arr;
+    //first => 1
+    //last => 3
+
+</script>
+</body>
+</html>

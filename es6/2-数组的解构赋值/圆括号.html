@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // 全部报错
+// let [(a)] = [1];
+
+// let {x: (c)} = {};
+// let ({x: c}) = {};
+// let {(x: c)} = {};
+// let {(x): c} = {};
+
+// let { o: ({ p: p }) } = { o: { p: 2 } };
+
+// 报错
+// function f([(z)]) { return z; }
+// 报错
+// function f([z,(x)]) { return x; }
+
+// 全部报错
+// ({ p: a }) = { p: 42 };
+// ([a]) = [5];
+
+// 报错
+// [({ p: a }), { x: c }] = [{}, {}];
+
+[(b)] = [3]; // 正确
+({ p: (d) } = {}); // 正确
+[(parseInt.prop)] = [3]; // 正确
+</script>
+</body>
+</html>

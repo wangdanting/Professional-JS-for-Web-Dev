@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  let {bar, foo} = {foo: 'aaa', bar: 'bbb'};
+
+  let {baz} = {foo: 'aaa', bar: 'bbb'};
+  //baz: undefined
+
+  let {a: b} = {a: 'aaa', b: 'bbb'};
+  // a => error: a is not defined
+  // b: 'aaa'
+
+  let obj = {};
+  let arr = [];
+
+  ({foo: obj.prop, bar: arr[0]} = {foo: 123, bar: true});
+  // obj => {prop: 123}
+  // arr => [true]
+
+  // 解构赋值时，如果等号右边是数值和布尔值，则会先转为对象
+  let {toString: s} = 123;
+  // s === Number.prototype.toString => true
+
+  let {toString: j} = true;
+  // s === Boolean.prototype.toString => true
+
+</script>
+</body>
+</html>
