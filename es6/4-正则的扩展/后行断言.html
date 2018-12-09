@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // ”先行断言“指的是 x只有在y前面才匹配，必须写成/x(?=y)/
+  // 比如，只匹配百分号之前的数字
+  /\d+(?=%)/.exec('100% of US presidents have been male'); // ["100", index: 0, input: "100% of US presidents have been male", groups: undefined]
+
+  // ”先行否定断言“指的是 x只有不在y前面才匹配，必须写成/x(?!y)/
+  // 比如，只匹配不在百分号之前的数字
+  /\d+(?!%)/.exec('that’s all 44 of them'); //["44", index: 11, input: "that’s all 44 of them", groups: undefined]
+
+  // “先行否定断言”指的是 x只有在y后面才匹配, 必须写成/(?<=y)x/
+  // 比如，只匹配美元符号之后的数字
+  /(?<=\$)\d+/.exec('Benjamin Franklin is on the $100 bill'); //["100", index: 29, input: "Benjamin Franklin is on the $100 bill", groups: undefined]
+
+  // ”后行否定断言“指的是 x只有不在y后面才匹配, 必须写成/(?<!y)x/
+  // 比如，只匹配不在美元符号后面的数字
+  /(?<!\$)\d+/.exec('it’s is worth about €90'); // ["90", index: 21, input: "it’s is worth about €90", groups: undefined]
+
+  // 使用后行断言进行字符串替换。
+  const RE_DOLLAR_PREFIX = /(?<=\$)foo/g;
+  '$foo %foo foo'.replace(RE_DOLLAR_PREFIX, 'bar');
+  // '$bar %foo foo'
+</script>
+</body>
+</html>

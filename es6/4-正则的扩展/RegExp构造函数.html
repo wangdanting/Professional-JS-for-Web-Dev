@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  let a = new RegExp('xyz', 'i');
+  // 等价于
+  let b = /xyz/i;
+  // 等价于
+  let c = new RegExp(/xyz/i)
+  // 等价于
+  let d = new RegExp(/xyz/, 'i'); //es5不支持
+  // 等价于
+  let e = new RegExp(/xyz/ig, 'i') //es5不支持
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // y修饰符的作用与g修饰符类似，也是全局匹配，后一次匹配都从上一次匹配成功的下一个位置开始。
+  // 不同之处在于，g修饰符只要剩余位置中存在匹配就可，而y修饰符确保匹配必须从剩余的第一个位置开始，
+  // 这也就是“粘连”的涵义
+
+  let s = 'aaa_aa_a';
+  let r1 = /a+/g;
+  let r2 = /a+/y;
+
+  r1.exec(s); //["aaa", index: 0, input: "aaa_aa_a", groups: undefined]
+  r2.exec(s); //["aaa", index: 0, input: "aaa_aa_a", groups: undefined]
+
+  r1.exec(s); //["aa", index: 4, input: "aaa_aa_a", groups: undefined]
+  r2.exec(s); //null
+
+  let r3 = /a+_/y;
+  r3.exec(s); // ["aaa_", index: 0, input: "aaa_aa_a", groups: undefined]
+  r3.exec(s); // ["aa_", index: 4, input: "aaa_aa_a", groups: undefined]
+
+  // 替换
+  const REGEX = /a/gy;
+  'aaxa'.replace(REGEX, '-'); // '--xa'
+
+  // 单单一个y修饰符对match方法，只能返回第一个匹配，必须与g修饰符联用，才能返回所有匹配
+  'a1a2a3'.match(/a\d/y); // ['a1]
+  'a1a2a3'.match(/a\d/gy); // ['a1', 'a2', 'a3']
+
+// RegExp.prototype.sticky 属性
+  let r = /hello\d/y;
+  r.sticky // true
+
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // 正则表达式中，点（.）是一个特殊字符，代表任意的单个字符，但是有两个例外。一个是四个字节的 UTF-16 字符，这个可以用u修饰符解决；另一个是行终止符
+  
+  // 四个字符属于”行终止符
+  // U+000A 换行符（\n）
+  // U+000D 回车符（\r）
+  // U+2028 行分隔符（line separator）
+  // U+2029 段分隔符（paragraph separator）
+
+  /foo.bar/.test('foo\nbar'); //false
+  /foo[^]bar/.test('foo\nbar'); //true 不太符合直觉
+
+  //  引入s修饰符，使得.可以匹配任意单个字符
+  /foo.bar/s.test('foo\nbar') // true
+</script>
+</body>
+</html>
