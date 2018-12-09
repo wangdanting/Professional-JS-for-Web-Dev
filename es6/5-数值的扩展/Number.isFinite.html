@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // Number.isFinite()用来检查一个数值是否为有限的（finite），即不是Infinity。
+  // 如果参数类型不是数值，Number.isFinite一律返回false
+  Number.isFinite(12); //true
+  Number.isFinite(0.8); //true
+  Number.isFinite(NaN); // false
+  Number.isFinite(Infinity); //false
+  Number.isFinite(-Infinity); //false
+  Number.isFinite('foo'); //false
+  Number.isFinite('15'); //false
+  Number.isFinite(true); //false
+
+  // 与全局isFinite的区别
+  // 全局isFinite是先调用Number()将非数值的值转为数值
+  isFinite(25) // true
+  isFinite("25") // true
+  isFinite(true); //true
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // Number.isNaN()用来检查一个值是否为NaN
+  // 如果参数类型不是NaN，Number.isNaN一律返回false。
+  Number.isNaN(NaN); //true
+  Number.isNaN(15); //false
+  Number.isNaN('15') // false
+  Number.isNaN(true) // false
+  Number.isNaN(9/NaN); //true
+  Number.isNaN('true' / 0);  // true
+  Number.isNaN('true' / 'true'); // true
+
+  // 与全局isNaN的区别
+  // 全局isNaN是先调用Number()将非数值的值转为数值
+  isNaN(NaN) // true
+  isNaN("NaN") // true
+</script>
+</body>
+</html>
