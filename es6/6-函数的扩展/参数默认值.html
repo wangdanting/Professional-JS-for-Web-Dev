@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //参数默认值是惰性求值
+  let x = 99;
+  function foo(p = x + 1) {
+    console.log(p, 'p');
+  }
+  foo(); // 100
+  foo(2); //2
+
+  x = 100;
+  foo(); // 101
+
+  //解构赋值
+  function bar({x, y = 5}) {
+    console.log(x, y);
+  }
+
+  bar({}); //undefined 5
+  bar({x: 1}); // 1 5
+  bar({x: 1, y: 2}); // 1 2
+  // bar(); // TypeError: Cannot read property 'x' of undefined 如果函数foo调用时没提供参数，变量x和y就不会生成，从而报错
+
+  // 解决方法
+  function baz({x, y = 5} = {}) {
+    console.log(x, y);
+  }
+  baz(); // undefined 5
+
+  // 参数无法只省略该参数，而不省略它后面的参数，除非显式输入undefined。
+  function f(x = 1, y) {
+    return [x, y];
+  }
+  // f(, 1) // 报错
+  f(undefined, 1) //[1, 1]
+
+  // 如果参数的默认值是一个函数
+  let foo1 = 'outer'
+  function f1(func = () => foo1) {
+    let foo1 = 'inner';
+    console.log(func());
+  }
+
+  f1(); //outer
+
+  //利用参数默认值，可以指定某一个参数不得省略，如果省略就抛出一个错误
+  function throwIfMissing() {
+    throw new Error('Missing parameter');
+  }
+
+  function foo2(mustBeProvided = throwIfMissing()) {
+    console.log('xx');
+    return mustBeProvided;
+  }
+
+  foo2();
+  
+
+</script>
+</body>
+</html>
