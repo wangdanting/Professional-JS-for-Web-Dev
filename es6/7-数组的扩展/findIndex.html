@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // 数组实例的findIndex方法的用法与find方法非常类似，返回第一个符合条件的数组成员的位置，
+  // 如果所有成员都不符合条件，则返回-1
+
+  let foo = [1, 4, -5, 10].findIndex((n) => n < 0);
+  // 2
+
+  let bar = [1, 4, 10, 15].findIndex((value, index, arr) => value > 9);
+  // 2
+
+  // 可以接受第二个参数，用来绑定回调函数的this对象。
+  function f(v) {
+    return v > this.age;
+  }
+
+  let person = {name: 'Json', age: 20};
+
+  let baz = [10, 12, 26, 15].findIndex(f, person);
+  // 2
+
+  // 可以发现NaN，弥补了数组的indexOf方法的不足
+  let result = [NaN].indexOf(NaN);
+  //-1
+
+  let result1 = [2, NaN].findIndex(n => Object.is(NaN, n));
+  //1
+</script>
+</body>
+</html>

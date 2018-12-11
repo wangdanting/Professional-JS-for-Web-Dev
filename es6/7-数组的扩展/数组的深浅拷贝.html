@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  const a1 = [1, 2, {foo: 3}];
+  const a2 = a1;
+
+  a2[0] = 2;
+  a1; //[2, 2]
+
+ //浅拷贝
+
+  // 方法一
+  const a3 = a1.concat();
+
+  // 方法二
+  const a4 = [...a1];
+
+  // 方法三
+  const [...a5] = a1;
+
+  a3[0] = 2;
+  a4[0] = 2;
+  a5[0] = 2;
+  a1; // [1, 2, {foo: 3}]
+
+  a3[2].foo = 4;
+  a1; //[1, 2, {foo: 4}]
+  
+
+</script>
+</body>
+</html>

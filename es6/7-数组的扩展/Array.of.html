@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // Array.of方法用于将一组值，转换为数组。
+  let arr1 = Array.of(3, 11, 8); //[3, 11, 8]
+  let arr2 = Array.of(3); //[3]
+
+  // 是弥补数组构造函数Array()的不足。因为参数个数的不同，会导致Array()的行为有差异。
+  Array(); //[]
+  Array(3); // [, , ,]
+  Array(3, 11, 8); //[3, 11, 8]
+
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  const arr1 = ['a', {foo: 1}];
+  const arr2 = ['b', {bar: 2}];
+
+  //合并 浅拷贝
+  // 方法一
+  const arr3 = arr1.concat(arr2);
+
+  //方法二
+  const arr4 = [...arr1, ...arr2];
+
+  arr3[2] === arr4[2] //证明是浅拷贝
+  
+</script>
+</body>
+</html>
