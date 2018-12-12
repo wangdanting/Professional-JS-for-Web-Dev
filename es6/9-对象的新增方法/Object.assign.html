@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // Object.assign方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）
+  // 只拷贝源对象的自身属性（不拷贝继承属性）
+  // 不拷贝不可枚举的属性
+  // 属性名为 Symbol 值的属性，也会被Object.assign拷贝
+
+  // Object.assign方法实行的是浅拷贝
+  const a = {a: 1};
+  const b = {b: 1};
+  const c = {c: 1, d: {e: 1}};
+
+  Object.assign(a, b, c);
+  a; //{a: 1, b: 1, c: 1, d: {e: 1}}
+  a.b = 2;
+  a.d.e = 2;
+  a; //{a: 1, b: 2, c: 1, d: {e: 2}}
+  b; //{b: 1}
+  c; //{c: 1, d: {e: 2}}
+
+  // 如果该参数不是对象，则会先转成对象，然后返回。
+  typeof Object.assign(2) // "object"
+
+  // 由于undefined和null无法转成对象，所以如果它们作为参数，就会报错。
+  // Object.assign(undefined) // 报错
+  // Object.assign(null) // 报错
+
+  // 取值函数的处理
+  // Object.assign只能进行值的复制，如果要复制的值是一个取值函数，那么将求值后再复制。
+  const source = {
+    get foo() {
+      return 1
+    }
+  }
+
+  source; //{}
+  source.foo; //1
+  
+  Object.assign({}, source); //{foo: 1}
+
+  // 正确拷贝get属性和set属性的问题
+  
+
+</script>
+</body>
+</html>
