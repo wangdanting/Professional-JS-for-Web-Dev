@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  const obj = {
+    foo: 'hello',
+    find() {
+      console.log(this); //this关键字总是指向函数所在的当前对象 {foo: "hello", find: f find()}
+      return this.foo //'hello'
+    }
+  }
+
+  obj.find();
+
+  // ES6 又新增了另一个类似的关键字super，指向当前对象的原型对象
+  // super关键字表示原型对象时，只能用在对象的方法之中，用在其他地方都会报错
+  const proto = {
+    foo: 'hello'
+  };
+
+  const obj1 = {
+    foo: 'world',
+    find() {
+      return super.foo;
+    }
+  }
+
+  Object.setPrototypeOf(obj1, proto);
+  const abc = obj1.find();
+
+</script>
+</body>
+</html>

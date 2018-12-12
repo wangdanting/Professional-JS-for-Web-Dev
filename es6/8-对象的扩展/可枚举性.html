@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // 对象的每个属性都有一个描述对象（Descriptor），用来控制该属性的行为
+  let obj = {foo: 123, bar: 234};
+  Object.getOwnPropertyDescriptor(obj, 'foo');
+  // {
+  //   configurable: true
+  //   enumerable: true
+  //   value: 123
+  //   writable: true
+  // }
+
+  Object.defineProperty(obj, 'foo', {enumerable: false});
+
+  // 有三个操作会忽略enumerable为false的属性。
+ 
+  //1.  for...in循环：只遍历对象自身的和继承的可枚举的属性。*只有for...in会返回继承的属性
+  for(let attr in obj) {
+    console.log(attr); //'bar'
+  }
+  
+  //2. Object.keys()：返回对象自身的所有可枚举的属性的键名。
+  Object.keys(obj); //['bar']
+
+  //3. JSON.stringify()：只串行化对象自身的可枚举的属性。
+  JSON.stringify(obj); //"{'bar': 234}"
+
+</script>
+</body>
+</html>
