@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  const s = Symbol('s');
+  const test = {
+    num: 0,
+    str: '',
+    boolean: true,
+    unf: undefined,
+    nul: null,
+    obj: {
+      name: '我是一个对象',
+      id: 1,
+      innerObj: {
+        name: '我是对象的对象',
+        id: 1.1
+      }
+    },
+    arr: [0, 1, 2],
+    date: new Date('1996/03/03'),
+    reg: new RegExp(/我是一个正则/ig),
+    err: new Error('我是一个错误'),
+    [s]: '我的key是Symbol',
+    func() {
+      console.log('我是一个函数');
+    },
+    get num1() {
+      return this.num;
+    },
+    set num1(val) {
+      this.num = val
+    }
+  }
+
+  const testChild = Object.create(test);
+
+  function isObject(o) {
+    return (typeof o === 'object' || typeof o === 'function') && o !==null;
+  }
+
+  // *****序列化反序列化法*****
+  const test1 = JSON.parse(JSON.stringify(test));
+  //不能拷贝不可枚举属性
+  //set get
+
+  //new Date类型不能正确拷贝
+  test.date; //Sun Mar 03 1996 00:00:00 GMT+0800 (中国标准时间)
+  typeof test.date; // 'Object'
+  
+  test1.date; //'1996-03-02T16:00:00.000Z'
+  typeof test1.date; //'string'
+
+  // new RegExp类型不能正确拷贝
+  test.reg; // /我是一个正则/gi
+  test1.reg; // {}
+
+  // new Error类型不能正确拷贝
+  test.err; // Error: 我是一个错误
+  test1.err; // {}
+
+  //Symbol类型的属性不能拷贝
+
+  //方法不能拷贝
+
+  // *****迭代递归法 for...in法*****
+  function deepCopy(obj) {
+    let temp = Array.isArray(obj) ? [] : {};
+    for(let key in obj) {
+      temp[key] = isObject(obj[key]) ? deepCopy(obj[key]) : obj[key];
+    }
+    return temp;
+  }
+
+  const test2 = deepCopy(test);
+  //不能拷贝不可枚举属性
+  //set get
+
+  //new Date类型不能正确拷贝
+  test.date; //Sun Mar 03 1996 00:00:00 GMT+0800 (中国标准时间)
+  test2.date; //{}
+
+  // new RegExp类型不能正确拷贝
+  test.reg; // /我是一个正则/gi
+  test1.reg; // {}
+
+  // new Error类型不能正确拷贝
+  test.err; // Error: 我是一个错误
+  test1.err; // {}
+
+  //Symbol类型的属性不能拷贝
+
+  //方法不能拷贝
+
+  // *****迭代递归法 Reflect法*****
+  function deepCopy1(obj) {
+    let temp = Array.isArray(obj) ? [] : {};
+    Reflect.ownKeys(obj).forEach(key => {
+      temp[key] = isObject(obj[key]) ? deepCopy1(obj[key]) : obj[key];
+    })
+    return temp;
+  }
+
+  const test3 = deepCopy1(test);
+  // 不能拷贝不可枚举属性
+  //set get
+
+  //new Date类型不能正确拷贝
+  test.date; //Sun Mar 03 1996 00:00:00 GMT+0800 (中国标准时间)
+  test3.date; //{}
+
+  // new RegExp类型不能正确拷贝
+  test.reg; // /我是一个正则/gi
+  test3.reg; // {lastIndex: 0}
+
+  // new Error类型不能正确拷贝
+  test.err; // Error: 我是一个错误
+  test3.err; // {stack: "Error: 我是一个错误↵    at file:///Users/wangdanting/Lea…A1%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D.html:28:10", message: "我是一个错误"}
+
+  //方法不能拷贝
+  test3.func; //{length: 0, name: "func"}
+
+
+</script>
+</body>
+</html>
