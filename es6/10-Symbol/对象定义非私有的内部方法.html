@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // 实例
+  // 为对象定义一些非私有的、但又希望只用于内部的方法
+
+  //非私有、不是内部使用的方法..
+  class Collection {
+    constructor() {
+      this.size = 0;
+    }
+
+    add(item) {
+      this[this.size] = item;
+      this.size++;
+    }
+
+    static sizeOf(instance) {
+      return instance['size'];
+    }
+  }
+
+  let x = new Collection();
+  x; //{size: 0}
+  
+  Collection.sizeOf(x); //0
+  Object.keys(x); //['size']
+
+  x.add('foo');
+  x; // {0:'foo', size:1}
+
+  x.add('bar');
+  x; //{0:'foo', 1:'bar', size: 2}
+  Object.keys(x); //[0, 1, 'size']
+
+  // 为对象定义一些非私有的、但又希望只用于内部的方法。
+  let size = Symbol('size');
+
+  class Collection1 {
+    constructor() {
+      this[size] = 0;
+    }
+
+    add(item) {
+      this[this[size]] = item;
+      this[size]++;
+    }
+
+    static sizeOf(instance) {
+      return instance[size];
+    }
+  }
+
+  let y = new Collection1();
+  y; //{Symbol(size): 0}
+
+  Collection.sizeOf(y); //0
+  Object.keys(y); //[]
+
+  y.add('foo');
+  y; //{0:'foo', Symbol(size): 1}
+
+  y.add('bar');
+  y; //{0:'foo', 1:'bar', Symbol(size): 2}
+  Object.keys(y); //[0, 1]
+</script>
+</body>
+</html>

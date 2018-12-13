@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // 凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突
+  let s = Symbol();
+  typeof s ; // "symbol"
+
+  //Symbol函数前不能使用new命令，否则会报错。这是因为生成的 Symbol 是一个原始类型的值，不是对象。也就是说，由于 Symbol 值不是对象，所以不能添加属性
+  //Symbol函数可以接受一个字符串作为参数，表示对 Symbol 实例的描述，主要是为了在控制台显示，或者转为字符串时，比较容易区分
+  let s1 = Symbol('foo');
+  let s2 = Symbol('bar');
+
+  s1 // Symbol(foo)
+  s2 // Symbol(bar)
+
+  s1.toString() // "Symbol(foo)"
+
+  // Symbol函数的参数只是表示对当前 Symbol 值的描述，因此相同参数的Symbol函数的返回值是不相等的
+  // 没有参数的情况
+  let s3 = Symbol();
+  let s4 = Symbol();
+
+  s3 === s4 // false
+
+  // 有参数的情况
+  let s5 = Symbol('foo');
+  let s6 = Symbol('foo');
+
+  s5 === s6 // false
+
+  // 作为属性名的 Symbol 
+  let mySymbol = Symbol();
+  // 第一种写法
+  let a = {};
+  a[mySymbol] = 'Hello!';
+
+  // 第二种写法
+  let b = {
+    [mySymbol]: 'Hello!'
+  };
+
+  //第三种写法
+  let c = {};
+  Object.defineProperty(c, mySymbol, { value: 'Hello!' });
+
+  //Symbol 值作为对象属性名时，不能用点运算符。
+
+  // 属性名的遍历
+  const a1 = Symbol('a');
+  const a2 = Symbol('b');
+  let d = {
+    [a1]: 'hello',
+    [a2]: 'world',
+    c: '!'
+  }
+
+  Object.getOwnPropertySymbols(d); //[Symbol(a), Symbol(b)]
+  Reflect.ownKeys(d); //["c", Symbol(a), Symbol(b)]
+
+  
+</script>
+</body>
+</html>
