@@ -27,6 +27,7 @@
     reg: new RegExp(/我是一个正则/ig),
     err: new Error('我是一个错误'),
     [s]: '我的key是Symbol',
+    noEnumerable: '我是手动设置的不可枚举属性',
     func() {
       console.log('我是一个函数');
     },
@@ -36,39 +37,29 @@
     set num1(val) {
       this.num = val
     }
-  }
+  };
 
+  Object.defineProperty(test, 'noEnumerable', {enumerable: false});
+  // 创建一个新对象，使用现有的对象来提供新创建的对象的_proto_
   const testChild = Object.create(test);
 
   function isObject(o) {
-    return (typeof o === 'object' || typeof o === 'function') && o !==null;
+    return (typeof o === 'object') && o !==null;
   }
 
   // *****序列化反序列化法*****
+  //继承的可枚举属性 (no)
+  //自身的可枚举属性 (yes)
+  //自身的不可枚举属性 (no)
+  //自身的Symbol属性 (no)
+  //正确拷贝自身的方法 (no)
+  //正确拷贝自身的特殊构造函数 (no)
   const test1 = JSON.parse(JSON.stringify(test));
-  //不能拷贝不可枚举属性
-  //set get
+  const test1Prop = JSON.parse(JSON.stringify(testChild))
 
-  //new Date类型不能正确拷贝
-  test.date; //Sun Mar 03 1996 00:00:00 GMT+0800 (中国标准时间)
-  typeof test.date; // 'Object'
-  
-  test1.date; //'1996-03-02T16:00:00.000Z'
-  typeof test1.date; //'string'
+  // ******迭代递归法*******
 
-  // new RegExp类型不能正确拷贝
-  test.reg; // /我是一个正则/gi
-  test1.reg; // {}
-
-  // new Error类型不能正确拷贝
-  test.err; // Error: 我是一个错误
-  test1.err; // {}
-
-  //Symbol类型的属性不能拷贝
-
-  //方法不能拷贝
-
-  // *****迭代递归法 for...in法*****
+  // *****普通for...in法*****
   function deepCopy(obj) {
     let temp = Array.isArray(obj) ? [] : {};
     for(let key in obj) {
@@ -78,6 +69,7 @@
   }
 
   const test2 = deepCopy(test);
+  const test2Prop = deepCopy(testChild);
   //不能拷贝不可枚举属性
   //set get
 
@@ -95,8 +87,6 @@
 
   //Symbol类型的属性不能拷贝
 
-  //方法不能拷贝
-
   // *****迭代递归法 Reflect法*****
   function deepCopy1(obj) {
     let temp = Array.isArray(obj) ? [] : {};
@@ -107,6 +97,9 @@
   }
 
   const test3 = deepCopy1(test);
+  const test3Prop = deepCopy1(testChild);
+  // 不能拷贝原型上的属性
+
   // 不能拷贝不可枚举属性
   //set get
 
@@ -122,10 +115,28 @@
   test.err; // Error: 我是一个错误
   test3.err; // {stack: "Error: 我是一个错误↵    at file:///Users/wangdanting/Lea…A1%E7%9A%84%E6%B7%B1%E6%8B%B7%E8%B4%9D.html:28:10", message: "我是一个错误"}
 
-  //方法不能拷贝
-  test3.func; //{length: 0, name: "func"}
+  // *****迭代递归法 Object.getPrototypeOf法*****
+  function deepCopy2(obj) {
+    let temp = Array.isArray(obj) ? [] : {};
 
+    let cloneObj = Object.create(
+      Object.getPrototypeOf(obj),
+      Object.getOwnPropertyDescriptors(obj)
+    )
+ 
+    for(let key in obj) {
+      cloneObj[key] = isObject(obj[key]) ? deepCopy2(obj[key]) : obj[key];
+    }
+    return cloneObj;
+  }
 
+  const test4 = deepCopy2(test);
+  const test4Prop = deepCopy2(testChild);
+
+  //new Date类型不能正确拷贝
+  // new RegExp类型不能正确拷贝
+  // new Error类型不能正确拷贝
+  
 </script>
 </body>
 </html>

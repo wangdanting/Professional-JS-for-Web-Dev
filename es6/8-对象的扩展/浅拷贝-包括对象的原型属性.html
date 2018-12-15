@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // 如果想完整克隆一个对象，还拷贝对象原型的属性(浅拷贝)
+  const s = Symbol('s');
+  const test = {
+    num: 0,
+    str: '',
+    boolean: true,
+    unf: undefined,
+    nul: null,
+    obj: {
+      name: '我是一个对象',
+      id: 1,
+      innerObj: {
+        name: '我是对象的对象',
+        id: 1.1
+      }
+    },
+    arr: [0, 1, 2],
+    date: new Date('1996/03/03'),
+    reg: new RegExp(/我是一个正则/ig),
+    err: new Error('我是一个错误'),
+    [s]: '我的key是Symbol',
+    noEnumerable: '我是手动设置的不可枚举属性',
+    func() {
+      console.log('我是一个函数');
+    },
+    get num1() {
+      return this.num;
+    },
+    set num1(val) {
+      this.num = val
+    }
+  };
+
+  Object.defineProperty(test, 'noEnumerable', {enumerable: false});
+
+  // 创建一个新对象，使用现有的对象来提供新创建的对象的_proto_
+  const testChild = Object.create(test);
+  
+  // 写法一
+  // 继承的可枚举属性 (yes)
+  // 自身的不可枚举属性 (no)
+  // 自身的Symbol属性 (yes)
+  const clone1 = {
+    __proto__: Object.getPrototypeOf(test),
+    ...test
+  }
+
+  const clone2 = {
+    __proto__: Object.getPrototypeOf(testChild),
+    ...test
+  }
+
+  // 写法二
+  // 继承的可枚举属性 (yes)
+  // 自身的不可枚举属性 (no)
+  // 自身的Symbol属性 (yes)
+  const clone3 = Object.assign(
+    Object.create(Object.getPrototypeOf(test)), 
+    test
+  );
+
+  const clone4 = Object.assign(
+    Object.create(Object.getPrototypeOf(testChild)), 
+    test
+  );
+
+  // 写法三
+  // 继承的可枚举属性 (no)
+  // 自身的不可枚举属性 (yes)
+  // 自身的Symbol属性 (yes)
+  const clone5 = Object.create(
+    Object.getPrototypeOf(test),
+    Object.getOwnPropertyDescriptors(test) 
+  )
+
+  const clone6 = Object.create(
+    Object.getPrototypeOf(testChild),
+    Object.getOwnPropertyDescriptors(testChild) 
+  )
+
+</script>
+</body>
+</html>
