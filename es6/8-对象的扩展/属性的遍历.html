@@ -8,33 +8,84 @@
 
 <script>
   // ES6 一共有 5 种方法可以遍历对象的属性。
-  let obj = {foo: 123, bar: 234, [Symbol('foo')]: 759};
-  Object.getOwnPropertyDescriptor(obj, 'foo');
-  // {
-  //   configurable: true
-  //   enumerable: true
-  //   value: 123
-  //   writable: true
-  // }
+  const s = Symbol('s');
+  const test = {
+    num: 0,
+    str: '',
+    boolean: true,
+    unf: undefined,
+    nul: null,
+    obj: {
+      name: '我是一个对象',
+      id: 1,
+      innerObj: {
+        name: '我是对象的对象',
+        id: 1.1
+      }
+    },
+    arr: [0, 1, 2],
+    date: new Date('1996/03/03'),
+    reg: new RegExp(/我是一个正则/ig),
+    err: new Error('我是一个错误'),
+    [s]: '我的key是Symbol',
+    noEnumerable: '我是手动设置的不可枚举属性',
+    func() {
+      console.log('我是一个函数');
+    },
+    get num1() {
+      return this.num;
+    },
+    set num1(val) {
+      this.num = val
+    }
+  };
 
-  Object.defineProperty(obj, 'foo', {enumerable: false});
+  Object.defineProperty(test, 'noEnumerable', {enumerable: false});
 
-  //1. for...in循环遍历对象自身的和继承的可枚举属性（不含 Symbol 属性）
-  for(let attr in obj) {
-    console.log(attr); //'bar'
+  const testInstance =  Object.create(test);
+
+  //1. for...in循环遍历对象
+  //继承的可枚举属性 (yes)
+  //自身的可枚举属性 (yes)
+  //自身的不可枚举属性 (no)
+  //自身的Symbol属性 (no)
+  for(let attr in test) {
+    console.log(attr); //num、str、boolean、unf、nul、obj、arr、date、date、reg、err、func、num1
+  }
+  
+  for(let attr in testInstance) {
+    console.log(attr) //num、str、boolean、unf、nul、obj、arr、date、date、reg、err、func、num1
   }
 
-  //2. Object.keys返回一个数组，包括对象自身的（不含继承的）所有可枚举属性（不含 Symbol 属性）的键名。
-  Object.keys(obj); //['bar']
+  //2. Object.keys返回一个数组
+  //继承的可枚举属性 (no)
+  //自身的可枚举属性 (yes)
+  //自身的不可枚举属性 (no)
+  //自身的Symbol属性 (no)
+  Object.keys(test); //["num", "str", "boolean", "unf", "nul", "obj", "arr", "date", "reg", "err", "func", "num1"]
+  Object.keys(testInstance); //[]
 
-  //3. Object.getOwnPropertyNames返回一个数组，包含对象自身的所有属性（不含 Symbol 属性，但是包括不可枚举属性）的键名
-  Object.getOwnPropertyNames(obj); //["foo", "bar"]
+  //3. Object.getOwnPropertyNames返回一个数组
+  //继承的可枚举属性 (no)
+  //自身的可枚举属性 (yes)
+  //自身的不可枚举属性 (yes)
+  //自身的Symbol属性 (no)
+  Object.getOwnPropertyNames(test); //["num", "str", "boolean", "unf", "nul", "obj", "arr", "date", "reg", "err", "noEnumerable", "func", "num1"]
+  Object.getOwnPropertyNames(testInstance); //[]
 
-  //4. Object.getOwnPropertySymbols返回一个数组，包含对象自身的所有 Symbol 属性的键名。
-  Object.getOwnPropertySymbols(obj); //[Symbol(foo)]
+  //4. Object.getOwnPropertySymbols返回一个数组
+  //继承的Symbol属性 (no)
+  //自身的Symbol属性 (yes)
+  Object.getOwnPropertySymbols(test); //[Symbol(s)]
+  Object.getOwnPropertySymbols(testInstance); //[]
 
   //5. Reflect.ownKeys返回一个数组，包含对象自身的所有键名，不管键名是 Symbol 或字符串，也不管是否可枚举。
-  Reflect.ownKeys(obj); //["foo", "bar", Symbol(foo)]
+  //继承的可枚举属性 (no)
+  //自身的可枚举属性 (yes)
+  //自身的不可枚举属性 (yes)
+  //自身的Symbol属性 (yes)
+  Reflect.ownKeys(test); //["num", "str", "boolean", "unf", "nul", "obj", "arr", "date", "reg", "err", "noEnumerable", "func", "num1", Symbol(s)]
+  Reflect.ownKeys(testInstance); //[]
 
   // 以上的 5 种方法遍历对象的键名，都遵守同样的属性遍历的次序规则。
   // 首先遍历所有数值键，按照数值升序排列。
