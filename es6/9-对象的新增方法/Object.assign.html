@@ -29,6 +29,7 @@
   typeof Object.assign(2) // "object"
 
   // 由于undefined和null无法转成对象，所以如果它们作为参数，就会报错。
+  // 如果undefined和null不在首参数，就不会报错。
   // Object.assign(undefined) // 报错
   // Object.assign(null) // 报错
 
@@ -45,7 +46,15 @@
   
   Object.assign({}, source); //{foo: 1}
 
-  // 正确拷贝get属性和set属性的问题
+  //实例
+  // 为对象添加属性
+  class Point {
+    constructor(x, y) {
+      Object.assign(this, {x, y})
+    }
+  }
+
+
   
 
 </script>
