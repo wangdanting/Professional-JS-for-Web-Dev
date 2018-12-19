@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  class Rectangle{
+    constructor(x, y) {
+      Object.assign(this, {x, y});
+    }
+    abc() {
+      console.log('abc');
+    }
+  }
+
+  const rec = new Rectangle(2, 3);
+
+  Object.getPrototypeOf(rec) === Rectangle.prototype; //true
+
+  Object.setPrototypeOf(rec, Object.prototype);
+  Object.getPrototypeOf(rec) === Rectangle.prototype; //false
+</script>
+</body>
+</html>

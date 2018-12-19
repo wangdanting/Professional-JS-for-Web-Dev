@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // 用法
+  const o = Object.setPrototypeOf({}, null);
+
+  // 等同于下面的函数
+  function setPrototypeOf(obj, proto) {
+    obj.__proto__ = proto;
+    return obj
+  }
+
+  //例子
+  let proto = {};
+  let obj = {x: 10};
+  Object.setPrototypeOf(obj, proto);
+
+  proto.y = 20;
+  proto.z = 40;
+
+  obj.x; //10
+  obj.y; //20
+  obj.z; //40
+
+</script>
+</body>
+</html>

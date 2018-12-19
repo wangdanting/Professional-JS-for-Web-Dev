@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //Object.create()方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__
+  // 一个新对象，带着指定的原型对象 和 属性(可选)
+  const obj = {
+    isHuman: false,
+    printIntroduction() {
+      console.log('你是猪');
+    }
+  };
+
+  const newObj = Object.create(obj);
+  newObj.name = 'abc';
+  newObj.__proto__; //{isHuman: false, printIntroduction: ƒ}
+
+  //Object.create(proto, [propertiesObject])
+  //proto 新创建对象的原型对象。
+  //propertiesObject ,可选，如果没有指定为undefined,则是要添加到新创建对象的可枚举属性
+  //既其自身定义的属性，而不是其原型链上的枚举属性，对象的属性描述符以及相应的属性名称。
+
+  // 演示了如何使用Object.create()来实现类式继承。这是一个所有版本JavaScript都支持的单继承
+  function Shape() {
+    this.x = 0;
+    this.y = 0;
+}
+
+  // 父类的方法
+  Shape.prototype.move = function(x, y) {
+    this.x += x;
+    this.y += y;
+    console.info('Shape moved.');
+  };
+
+  function Rectangle() {
+    Shape.call(this); // call super constructor.
+  }
+
+  //子类继承父类
+  Rectangle.prototype = Object.create(Shape.prototype);
+  Rectangle.prototype.constructor = Rectangle;
+
+  var rect = new Rectangle();
+
+  // propertyObject参数
+  const o = Object.create(Object.prototype, {
+    // foo会成为所创建对象的数据属性
+    foo: {
+      writable: true, 
+      configurable: true,
+      value: 'hello'
+    },
+    //bar会成为所创建对象的访问器属性
+    bar: {
+      configurable: false,
+      get: function() { return 10 },
+      set: function(value) {
+      console.log("Setting `o.bar` to", value);
+    }
+    }
+  })
+
+  function Constructor(){}
+  o1 = new Constructor();
+  // 上面的一句就相当于:
+  o1 = Object.create(Constructor.prototype);
+  // 当然,如果在Constructor函数中有一些初始化代码,Object.create不能执行那些代码
+
+  // 创建一个以另一个空对象为原型,且拥有一个属性p的对象
+  o2 = Object.create({}, { p: { value: 42 } })
+  // 省略了的属性特性默认为false,所以属性p是不可写,不可枚举,不可配置的:
+
+  //创建一个可写的,可枚举的,可配置的属性p
+  o2 = Object.create({}, {
+  p: {
+    value: 42, 
+    writable: true,
+    enumerable: true,
+    configurable: true 
+  } 
+});
+
+</script>
+</body>
+</html>

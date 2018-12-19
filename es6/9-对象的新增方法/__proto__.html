@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //es5写法
+  const obj = {
+    method() {
+      console.log('你是猪');
+    }
+  }
+  obj.__proto__ = {
+    abc() {
+      console.log('I am in proto')
+    }
+  };
+
+  //es6写法
+  const obj1 = Object.create({
+    abc() {
+      console.log('I am in proto')
+    }
+  });
+
+  obj1.method = function() {
+    console.log('你是猪');
+  }
+</script>
+
+</body>
+</html>
