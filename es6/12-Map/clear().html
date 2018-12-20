@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //delete方法删除某个键，返回true。如果删除失败，返回false。
+
+  const m = new Map();
+  const hello = () => {console.log('hello')};
+
+  m.set(hello, 'hello word');
+  m.set(undefined, '123');
+
+  m.get(hello); //hello word
+  m.get(undefined); //'123'
+  
+  m.clear();
+  m.size; //0
+</script>
+</body>
+</html>

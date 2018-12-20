@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // Map 数据结构。它类似于对象，也是键值对的集合，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键
+  // Map 结构提供了“值—值”的对应，是一种更完善的 Hash 结构实现
+
+  const m = new Map();
+  const o = {p: 'hello world'};
+
+  m.set(o, 'content');
+  m.get(o); // 'content'
+
+  m.has(o); //true
+  m.delete(o); //true
+  m.has(o); //false
+
+  const map = new Map([
+    ['name', '张三'],
+    ['title', {title: 7}],
+    ['arr', [1, 2, 3]]
+  ]); //Map(3) {"name" => 7, "title" => {…}, "arr" => Array(3)}
+
+  map.size; //3
+  map.has('title'); //true
+  map.get('name'); //{title: 7}
+
+  const map1 = new Map(map); //Map(3) {"name" => 7, "title" => {…}, "arr" => Array(3)}
+  map1.set('title', {title: 8});
+  map1.get('title'); //{title: 8}
+
+  map.get('title'); // {title: 7}
+</script>
+</body>
+</html>

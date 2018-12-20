@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // keys()：返回键名的遍历器
+  // values()：返回键值的遍历器
+  //由于 Set 结构没有键名，只有键值（或者说键名和键值是同一个值），所以keys方法和values方法的行为完全一致。
+  let s = new Set(['red', 'green', 'blue']);
+  s.keys(); //SetIterator {"red", "green", "blue"}
+  s.values(); //SetIterator {"red", "green", "blue"}
+
+  for(let i of s.keys()) {
+    console.log(i) //"red" "green" "blue"
+  }
+
+  for (let item of set.entries()) {
+    console.log(item);
+  }
+  // ["red", "red"]
+  // ["green", "green"]
+  // ["blue", "blue"]
+
+  //直接用for...of循环遍历 Set
+  for (let x of set) {
+    console.log(x);
+  }
+  // red
+  // green
+  // blue
+</script>
+</body>
+</html>

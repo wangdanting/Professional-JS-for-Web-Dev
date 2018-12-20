@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // Map转为数组
+
+  // Map 转为数组最方便的方法，就是使用扩展运算符（...）
+  const myMap = new Map()
+    .set(true, 7)
+    .set({foo: 7}, ['abc']);
+
+  [...myMap]; //[[true, 7], [{foo: 7}, ['abc']]]
+
+  //数组转为Map
+  new Map([
+    [true, 7], 
+    [{foo: 7}, ['abc']]
+  ]);
+
+  // Map转为对象 (key只能为字符串)
+  function strMapToObj(strMap) {
+    let obj = Object.create(null);
+    for(let [k, v] of strMap) {
+      obj[k] = v;
+    }
+    return obj;
+  }
+
+  const map = new Map()
+    .set('yes', true)
+    .set('no', false);
+  strMapToObj(map);  //{yes: true, no: false}
+
+  //对象转为Map
+  function objToStrMap(obj) {
+    let strMap = new Map();
+    Reflect.ownKeys(obj).map(item => strMap.set(item, obj[item]))
+    return strMap;
+  }
+
+  objToStrMap({yes: true, no: false})
+
+  //Map转为JSON (Map 的键名都是字符串)
+  function strMapToJson(strMap) {
+    return JSON.stringify(strMapToObj(strMap))
+  }
+
+  let map1 = new Map().set('yes', true).set('no', false);
+
+  strMapToJson(map1); //'{"yes":true,"no":false}'
+
+  //JSON 转为 Map
+  function jsonToStrMap(jsonStr) {
+    return objToStrMap(JSON.parse(jsonStr));
+  }
+
+  jsonToStrMap('{"yes": true, "no": false}')
+</script>
+</body>
+</html>

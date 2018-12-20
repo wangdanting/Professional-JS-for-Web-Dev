@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //set方法设置键名key对应的键值为value，然后返回整个 Map 结构
+  //如果key已经有值，则键值会被更新，否则就新生成该键。
+
+  const m = new Map();
+  m.set('edition', 6); //Map(1) {"edition" => 6}
+
+  //set方法返回的是当前的Map对象，因此可以采用链式写法。
+  let map = new Map()
+  .set(1, 'a')
+  .set(2, 'b')
+  .set(3, 'c');
+
+  //如果对同一个键多次赋值，后面的值将覆盖前面的值。
+  m
+  .set('edition', 'aaa')
+  .set('edition', 'bbb'); //Map(1) {"edition" => "bbb"}
+
+  //只有对同一个对象的引用，Map 结构才将其视为同一个键
+  m.set(['a'], 555);
+  m.get(['a']); // undefined
+
+  //Map 的键实际上是跟内存地址绑定的，只要内存地址不一样，就视为两个键
+</script>
+</body>
+</html>

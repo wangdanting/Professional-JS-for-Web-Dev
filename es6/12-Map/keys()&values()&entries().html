@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //Map 的遍历顺序就是插入顺序。
+  //keys()：返回键名的遍历器。
+
+  const map = new Map([
+    ['F', 'no'], 
+    ['T', 'yes']
+  ]);
+
+  map.keys(); //MapIterator {"F", "T"}
+
+  for(let key of map.keys()) {
+    console.log(key); // 'F' 'T'
+  }
+
+  [...map.keys()]; //['F', 'T']
+
+  for(let key of map.values()) {
+    console.log(key); // 'no' 'yes'
+  }
+
+  [...map.values()];  //['no', 'yes']
+
+  for(let item of map.entries()) {
+    console.log(item); //['F', 'no'] ['T', 'yes']
+  }
+
+  [...map.entries()]; //[['F', 'no'], ['T', 'yes']]
+
+  for(let [key, value] of map.entries()) {
+    console.log(key, value) // "F" "no", "T" "yes"
+  }
+
+  for(let [key, value] of map) {
+    console.log(key, value) // "F" "no", "T" "yes"
+  }
+
+  //结合数组的map方法、filter方法，可以实现 Map 的遍历和过滤
+  const m = new Map()
+    .set(1, 'a')
+    .set(2, 'b')
+    .set(3, 'c');
+  
+  const m1 = new Map(
+    [...m].filter(([k, v]) => k < 3) //Map(2) {1 => "a", 2 => "b"}
+  )
+
+  const m2 = new Map(
+    [...m].map(([k, v]) => [k * 2, '_' + v]) //Map(3) {2 => '_a', 4 => '_b', 6 => '_c'}
+  )
+</script>
+</body>
+</html>

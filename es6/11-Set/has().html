@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  let s = new Set([1, 2, 3, 3]);
+  s.has(1); //true
+
+  //判断是否包括一个键上面，Object结构和Set结构的写法不同
+
+  //对象的写法
+  const properties = {
+    'width': 1,
+    'height': 1
+  }
+  if (properties['height']) {
+  // do something
+  }
+
+  //Set的写法
+  const properties1 = new Set();
+  properties1.add('width');
+  properties1.add('height');
+
+  if (properties.has('height')) {
+  // do something
+  }
+
+</script>
+</body>
+</html>

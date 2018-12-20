@@ -86,6 +86,15 @@
   } 
 });
 
+//Object.create(null)与 {}创建对象的区别
+let obj5 = Object.create(null); 
+obj5; //{}
+obj5.__proto__; //undefined;
+
+let obj6 = {}; //{}
+obj6; //{}
+obj6.__proto__; //{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+
 </script>
 </body>
 </html>
