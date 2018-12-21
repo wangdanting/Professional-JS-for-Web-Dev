@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截
+  // 因此提供了一种机制，可以对外界的访问进行过滤和改写
+
+  let obj = {foo: 'foo', bar: 1};
+  
+  let objProxy = new Proxy(obj, {
+    get: (target, key, receiver) => {
+      console.log(`${target} target`);
+      console.log(`${key} key`);
+      return Reflect.get(target, key, receiver);
+    },
+    set: (target, key, value, receiver) => {
+      console.log(`${target} target`);
+      console.log(`${key} key`);
+      console.log(`${value} value`);
+      return Reflect.set(target, key, value, receiver);
+    }
+  })
+
+  objProxy.foo; //[object Object] target, foo key, 'foo'
+  objProxy.baz = 3; //[object Object] target, baz key, 3
+  obj.baz; //3
+
+  //最简单的例子
+  let proxy = new Proxy({}, {
+    get: (target, property) => {
+      return 35
+    }
+  })
+
+  proxy['dd']; //35
+  proxy.dd; //35
+
+  // 将 Proxy 对象，设置到object.proxy属性，从而可以在object对象上调用。
+  // let object = {
+  //   foo: 'baz', 
+  //   bar: 1,
+  //   proxy: new Proxy(this, {
+  //     get: (target, value) => {
+  //       console.log(this, 'this');
+  //       return 35;
+  //     }
+  //   })
+  // } //失败，不会写
+
+  // Proxy 实例也可以作为其他对象的原型对象。
+  let proxyParent = new Proxy({}, {
+    get: (target, key) => {
+      return 35
+    }
+  })
+
+  let proxyInstance = Object.create(proxyParent);
+  proxyInstance.dd; //35
+</script>
+</body>
+</html>

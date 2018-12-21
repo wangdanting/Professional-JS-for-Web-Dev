@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // get(target, propKey, receiver)：拦截对象属性的读取，比如proxy.foo和proxy['foo']。
+
+  let person = {
+    name: '章三'
+  };
+
+  let proxy = new Proxy(person, {
+    get: (target, property) => {
+      if(property in target) {
+        return target[property];
+      } else {
+        throw new ReferenceError(`Property ${property} does not exist.`)
+      }
+    }
+  })
+
+  proxy.name; //"章三"
+  // proxy.age; // Uncaught ReferenceError: Property age does not exist.
+
+
+  //实现数组读取负数的索引。 只限读取数组参数，无遍历条件
+  function createArray(...elements) {
+    let handler = {
+      get: (target, propKey, receiver) => {
+        let index = Number(propKey);
+        if(index < 0) {
+          propKey = String(target.length + index);
+        }
+        return Reflect.get(target, propKey, receiver);
+      }
+    }
+
+    let target = [...elements];
+    return new Proxy(target, handler);
+  }
+
+  let arr = createArray('a', 'b', 'c');
+  arr[-1];
+</script>
+</body>
+</html>

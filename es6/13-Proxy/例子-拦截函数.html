@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //同一个拦截器函数，可以设置拦截多个操作。
+  function Fn(x, y) {
+    return x + y;
+  };
+
+  let handler = {
+    get: (target, key) => {
+      if ( key === 'prototype') {
+        return Object.prototype;
+      }
+      return `Hello, ${key}`;
+    },
+
+    apply: (target, thisBinding, args) => {
+      return args[0];
+    },
+
+    construct: (target, args) => {
+      return {value: args[1]};
+    }
+  };
+
+  let fproxy = new Proxy(Fn, handler);
+
+  fproxy(1, 2); //1
+
+  new fproxy(1, 2); //{value: 2}
+
+  fproxy.prototype === Object.prototype; //true
+
+  fproxy.foo === "Hello, foo" // true
+
+</script>
+</body>
+</html>

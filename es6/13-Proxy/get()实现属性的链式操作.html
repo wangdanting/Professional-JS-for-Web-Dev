@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  let pipe = (value) => {
+    let fnArr = [];
+    let proxy = new Proxy({}, {
+      get: (pipeObj, fnName) => {
+        if(fnName === 'get') {
+          return fnArr.reduce((val, fn) => fn(val), value)
+        }
+        fnArr.push(window[fnName]);
+        return proxy
+      }
+    })
+    return proxy;
+  };
+  var double = n => n * 2;
+  var pow = n => n * n;
+  var reverseInt = n => n.toString().split('').reverse().join('') | 0;
+
+  pipe(3).double.pow.reverseInt.get; //63
+</script>
+</body>
+</html>
