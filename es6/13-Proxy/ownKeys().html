@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //ownKeys方法用来拦截对象自身属性的读取操作
+
+  // 拦截以下操作
+  // Object.getOwnPropertyNames()
+  // Object.getOwnPropertySymbols()
+  // Object.keys()
+  // for...in循环
+
+  const target = {
+    a: 1,
+    b: 2,
+    c: 3
+  };
+
+  const handler = {
+    ownKeys(target) {
+      return ['a'];
+    }
+  };
+
+  const proxy = new Proxy(target, handler);
+  Object.keys(proxy); //['a']
+
+  //下面的例子是拦截第一个字符为下划线的属性名。  
+  const target1 = {
+    _bar: 'foo',
+    _prop: 'bar',
+    prop: 'baz'
+  };
+
+  const handler1 = {
+    ownKeys (target) {
+      return Reflect.ownKeys(target1).filter(key => key[0] !== '_');
+    }
+  };
+
+  const proxy1 = new Proxy(target1, handler1);
+  for (let key of Object.keys(proxy1)) {
+    console.log(target1[key]);
+  }
+  //"baz"
+
+  //使用Object.keys方法时，有三类属性会被ownKeys方法自动过滤，不会返回
+  //目标对象上不存在的属性
+  //属性名为 Symbol 值
+  //不可遍历（enumerable）的属性
+
+  const target2 = {
+    a: 1,
+    b: 2,
+    c: 3,
+    [Symbol.for('secret')]: '4',
+  };
+
+  Object.defineProperty(target2, 'key', {
+    enumerable: false,
+    configurable: true,
+    writable: true,
+    value: 'static'
+  });
+
+  const handler2 = {
+    ownKeys(target) {
+      return ['a', 'd', Symbol.for('secret'), 'key'];
+    }
+  };
+
+  const proxy2 = new Proxy(target2, handler2);
+  Object.keys(proxy2)// ['a']
+
+  //ownKeys方法返回的数组成员，只能是字符串或 Symbol 值。如果有其他类型的值，或者返回的根本不是数组，就会报错。
+  //如果目标对象自身包含不可配置的属性，则该属性必须被ownKeys方法返回，否则报错
+  //如果目标对象是不可扩展的（non-extensible），这时ownKeys方法返回的数组之中，必须包含原对象的所有属性，且不能包含多余的属性，否则报错
+</script>
+</body>
+</html>

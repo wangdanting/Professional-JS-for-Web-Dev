@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //The Object.isExtensible() method determines if an object is extensible (whether it can have new properties added to it).
+  const object = {};
+
+  console.log(Object.isExtensible(object)); //true
+
+  Object.preventExtensions(object);
+
+  object.foo = 1;
+
+  object; //{}
+</script>
+</body>
+</html>
