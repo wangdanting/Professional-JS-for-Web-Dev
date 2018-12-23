@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //Reflect.has方法对应name in obj里面的in运算符。
+  const myObject = {
+    foo: 1
+  };
+
+  //旧写法
+  'foo' in myObject; // true
+
+  //新写法
+  Reflect.has(myObject, 'foo'); //true
+</script>
+</body>
+</html>

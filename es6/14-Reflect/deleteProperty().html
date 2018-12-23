@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //Reflect.deleteProperty方法等同于delete obj[name]，用于删除对象的属性。
+  const myObj = { foo: 'bar' };
+
+  // 旧写法
+  // delete myObj.foo; //true
+
+  // 新写法
+  Reflect.deleteProperty(myObj, 'foo'); //true
+</script>
+</body>
+</html>
