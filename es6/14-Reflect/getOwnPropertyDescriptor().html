@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //Reflect.getOwnPropertyDescriptor基本等同于Object.getOwnPropertyDescriptor，用于得到指定属性的描述对象，将来会替代掉后者
+
+  const obj = {
+    name: '123'
+  };
+
+  //旧写法
+  // const theDescriptor = Object.getOwnPropertyDescriptor(obj, 'name');
+  //{value: "123", writable: true, enumerable: true, configurable: true}
+
+  const theDescriptor = Reflect.getOwnPropertyDescriptor(obj, 'name');
+</script>
+</body>
+</html>

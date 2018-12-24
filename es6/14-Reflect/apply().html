@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //Reflect.apply方法等同于Function.prototype.apply.call(func, thisArg, args)，用于绑定this对象后执行给定函数。
+
+  const ages = [11, 33, 12, 54, 18, 96];
+
+  // 旧写法
+  // const youngest = Math.min.apply(Math, ages); //11
+  // const oldest = Math.max.apply(Math, ages); // 96
+  // const type = Object.prototype.toString.call(youngest); //"[object Number]"
+
+  //新写法
+  const youngest = Reflect.apply(Math.min, Math, ages);
+  const oldest = Reflect.apply(Math.max, Math, ages);
+  const type = Reflect.apply(Object.prototype.toString, youngest, []);
+</script>
+</body>
+</html>

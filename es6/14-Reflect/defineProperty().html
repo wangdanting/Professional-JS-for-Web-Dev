@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //Reflect.defineProperty方法基本等同于Object.defineProperty
+
+  const obj = {
+    name: '123'
+  };
+
+  // 旧写法
+  // Object.defineProperty(obj, 'age', {
+  //   value: () => 'your age'
+  // })
+
+  Reflect.defineProperty(obj, 'age', {
+    value: () => 'your age'
+  })
+</script>
+</body>
+</html>
