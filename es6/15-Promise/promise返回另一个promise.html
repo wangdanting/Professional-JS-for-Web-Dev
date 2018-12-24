@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  const p1 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('p1 success', 3000));
+  })
+
+  const p2 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve(p1), 1000);
+  })
+
+  p2
+  .then(result => console.log(result))
+  .catch(error => console.log('捕捉错误', error))
+
+  //'p1 success'
+</script>
+</body>
+</html>

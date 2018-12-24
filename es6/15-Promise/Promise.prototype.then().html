@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //Promise 实例具有then方法，也就是说，then方法是定义在原型对象Promise.prototype上的
+  //它的作用是为 Promise 实例添加状态改变时的回调函数
+  // then方法的第一个参数是resolved状态的回调函数，第二个参数（可选）是rejected状态的回调函数。
+
+  //hen方法返回的是一个新的Promise实例（注意，不是原来那个Promise实例）。
+  //因此可以采用链式写法，即then方法后面再调用另一个then方法。
+  //这时后一个回调函数，就会等待前一个Promise对象的状态发生变化，才会被调用。
+
+  let x = 0;
+
+  const promise = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => resolve(1), 2000)
+    })
+  }
+
+  promise()
+    .then((value) => {
+      console.log(x, 'first');
+      return x += value;
+    })
+    .then((value) => {
+      x += value;
+      console.log(x, 'second');
+    })
+
+    //0 "first"
+    //2 "second"
+</script>
+</body>
+</html>

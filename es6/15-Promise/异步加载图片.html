@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //异步加载图片
+  function loadImageAsync(url) {
+    return new Promise((resolve, reject) => {
+      const image = new Image();
+
+      image.onload = () => {
+        resolve(image);
+      }
+
+      image.onerror = () => {
+        reject(new Error('Could not load image at ' + url));
+      }
+      image.src = url;
+    })
+  }
+
+  loadImageAsync('../../assets/WechatIMG89.jpg').then((image) => {
+    console.log('success', image);
+  }, (image) => {
+    console.log('error', image);
+  })
+</script>
+</body>
+</html>
