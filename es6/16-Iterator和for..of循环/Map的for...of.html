@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  const map = new Map();
+  map.set("edition", 6);
+  map.set("committee", "TC39");
+  map.set("standard", "ECMA-262");
+  
+  for(let [name, value] of map) {
+    console.log(`${name}: ${value}`);
+  }
+  //edition: 6
+  //committee: TC39
+  //standard: ECMA-262
+</script> 
+</body>
+</html>

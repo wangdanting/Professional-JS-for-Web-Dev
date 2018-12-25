@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //字符串是一个类似数组的对象，也原生具有 Iterator 接口。
+  const string = 'hi';
+  const iter = string[Symbol.iterator]();
+
+  iter.next(); //{value: "h", done: false}
+  iter.next(); //{value: "i", done: false}
+  iter.next(); //{value: undefined, done: true}
+</script>
+</body>
+</html>

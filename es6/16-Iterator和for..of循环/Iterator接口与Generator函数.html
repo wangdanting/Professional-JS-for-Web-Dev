@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //Symbol.iterator方法的最简单实现，还是使用下一章要介绍的 Generator 函数
+  const myIterable = {
+    [Symbol.iterator]: function* () {
+      yield 1;
+      yield 2;
+      yield 3;
+    }
+  };
+
+  [...myIterable]; //[1, 2, 3]
+
+  const obj = {
+    * [Symbol.iterator]() {
+      yield 'hello';
+      yield 'world';
+    }
+  };
+
+  for(x of obj) {
+    console.log(x);
+  }
+  // 'hello'
+  // 'world'
+</script>
+</body>
+</html>

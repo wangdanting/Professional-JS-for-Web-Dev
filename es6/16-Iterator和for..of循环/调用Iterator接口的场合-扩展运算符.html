@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //扩展运算符（...）也会调用默认的 Iterator 接口
+  const str = 'hello';
+  [...str]; // ["h", "e", "l", "l", "o"]
+
+  const arr = ['a', 'b'];
+  ['a', ...arr, 'b']; //["a", "a", "b", "b"]
+</script>
+</body>
+</html>

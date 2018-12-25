@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //对数组和 Set 结构进行解构赋值时，会默认调用Symbol.iterator方法。
+  const set = new Set().add('a').add('b').add('c');
+  let [x, y] = set; // x='a'; y='b'
+
+  let [first, ...rest] = set; // first='a'; rest=['b','c'];
+</script>
+</body>
+</html>

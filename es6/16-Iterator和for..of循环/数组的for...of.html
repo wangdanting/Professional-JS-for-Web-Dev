@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //数组原生具备iterator接口
+  //for...of循环本质上就是调用这个接口产生的遍历器
+
+  const arr = ['a', 'b', 'c', 'd'];
+
+  for (let a in arr) {
+    console.log(a); // 0 1 2 3
+  }
+
+  for (let a of arr) {
+    console.log(a); // a b c d
+  }
+</script> 
+</body>
+</html>
