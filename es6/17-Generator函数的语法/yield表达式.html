@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script> 
+  //由于 Generator 函数返回的遍历器对象，只有调用next方法才会遍历下一个内部状态，所以其实提供了一种可以暂停执行的函数
+  //yield表达式就是暂停标志。
+
+  //遍历器对象的next方法的运行逻辑如下
+  //遇到yield表达式，就暂停执行后面的操作，并将紧跟在yield后面的那个表达式的值，作为返回的对象的value属性值。
+  //下一次调用next方法时，再继续往下执行，直到遇到下一个yield表达式。
+  //如果没有再遇到新的yield表达式，就一直运行到函数结束，直到return语句为止，并将return语句后面的表达式的值，作为返回的对象的value属性值
+  //如果该函数没有return语句，则返回的对象的value属性值为undefined。
+
+  function* gen() {
+    yield 123 + 456
+  }
+
+  //yield后面的表达式123 + 456，不会立即求值，只会在next方法将指针移到这一句时，才会求值。
+  const iter = gen();
+  iter.next(); //{value: 579, done: false}
+
+  //Generator 函数可以不用yield表达式，这时就变成了一个单纯的暂缓执行函数
+  function* f() {
+    console.log('执行了');
+  }
+
+  const generator = f();
+
+  setTimeout(() => generator.next(), 3000); //执行了
+
+  //yield表达式只能用在 Generator 函数里面，用在其他地方都会报错（期间不能被其他函数包围）
+
+  //yield表达式如果用在另一个表达式之中，必须放在圆括号里面
+  function* demo() {
+    console.log('hello1' + (yield));
+    console.log(`hello2${yield 123}`)
+  }
+
+  const ge = demo();
+  ge.next(); //{value: undefined, done: false}
+  ge.next(); 
+  //'hello1undefined' 
+  //{value: 123, done: false}
+  ge.next();
+  //'hello2undefined'
+  //{value: undefined, done: true}
+</script>
+</body>
+</html>

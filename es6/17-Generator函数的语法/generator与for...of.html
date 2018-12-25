@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script> 
+  const arr = [1, [[2, 3], 4], [5, 6]];
+
+  const flat = function* (arr) {
+    for(let i = 0, len = arr.length; i < len; i++) {
+      let item = arr[i];
+      if(typeof item !== 'number') {
+        yield* flat(item);
+      } else {
+        yield item;
+      }
+    }
+  };
+
+  for(let f of flat(arr)) {
+    console.log(f);
+  }
+  //1, 2, 3, 4, 5, 6
+
+  //利用 Generator 函数和for...of循环，实现斐波那契数列的例子
+  function* fibonacci() {
+    let [prev, curr] = [0, 1];
+    for(;;) {
+      yield curr;
+      [prev, curr] = [curr, prev + curr];
+    }
+  }
+
+  for(let n of fibonacci()) {
+    if(n > 10) break;
+    console.log(n, 'n');
+  }
+  // 1 1 2 3 5 8
+
+  //利用for...of循环，可以写出遍历任意对象（object）的方法
+  function* objectEntries(obj) {
+    const propKeys = Reflect.ownKeys(obj);
+
+    for(let propKey of propKeys) {
+      yield [propKey, obj[propKey]];
+    }
+  }
+
+  const jane = { first: 'Jane', last: 'Doe' };
+
+  for(let [key, value] of objectEntries(jane)) {
+    console.log(`${key}: ${value}`);
+  }
+  //'first': 'Jane'
+  //'last': 'Doe'
+
+  //除了for...of循环以外，扩展运算符（...）、解构赋值和Array.from方法内部调用的，都是遍历器接口
+  
+  function* numbers() {
+    yield 1;
+    yield 2;
+    return 3;
+    yield 4;
+  }
+
+  //扩展运算符
+  [...numbers()]; //[1, 2]
+
+  // Array.from 方法
+  Array.from(numbers()); //[1, 2]
+
+  //解构赋值
+  let [x, y] = numbers();
+  x; //1
+  y; //2
+
+  for(let n of numbers()) {
+    console.log(n);
+  }
+  //1
+  //2
+</script>
+</body>
+</html>
