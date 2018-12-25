@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  const clock = function* () {
+    while(true) {
+      console.log('Tick!');
+      yield
+      console.log('Tock!');
+      yield;
+    }
+  }
+</script>
+</body>
+</html>

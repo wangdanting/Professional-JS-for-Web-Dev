@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script> 
+  const tree = ['a', ['b', ['c', ['d']]], 'e'];
+
+  //法一
+  const arr1 = tree.flat(Infinity); //["a", "b", "c", "d", "e"]
+
+  //法二
+  function* iterTree(tree) {
+    if(Array.isArray(tree)) {
+      for(let i = 0, len = tree.length; i < len; i++) {
+        yield* iterTree(tree[i]);
+      }
+    } else {
+      yield tree;
+    }
+  }
+
+  for(let x of iterTree(tree)) {
+    console.log(x); //"a" "b" "c" "d" "e"
+  }
+</script>
+</body>
+</html>

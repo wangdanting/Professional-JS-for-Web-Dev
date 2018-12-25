@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script> 
+  //如果一个对象的属性是 Generator 函数，可以简写成下面的形式
+  let obj = {
+  * myGeneratorMethod() {
+    yield 1;
+    yield 2;
+    yield 3;
+  }
+};
+
+let g = obj.myGeneratorMethod();
+
+g.next(); //{value: 1, done: false}
+</script>
+</body>
+</html>
