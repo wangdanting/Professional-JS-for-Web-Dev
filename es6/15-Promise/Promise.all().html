@@ -24,6 +24,78 @@
     promise1,
     promise2
   ])
+    .then((results) => {
+      console.log('success', results);
+    })
+    .catch((error) => {
+      console.log('error', error);
+    })
+
+    //'success' ['1', '2']
+
+  
+  const promise3 = new Promise((resolve, reject) => {
+    return setTimeout(() => {
+      console.log('promise3');
+      reject('3')
+      }, 2000);
+  })
+
+  const promise4 = new Promise((resolve, reject) => {
+    return setTimeout(() => {
+      console.log('promise4')
+      resolve('4');
+      }, 2000);
+  })
+
+  Promise.all([
+    promise3,
+    promise4
+  ])
+    .then((results) => {
+      console.log('success', results);
+    })
+    .catch((error) => {
+      console.log('error', error);
+    })
+
+  //'promise3'
+  //'error' 3
+  //'promise4'
+
+
+  //如果作为参数的 Promise 实例，自己定义了catch方法，那么它一旦被rejected，并不会触发Promise.all()的catch方法
+  const promise5 = new Promise((resolve, reject) => {
+    return setTimeout(() => {
+      console.log('promise5');
+      reject('5')
+      }, 2000);
+  })
+  .then(result => result)
+  .catch(error => error);
+
+  const promise6 = new Promise((resolve, reject) => {
+    return setTimeout(() => {
+      console.log('promise6')
+      resolve('6');
+      }, 2000);
+  })
+  .then(result => result)
+  .catch(error => error);
+
+  Promise.all([
+    promise5,
+    promise6
+  ])
+    .then((results) => {
+      console.log('success', results);
+    })
+    .catch((error) => {
+      console.log('error', error);
+    })
+    //'promise5'
+    //'promise6'
+    //'success' ["5", "6"]
 </script>
 </body>
 </html>

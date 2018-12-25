@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //Promise.race方法同样是将多个 Promise 实例，包装成一个新的 Promise 实例
+  //const p = Promise.race([p1, p2, p3]);
+  //只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变。那个率先改变的 Promise 实例的返回值，就传递给p的回调函数。
+
+  //下面是一个例子，如果指定时间内没有获得结果，就将 Promise 的状态变为reject，否则变为resolve。
+  const promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('1'), 2000);
+  })
+
+  const promise2 = new Promise((resolve, reject) => {
+    setTimeout(() => reject('2'), 3000);
+  })
+
+  const promise = Promise.race([
+    promise1,
+    promise2
+  ])
+    .then((result) => {
+      console.log('success', result);
+    })
+    .catch((error) => {
+      console.log('error', error);
+    })
+
+  //'success' 1
+
+  const promise3 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve('3'), 4000);
+  })
+
+  const promise4 = new Promise((resolve, reject) => {
+    setTimeout(() => reject('4'), 3000);
+  })
+
+  const promiseRace = Promise.race([
+    promise3,
+    promise4
+  ])
+    .then((result) => {
+      console.log('success', result);
+    })
+    .catch((error) => {
+      console.log('error', error);
+    })
+
+  //'error' 4
+</script>
+</body>
+</html>
