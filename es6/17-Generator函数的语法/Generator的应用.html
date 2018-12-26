@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //1.异步操作的同步化表现
+  //例子一
+  function *loadUI() {
+    showLoading();
+    yield loadUIDataAsync();
+    hideLoading();
+  }
+
+  const loader = loadUI();
+  loader.next(); //加载loading并请求数据
+  loader.next(); //隐藏loading
+
+  //例子二
+  //Ajax 是典型的异步操作，通过 Generator 函数部署 Ajax 操作，可以用同步的方式表达
+  function* main() {
+    const result = yield request('http://');
+    const resp = JSON.parse(result);
+  }
+
+  function request(url) {
+    makeAjaxCall(url, (response) => {
+      it.next(response);
+    })
+  }
+
+  const it = main();
+  it.next(); //请求数据
+
+  //2.控制流管理
+
+  //方式一
+  
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //方式一 普通回调
+  const step1 = (value, fn) => {
+    setTimeout(() => {
+      fn(value + 1);
+    }, 3000);
+  };
+
+  const step2 = (value, fn) => {
+    setTimeout(() => {
+      fn(value + 2);
+    }, 3000);
+  }
+
+  const step3 = (value, fn) => {
+    setTimeout(() => {
+      fn(value + 3);
+    }, 3000);
+  }
+
+  const step = (value) => {
+    step1(value, (value2) => {
+      step2(value2, (value3) => {
+        step3(value3, (value4) => {
+          console.log(value4, 'value4');
+        })
+      })
+    })
+  }
+
+  step(1); //7 "value4"
+
+  //方式二  promise方式
+  const step4 = (value) => new Promise((resolve, reject) => {
+    setTimeout(() => resolve(value + 1), 3000)
+  })
+
+  const step5 = (value) => new Promise((resolve, reject) => {
+    setTimeout(() => resolve(value + 2), 3000)
+  })
+
+  const step6 = (value) => new Promise((resolve, reject) => {
+    setTimeout(() => resolve(value + 3), 3000)
+  })
+
+
+  step4(1)
+    .then(step5)
+    .then(step6)
+    .then((value) => {
+      console.log(value, 'value');
+    })
+    .catch((err) => {
+      console.log(err, 'err');
+    }) 
+  //7 "value"
+  
+  //方式三 generator方式
+  //generator方式一
+  const step7 = (value) => {
+    setTimeout(() => {
+      console.log(value, '7');
+      iter.next(value + 1);
+    }, 3000)
+  };
+
+  const step8 = (value) => {
+    setTimeout(() => {
+      console.log(value, '8');
+      iter.next(value + 2);
+    }, 3000)
+  };
+
+  const step9 = (value) => {
+    setTimeout(() => {
+      console.log(value, '9');
+      iter.next(value + 3);
+    }, 3000)
+  };
+
+  function* generator(value) {
+    try {
+      const value1 = yield step7(value);
+      const value2 = yield step8(value1);
+      const value3 = yield step9(value2);
+      console.log(value3, 'value3');
+    } catch(err) {
+      console.log(err, 'err');
+    }
+  }
+
+  const iter = generator(1);
+  iter.next(); //7 "value3"
+
+  //generator方式二
+  const step10 = (value) => {
+    setTimeout(() => {
+      i.next(value + 1);
+    }, 3000)
+  };
+
+  const step11 = (value) => {
+    setTimeout(() => {
+      i.next(value + 2);
+    }, 3000)
+  };
+
+  const step12 = (value) => {
+    setTimeout(() => {
+      i.next(value + 3);
+    }, 3000)
+  };
+
+  function* generator1({steps, initial}) {
+    let result = initial;
+    for(let i = 0, len = steps.length; i < len; i++) {
+      const step = steps[i];
+      result = yield step(result);
+    }
+    console.log(result, 'result')
+  }
+
+  const i = generator1({steps: [step10, step11, step12], initial: 1});
+  i.next(); //7 "result"
+</script>
+</body>
+</html>
