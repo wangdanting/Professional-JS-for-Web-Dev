@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script> 
+  function readFile(fileName, callback) {
+    setTimeout(() => callback(fileName), 3000);
+  }
+
+  const Thunk = (fn) => {
+    return (...args) => {
+      return (callback) => {
+        return fn.call(this, ...args, callback);
+      }
+    }
+  }
+
+  const readFileThunk = Thunk(readFile);
+
+  const gen = function* () {
+    const r1 = yield readFileThunk('《从你的全世界路过》');
+    console.log(r1.toString());
+    const r2 = yield readFileThunk('《西游记》');
+    console.log(r2.toString());
+  }
+
+  const g = gen();
+  const r1 = g.next();
+  r1.value((fileName) => {
+    const r2 = g.next(fileName);
+    r2.value((fileName) => {
+      g.next(fileName);
+    })
+  })
+  //《从你的全世界路过》
+  //《西游记》
+</script>
+</body>
+</html>

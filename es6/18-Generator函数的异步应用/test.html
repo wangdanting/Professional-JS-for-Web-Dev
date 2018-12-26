@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script> 
+  const step1 = (value, callback) => {
+    setTimeout(() => callback(value + 1), 3000);
+  };
+
+  const step2 = (value, callback) => {
+    setTimeout(() => callback(value + 2), 3000);
+  };
+
+  const step3 = (value, callback) => {
+    setTimeout(() => callback(value + 3), 3000);
+  };
+
+  const stepPromise = (fn) => {
+    return (...args) => {
+      return new Promise((resolve, reject) => {
+        fn(...args, (value) => {
+          resolve(value)
+        })
+      })
+    }
+  }
+
+  const gen = function* (initial = 1) {
+    const value1 = yield stepPromise(step1)(initial);
+    const value2 = yield stepPromise(step2)(value1);
+    const value3 = yield stepPromise(step3)(value2);
+    console.log(value3, 'value3');
+  }
+
+  //自动管理流程
+  const run = (gen) => {
+    const g = gen();
+    const next = (data) => {
+      const result = g.next(data);
+      if (result.done) return;
+      result.value.then((data) => {
+        next(data);
+      });
+    }
+    next();
+  }
+
+  run(gen);
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script> 
+  //Thunk 函数真正的威力，在于可以自动执行 Generator 函数
+  //下面就是一个基于 Thunk 函数的 Generator 执行器。
+
+  function readFile(fileName, callback) {
+    setTimeout(() => callback(fileName), 3000);
+  }
+
+  const Thunk = (fn) => {
+    return (...args) => {
+      return (callback) => {
+        return fn.call(this, ...args, callback);
+      }
+    }
+  }
+
+  const readFileThunk = Thunk(readFile);
+
+  //当然，前提是每一个异步操作，都要是 Thunk 函数，
+  //也就是说，跟在yield命令后面的必须是 Thunk 函数。
+  const gen = function* () {
+    const r1 = yield readFileThunk('《从你的全世界路过》');
+    console.log(r1.toString());
+    const r2 = yield readFileThunk('《西游记》');
+    console.log(r2.toString());
+  }
+
+  const run = (fn) => {
+    const g = fn();
+
+    const next = (data) => {
+      const result = g.next(data);
+      if (result.done) return;
+      result.value(next)
+    }
+
+    next();
+  }
+
+  run(gen);
+  //《从你的全世界路过》
+  //《西游记》
+</script>
+</body>
+</html>

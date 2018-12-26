@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script> 
+  function readFile(fileName, callback) {
+    setTimeout(() => callback(`你的书名为${fileName}`), 3000);
+  }
+
+  const readFilePromise = function (fileName) {
+    return new Promise((resolve, reject) => {
+      readFile(fileName, (txt) => {
+        resolve(txt)
+      })
+    })
+  }
+
+  const gen = function* () {
+    const f1 = yield readFilePromise('《从你的全世界路过》');
+    const f2 = yield readFilePromise('《西游记》');
+    console.log(f1.toString());
+    console.log(f2.toString());
+  }
+
+  //手动执行上面的 Generator 函数
+  const iter = gen();
+  iter.next().value.then((data) => {
+    iter.next(data).value.then((data) => {
+      iter.next(data);
+    })
+  })
+
+  //你的书名为《从你的全世界路过》
+  //你的书名为《西游记》
+
+  //自动执行器
+  const run = (gen) => {
+    const g = gen();
+
+    const next = (data) => {
+      const result = g.next(data);
+      if(result.done) return result.value;
+      result.value.then((data) => {
+        next(data);
+      })
+    };
+
+    next();
+  }
+
+  run(gen);
+  //你的书名为《从你的全世界路过》
+  //你的书名为《西游记》
+</script>
+</body>
+</html>

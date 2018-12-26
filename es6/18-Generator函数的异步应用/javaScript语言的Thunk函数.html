@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script> 
+  //在 JavaScript 语言中，Thunk 函数替换的不是表达式，而是多参数函数，将其替换成一个只接受回调函数作为参数的单参数函数。
+  function readFile(fileName, callback) {
+    setTimeout(() => callback(fileName), 3000);
+  }
+
+  //正常版本的readFile(多参数版本)
+  readFile('《从你的全世界路过》', (fileName) => {
+    console.log(`您输入的书名为${fileName}`);
+  })
+
+  //Thunk版本的readFile(单参数版本)
+  const Thunk = (fileName) => {
+    return (callback) => {
+      return readFile(fileName, callback);
+    }
+  }
+
+  const readFileThunk = Thunk('《从你的全世界路过》');
+  readFileThunk((fileName) => {
+    console.log(`您输入的书名为${fileName}`)
+  })
+
+  //任何函数，只要参数有回调函数，就能写成 Thunk 函数的形式
+  //下面是一个简单的 Thunk 函数转换器。
+
+  //es5写法
+  const Thunk1 = function(fn) {
+    return function() {
+      let args = Array.prototype.slice.call(arguments);
+      return function(callback) {
+        args.push(callback);
+        return fn.apply(this, args);
+      }
+    }
+  };
+
+  //es6写法
+  const Thunk2 = (fn) => {
+    return (...args) => {
+      return (callback) => {
+        return fn.call(this, ...args, callback);
+      }
+    }
+  }
+
+  const readFileThunk1 = Thunk1(readFile);
+  const fileName = '《从你的全世界路过》';
+  const callback = (fileName) => {
+    console.log(`您输入的书名为${fileName}`)
+  };
+  readFileThunk1(fileName)(callback);
+
+  
+</script>
+</body>
+</html>
