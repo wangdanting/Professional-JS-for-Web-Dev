@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+
+    <script>
+      //就像 Generator 函数返回一个同步遍历器对象一样，异步 Generator 函数的作用，是返回一个异步遍历器对象。
+      //在语法上，异步 Generator 函数就是async函数与 Generator 函数的结合。
+
+      // async function* gen() {
+      //   yield 'hello';
+      // }
+
+      // const g = gen();
+
+      // g.next()
+      //   .then(v => console.log(v)); //{value: 'hello', done: false}
+
+      
+      //异步遍历器的设计目的之一，就是 Generator 函数处理同步操作和异步操作时，能够使用同一套接口。
+      function* gen1() {
+        yield 'hello',
+        yield 'world',
+        yield 'javascript'
+      };
+
+      async function* map(iterable, func) {
+        console.log('xx');
+        const iter = iterable[Symbol.asyncIterator]();
+        console.log(iter, 'iter');
+      }
+
+      let s = map(gen1);
+    </script>
+  </body>
+</html>

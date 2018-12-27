@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+
+    <script>
+    // Iterator 接口是一种数据遍历的协议，只要调用遍历器对象的next方法，就会得到一个对象，表示当前遍历指针所在的那个位置的信
+    // next方法返回的对象的结构是{value, done}，其中value表示当前的数据的值，done是一个布尔值，表示遍历是否结束。
+
+    //这里隐含着一个规定，next方法必须是同步的，只要调用就必须立刻返回值。
+    //也就是说，一旦执行next方法，就必须同步地得到value和done这两个属性
+    //如果遍历指针正好指向同步操作，当然没有问题，但对于异步操作，就不太合适了
+    //目前的解决方法是，Generator 函数里面的异步操作，返回一个 Thunk 函数或者 Promise 对象，即value属性是一个 Thunk 函数或者 Promise 对象，等待以后返回真正的值，而done属性则还是同步产生的。
+
+    //ES2018 引入了”异步遍历器“（Async Iterator），为异步操作提供原生的遍历器接口，即value和done这两个属性都是异步产生
+    const step1 = (value) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(value + 1), 3000);
+      })
+    };
+
+    const step2 = (value) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(value + 2), 3000);
+      })
+    };
+
+    const step3 = (value) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => resolve(value + 3), 3000);
+      })
+    };
+
+    const asyncIterable = [step1, step2, step3];
+    const asyncIterator = asyncIterable[Symbol.asyncIterator]();
+
+    asyncIterable
+      .next()
+      .then(iterResult1 => {
+        console.log(iterResult1); // { value: 'a', done: false }
+        return asyncIterator.next();
+      })
+      .then(iterResult2 => {
+        console.log(iterResult2); // { value: 'b', done: false }
+        return asyncIterator.next();
+      })
+      .then(iterResult3 => {
+        console.log(iterResult3); // { value: undefined, done: true }
+      });
+    </script>
+  </body>
+</html>
