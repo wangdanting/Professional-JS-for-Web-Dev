@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // 私有方法和私有属性，是只能在类的内部访问的方法和属性，外部不能访问
+  // 但 ES6 不提供，只能通过变通方法模拟实现
+  class Foo {
+    //公有方法
+    foo (baz) {
+      this._bar(baz);
+    }
+
+    //私有方法
+    _bar(baz) {
+      return this.baz = baz;
+    }
+  }
+
+  const instance = new Foo();
+  instance.foo(1);
+  instance.baz; //1
+  instance._bar(2); //2
+  instance.baz; //2
+
+  //解决方案一
+  //索性将私有方法移出模块，因为模块内部的所有方法都是对外可见的
+  class Foo1 {
+    // 公有方法
+    foo(baz) {
+      _bar.call(this, baz);
+    }
+  }
+
+  function _bar(baz) {
+    return this.baz = baz;
+  }
+
+  const instance1 = new Foo1();
+  instance1.foo(1); 
+  instance1; //{baz: 1}
+  // instance1.bar(); //Uncaught TypeError: instance1.bar is not a function
+
+  //解决方法二
+  //利用Symbol值的唯一性，将私有方法的名字命名为一个Symbol值,导致第三方无法获取到它们，因此达到了私有方法和私有属性的效果。
+  const bar = Symbol('bar');
+  const baz = Symbol('baz');
+
+  export default class Foo2 {
+    //公有方法
+    foo (baz) {
+      this[bar](baz);
+    }
+
+    //私有方法
+    [bar](baz) {
+      return this[baz] = baz;
+    }
+  }
+</script>
+</body>
+</html>

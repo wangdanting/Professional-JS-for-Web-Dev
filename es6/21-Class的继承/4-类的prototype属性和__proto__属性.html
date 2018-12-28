@@ -1,0 +1,38 @@
+e<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //大多数浏览器的 ES5 实现之中，每一个对象都有__proto__属性，指向对应的构造函数的prototype属性
+  function Foo(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  Foo.prototype.toString = () => {
+    return `${this.x}-${this.y}`;
+  }
+
+  const foo = new Foo(1, 2);
+  foo.__proto__; //{toString: ƒ, constructor: ƒ}
+
+  //Class 作为构造函数的语法糖，同时有prototype属性和__proto__属性，因此同时存在两条继承链。
+  //子类的__proto__属性，表示构造函数的继承，总是指向父类。
+  //子类prototype属性的__proto__属性，表示方法的继承，总是指向父类的prototype属性
+
+  class A {
+  }
+  class B extends A {
+
+  }
+
+  B.__proto__ === A; //true
+  B.prototype.__proto__ === A.prototype; //true
+
+</script>
+</body>
+</html>

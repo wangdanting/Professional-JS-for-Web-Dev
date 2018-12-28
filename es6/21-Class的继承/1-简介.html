@@ -1,0 +1,22 @@
+e<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //Class 可以通过extends关键字实现继承，
+  //这比 ES5 的通过修改原型链实现继承，要清晰和方便很多。
+
+  class Point {
+  }
+
+  //该类通过extends关键字，继承了Point类的所有属性和方法
+  //但是由于没有部署任何代码，所以这两个类完全一样，等于复制了一个Point类
+  class ColorPoint extends Point {
+  }
+</script>
+</body>
+</html>

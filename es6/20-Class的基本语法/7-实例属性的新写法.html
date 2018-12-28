@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  //实例属性除了在constructor()方法里面定义，也可以直接写在类的最顶层
+  class Foo {
+    constructor() {
+      this.count = 0;
+    }
+
+    get value() {
+      return this.count;
+    }
+
+    increment() {
+      this.count++;
+    }
+  }
+
+  const foo = new Foo();
+  foo.value; //0
+  foo.count; //0
+  foo.increment();
+  foo.count; //1
+
+  //定义在类的最顶层
+  //这种新写法的好处是，所有实例属性都定义在类的头部，看上去比较整齐，一眼就能看出这个类有哪些实例属性。
+  //chrome原生浏览器还不支持
+  class Foo1 {
+    count = 0;
+
+    get value() {
+      return this.count;
+    }
+
+    increment() {
+      this.count++;
+    }
+  }
+
+  const foo1 = new Foo1();
+  foo1.value; //0
+  foo1.count; //0
+  foo1.increment();
+  foo1.count; //1
+</script>
+</body>
+</html>

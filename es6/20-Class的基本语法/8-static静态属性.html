@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // 静态属性指的是 Class 本身的属性，即Class.propName，而不是定义在实例对象（this）上的属性
+
+  class Foo {
+    static myStaticProp = 42; //浏览器还不能直接支持
+
+    constructor() {
+      b: 'foo';
+      r: 1;
+      e: Foo. myStaticProp; //42
+    }
+
+
+  }
+
+  //下面的写法为Foo类定义了一个静态属性bar
+  // ES6 支持定义类的静态属性方式
+  Foo.bar = 'bar';
+
+  const foo = new Foo();
+  foo.bar; //undefined
+
+</script>
+</body>
+</html>

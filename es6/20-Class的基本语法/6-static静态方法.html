@@ -1,0 +1,70 @@
+e<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script> 
+  //类相当于实例的原型，所有在类中定义的方法，都会被实例继承
+  //如果在一个方法前，加上static关键字，就表示该方法不会被实例继承
+  //而是直接通过类来调用，这就称为“静态方法”。
+
+  //* 类的内部所有定义的方法，都是不可枚举的（non-enumerable）,这一点与 ES5 的行为不一致。
+
+  class Foo {
+    static baz() {
+      return 'hello static';
+    }
+
+    bar() {
+      return 'hello generator';
+    }
+  }
+
+  const foo = new Foo();
+  foo.bar(); //'hello generator'
+  // foo.baz(); //Uncaught TypeError: foo.baz is not a function
+
+  //只能直接通过类来调用
+  Foo.baz(); //"hello static"
+
+  //如果静态方法包含this关键字，这个this指的是类，而不是实例
+  class Foo1 {
+    static baz() {
+      this.foo();
+    }
+
+    static foo() {
+      console.log('hello');
+    }
+
+    //静态方法可以与非静态方法重名
+    foo() {
+      console.log('world');
+    }
+  }
+
+  Foo1.baz(); //'hello'
+
+  const foo1 = new Foo1();
+  foo1.foo(); //'world'
+
+  //父类的静态方法，可以被子类继承。
+  class Foo2 extends Foo1 {
+
+  }
+  Foo2.baz(); //'hello'
+
+  //静态方法也是可以从super对象上调用的。
+  class Foo3 extends Foo1 {
+    static getFoo() {
+      super.baz();
+    }
+  }
+
+  Foo3.getFoo(); //hello
+</script>
+</body>
+</html>
