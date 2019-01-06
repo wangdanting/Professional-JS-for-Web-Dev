@@ -5,6 +5,10 @@ import RenderingElements from "./3-RenderingElements";
 import ComponentsAndProps from "./4-ComponentsAndProps";
 import StateAndLifecyle from "./5-StateAndLifecyle";
 import HandlingEvents from "./6-HandlingEvents";
+import ConditionalRendering from "./7-ConditionalRendering";
+import ListsAndKeys from "./8-ListsAndKeys";
+import Forms from "./9-Forms";
+import LiftingStateUp from "./10-LiftingStateUp";
 import "./App.css";
 
 class App extends Component {
@@ -17,6 +21,10 @@ class App extends Component {
         <ComponentsAndProps />
         <StateAndLifecyle />
         <HandlingEvents />
+        <ConditionalRendering />
+        <ListsAndKeys />
+        <Forms />
+        <LiftingStateUp />
       </Fragment>
     );
   }
