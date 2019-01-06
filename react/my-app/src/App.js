@@ -9,6 +9,7 @@ import ConditionalRendering from "./7-ConditionalRendering";
 import ListsAndKeys from "./8-ListsAndKeys";
 import Forms from "./9-Forms";
 import LiftingStateUp from "./10-LiftingStateUp";
+import CompositionVsInheritance from "./11-CompositionVsInheritance";
 import "./App.css";
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
         <ListsAndKeys />
         <Forms />
         <LiftingStateUp />
+        <CompositionVsInheritance />
       </Fragment>
     );
   }
