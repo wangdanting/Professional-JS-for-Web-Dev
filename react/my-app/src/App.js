@@ -10,6 +10,10 @@ import ListsAndKeys from "./8-ListsAndKeys";
 import Forms from "./9-Forms";
 import LiftingStateUp from "./10-LiftingStateUp";
 import CompositionVsInheritance from "./11-CompositionVsInheritance";
+import JSXInDepth from "./13-JSXInDepth";
+import PropTypes from "./14-PropTypes";
+import RefsAndDOM from "./15-RefsAndDOM";
+import UncontrolledComponents from "./16-UncontrolledComponents";
 import "./App.css";
 
 class App extends Component {
@@ -27,6 +31,10 @@ class App extends Component {
         <Forms />
         <LiftingStateUp />
         <CompositionVsInheritance />
+        <JSXInDepth />
+        <PropTypes />
+        <RefsAndDOM />
+        <UncontrolledComponents />
       </Fragment>
     );
   }
