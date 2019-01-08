@@ -34,8 +34,13 @@ class Greeting extends React.Component {
       color: PropTypes.string,
       fontSize: PropTypes.number
     }), // 一个指定属性及其类型的对象
-    required1: PropTypes.number.isRequired, // 你也可以在任何 PropTypes 属性后面加上 `isRequired`,后缀，这样如果这个属性父组件没有提供时，会打印警告信息
-    requiredAny: PropTypes.any.isRequired, //// 任意类型的数据
+    // 你也可以在任何 PropTypes 属性后面加上 `isRequired`,
+    //后缀，这样如果这个属性父组件没有提供时，会打印警告信息
+    required1: PropTypes.number.isRequired,
+    requiredAny: PropTypes.any.isRequired, // 任意类型的数据
+    // 你也可以指定一个自定义验证器。它应该在验证失败时返回
+    // 一个 Error 对象而不是 `console.warn` 或抛出异常。
+    // 不过在 `oneOfType` 中它不起作用。
     customProp: function(props, propName, componentName) {
       //props => this.props
       //propName => 'customProp'
@@ -50,7 +55,11 @@ class Greeting extends React.Component {
             "`. Validation failed."
         );
       }
-    }, // 你也可以指定一个自定义验证器。它应该在验证失败时返回,一个 Error 对象而不是 `console.warn` 或抛出异常。不过在 `oneOfType` 中它不起作用。
+    },
+    // 不过你可以提供一个自定义的 `arrayOf` 或 `objectOf`
+    // 验证器，它应该在验证失败时返回一个 Error 对象。 它被用
+    // 于验证数组或对象的每个值。验证器前两个参数的第一个是数组
+    // 或对象本身，第二个是它们对应的键。
     customArrayProp: function(
       propValue,
       key,
@@ -74,10 +83,6 @@ class Greeting extends React.Component {
         );
       }
     }
-    // 不过你可以提供一个自定义的 `arrayOf` 或 `objectOf`
-    // 验证器，它应该在验证失败时返回一个 Error 对象。 它被用
-    // 于验证数组或对象的每个值。验证器前两个参数的第一个是数组
-    // 或对象本身，第二个是它们对应的键。
   };
 
   static defaultProps = {
@@ -88,14 +93,12 @@ class Greeting extends React.Component {
   };
 
   render() {
-    return <h1>Hello, {this.props.required1}</h1>;
+    return <h1>Hello</h1>;
   }
 }
 
 class PropTypess extends PureComponent {
-  handleSearch = () => {
-    console.log("xxx");
-  };
+  handleSearch = () => {};
 
   render() {
     const props = {
