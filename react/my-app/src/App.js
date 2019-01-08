@@ -14,6 +14,7 @@ import JSXInDepth from "./13-JSXInDepth";
 import PropTypes from "./14-PropTypes";
 import RefsAndDOM from "./15-RefsAndDOM";
 import UncontrolledComponents from "./16-UncontrolledComponents";
+import OptimizingPerformance from "./17-OptimizingPerformance";
 import "./App.css";
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
         <PropTypes />
         <RefsAndDOM />
         <UncontrolledComponents />
+        <OptimizingPerformance />
       </Fragment>
     );
   }
