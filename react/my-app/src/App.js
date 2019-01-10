@@ -20,6 +20,7 @@ import Fragments from "./19-Fragments";
 import Portals from "./20-Portals";
 import ErrorBoundaries from "./21-ErrorBoundaries";
 import HigherOrderComponents from "./22-HigherOrderComponents";
+import CloneElement from "./23-cloneElement";
 import "./App.css";
 
 class App extends Component {
@@ -46,6 +47,7 @@ class App extends Component {
         <Fragments />
         <Portals />
         <HigherOrderComponents />
+        <CloneElement />
       </ErrorBoundaries>
     );
   }
