@@ -15,12 +15,17 @@ import PropTypes from "./14-PropTypes";
 import RefsAndDOM from "./15-RefsAndDOM";
 import UncontrolledComponents from "./16-UncontrolledComponents";
 import OptimizingPerformance from "./17-OptimizingPerformance";
+import ConText from "./18-Context";
+import Fragments from "./19-Fragments";
+import Portals from "./20-Portals";
+import ErrorBoundaries from "./21-ErrorBoundaries";
+import HigherOrderComponents from "./22-HigherOrderComponents";
 import "./App.css";
 
 class App extends Component {
   render() {
     return (
-      <Fragment>
+      <ErrorBoundaries>
         <HelloWorld />
         <IntroduceJsx />
         <RenderingElements />
@@ -37,7 +42,11 @@ class App extends Component {
         <RefsAndDOM />
         <UncontrolledComponents />
         <OptimizingPerformance />
-      </Fragment>
+        <ConText />
+        <Fragments />
+        <Portals />
+        <HigherOrderComponents />
+      </ErrorBoundaries>
     );
   }
 }
