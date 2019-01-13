@@ -20,7 +20,6 @@ class HandlingEvents extends PureComponent {
 
   handlePassingArg = (text, e) => {
     e.preventDefault();
-    console.log(text, "text");
   };
 
   render() {

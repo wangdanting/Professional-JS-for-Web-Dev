@@ -24,8 +24,8 @@ class Modal extends PureComponent {
   }
 
   render() {
-    console.log(this.props.children, "this.props.children");
-    console.log(this.el, "this.el");
+    // console.log(this.props.children, "this.props.children");
+    // console.log(this.el, "this.el");
     return ReactDOM.createPortal(this.props.children, this.el);
   }
 }

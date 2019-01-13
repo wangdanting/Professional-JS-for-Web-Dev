@@ -14,8 +14,8 @@ class UncontrolledComponents extends PureComponent {
   };
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.inputRef.value, "xxx");
-    console.log(this.fileRef.files[0].name, "xxx1");
+    // console.log(this.inputRef.value, "xxx");
+    // console.log(this.fileRef.files[0].name, "xxx1");
   };
   render() {
     return (

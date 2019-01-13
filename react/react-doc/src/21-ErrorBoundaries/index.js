@@ -5,10 +5,13 @@ class ErrorBoundaries extends PureComponent {
     hasError: false
   };
 
-  componentDidCatch(error, info) {
-    this.setState({
+  static getDerivedStateFromError(error) {
+    return {
       hasError: true
-    });
+    };
+  }
+
+  componentDidCatch(error, info) {
     console.log(error, "error");
     console.log(info, "info");
   }
