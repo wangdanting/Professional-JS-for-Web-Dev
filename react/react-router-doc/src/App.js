@@ -4,18 +4,19 @@ import {
   Route,
   Link,
   Switch,
-  NavLink,
-  Redirect
+  NavLink
 } from "react-router-dom";
 import Page1 from "./1-Page1";
 import Page2 from "./2-Page2";
 import NoContent from "./no-content";
 import Login from "./4-Login";
-import "./App.css";
+import Page4 from "./5-Page4";
+import Page5 from "./6-Page5";
+import ScrollToTop from "./ScrollToTop";
 
 const Header = (
   <nav>
-    <ul>
+    <ul style={{ width: "100", marginTop: "200" }}>
       <li>
         <Link to="/">Page1</Link>
       </li>
@@ -28,6 +29,12 @@ const Header = (
       </li>
       <li>
         <Link to="/page3">Page3</Link>
+      </li>
+      <li>
+        <Link to="/page4">Page4</Link>
+      </li>
+      <li>
+        <Link to="/page5">Page5</Link>
       </li>
     </ul>
   </nav>
@@ -61,19 +68,25 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Fragment>
+        <div style={{ display: "flex" }}>
           {Header}
-          <Switch>
-            <Route path="/login" component={Login} />
-            <Route path="/" exact component={Page1} />
-            <Route
-              path="/page2"
-              render={props => <Page2 {...props} extra={"abc"} />}
-            />
-            <Route path="/page3" component={Page3Parent} />
-            <Route component={NoContent} />
-          </Switch>
-        </Fragment>
+          <div style={{ flex: 1 }}>
+            <Switch>
+              <ScrollToTop>
+                <Route path="/login" component={Login} />
+                <Route path="/" exact component={Page1} />
+                <Route
+                  path="/page2"
+                  render={props => <Page2 {...props} extra={"abc"} />}
+                />
+                <Route path="/page3" component={Page3Parent} />
+                <Route path="/page4" component={Page4} />
+                <Route path="/page5" component={Page5} />
+                <Route component={NoContent} />
+              </ScrollToTop>
+            </Switch>
+          </div>
+        </div>
       </Router>
     );
   }
