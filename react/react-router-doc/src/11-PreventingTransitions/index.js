@@ -65,7 +65,7 @@ class Form extends PureComponent {
           />
         </p>
         <p>
-          <button>>Submit to stop blocking</button>
+          <button>Submit to stop blocking</button>
         </p>
       </form>
     );
