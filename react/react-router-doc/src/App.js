@@ -13,19 +13,23 @@ import Login from "./4-Login";
 import Page4 from "./5-Page4";
 import Page5 from "./6-Page5";
 import ScrollToTop from "./ScrollToTop";
-import Basic from "./7-Basic";
-import URLParameters from "./8-URLParameters";
-import Redirects from "./9-Redirects";
-import CustomLink from "./10-CustomLink";
-import PreventingTransitions from "./11-PreventingTransitions";
-import NoMatch from "./12-NoMatch";
-import RecursivePaths from "./13-RecursivePaths";
-import Sidebar from "./14-Sidebar";
-import AnimatedTransitions from "./15-AnimatedTransitions";
-import AmbiguousMatches from "./16-AmbiguousMatches";
-import RouteConfig from "./17-RouteConfig";
-import ModalGallery from "./18-ModalGallery";
-import StaticRouterExample from "./19-StaticRouterExample";
+
+import Basic from "./EXAMPLES/1-Basic";
+import URLParameters from "./EXAMPLES/2-URLParameters";
+import Redirects from "./EXAMPLES/3-Redirects";
+import CustomLink from "./EXAMPLES/4-CustomLink";
+import PreventingTransitions from "./EXAMPLES/5-PreventingTransitions";
+import NoMatch from "./EXAMPLES/6-NoMatch";
+import RecursivePaths from "./EXAMPLES/7-RecursivePaths";
+import Sidebar from "./EXAMPLES/8-Sidebar";
+import AnimatedTransitions from "./EXAMPLES/9-AnimatedTransitions";
+import AmbiguousMatches from "./EXAMPLES/10-AmbiguousMatches";
+import RouteConfig from "./EXAMPLES/11-RouteConfig";
+import ModalGallery from "./EXAMPLES/12-ModalGallery";
+import StaticRouterExample from "./EXAMPLES/13-StaticRouterExample";
+import QueryParameters from "./EXAMPLES/14-QueryParameters";
+
+import QuickStart from "./GUIDES/1-QuickStart";
 
 const Header = (
   <nav>
@@ -101,6 +105,7 @@ class App extends Component {
       //     </div>
       //   </div>
       // </Router>
+
       // <Basic />
       // <URLParameters />
       // <Redirects />
@@ -113,7 +118,10 @@ class App extends Component {
       // <AmbiguousMatches />
       // <RouteConfig />
       // <ModalGallery />
-      <StaticRouterExample />
+      // <StaticRouterExample />
+      // <QueryParameters />
+
+      <QuickStart />
     );
   }
 }

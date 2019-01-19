@@ -15,7 +15,6 @@ function RouteStatus(props) {
 }
 
 function PrintContext(props) {
-  console.log(props, "ooo");
   return <p>Static context: {JSON.stringify(props.staticContext)}</p>;
 }
 
