@@ -140,7 +140,7 @@ class ModalSwitch extends PureComponent {
 
     return (
       <div>
-        <Switch>
+        <Switch location={isModal ? this.previousLocation : location}>
           <Route exact path="/" component={Home} />
           <Route path="/gallery" component={Gallery} />
           <Route path="/img/:id" component={ImageView} />

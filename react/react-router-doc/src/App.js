@@ -25,6 +25,7 @@ import AnimatedTransitions from "./15-AnimatedTransitions";
 import AmbiguousMatches from "./16-AmbiguousMatches";
 import RouteConfig from "./17-RouteConfig";
 import ModalGallery from "./18-ModalGallery";
+import StaticRouterExample from "./19-StaticRouterExample";
 
 const Header = (
   <nav>
@@ -111,7 +112,8 @@ class App extends Component {
       // <AnimatedTransitions />
       // <AmbiguousMatches />
       // <RouteConfig />
-      <ModalGallery />
+      // <ModalGallery />
+      <StaticRouterExample />
     );
   }
 }
