@@ -23,6 +23,7 @@ import RecursivePaths from "./13-RecursivePaths";
 import Sidebar from "./14-Sidebar";
 import AnimatedTransitions from "./15-AnimatedTransitions";
 import AmbiguousMatches from "./16-AmbiguousMatches";
+import RouteConfig from "./17-RouteConfig";
 
 const Header = (
   <nav>
@@ -107,7 +108,8 @@ class App extends Component {
       // <RecursivePaths />
       // <Sidebar />
       // <AnimatedTransitions />
-      <AmbiguousMatches />
+      // <AmbiguousMatches />
+      <RouteConfig />
     );
   }
 }
