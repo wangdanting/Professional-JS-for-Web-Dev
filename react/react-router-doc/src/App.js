@@ -13,6 +13,15 @@ import Login from "./4-Login";
 import Page4 from "./5-Page4";
 import Page5 from "./6-Page5";
 import ScrollToTop from "./ScrollToTop";
+import Basic from "./7-Basic";
+import URLParameters from "./8-URLParameters";
+import Redirects from "./9-Redirects";
+import CustomLink from "./10-CustomLink";
+import PreventingTransitions from "./11-PreventingTransitions";
+import NoMatch from "./12-NoMatch";
+import RecursivePaths from "./13-RecursivePaths";
+import Sidebar from "./14-Sidebar";
+import AnimatedTransitions from "./15-AnimatedTransitions";
 
 const Header = (
   <nav>
@@ -67,27 +76,36 @@ const Page3Parent = ({ match }) => {
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div style={{ display: "flex" }}>
-          {Header}
-          <div style={{ flex: 1 }}>
-            <Switch>
-              <ScrollToTop>
-                <Route path="/login" component={Login} />
-                <Route path="/" exact component={Page1} />
-                <Route
-                  path="/page2"
-                  render={props => <Page2 {...props} extra={"abc"} />}
-                />
-                <Route path="/page3" component={Page3Parent} />
-                <Route path="/page4" component={Page4} />
-                <Route path="/page5" component={Page5} />
-                <Route component={NoContent} />
-              </ScrollToTop>
-            </Switch>
-          </div>
-        </div>
-      </Router>
+      // <Router>
+      //   <div style={{ display: "flex" }}>
+      //     {Header}
+      //     <div style={{ flex: 1 }}>
+      //       <Switch>
+      //         <ScrollToTop>
+      //           <Route path="/login" component={Login} />
+      //           <Route path="/" exact component={Page1} />
+      //           <Route
+      //             path="/page2"
+      //             render={props => <Page2 {...props} extra={"abc"} />}
+      //           />
+      //           <Route path="/page3" component={Page3Parent} />
+      //           <Route path="/page4" component={Page4} />
+      //           <Route path="/page5" component={Page5} />
+      //           <Route component={NoContent} />
+      //         </ScrollToTop>
+      //       </Switch>
+      //     </div>
+      //   </div>
+      // </Router>
+      // <Basic />
+      // <URLParameters />
+      // <Redirects />
+      // <CustomLink />
+      // <PreventingTransitions />
+      // <NoMatch />
+      // <RecursivePaths />
+      // <Sidebar />
+      <AnimatedTransitions />
     );
   }
 }
