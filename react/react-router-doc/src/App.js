@@ -24,6 +24,7 @@ import Sidebar from "./14-Sidebar";
 import AnimatedTransitions from "./15-AnimatedTransitions";
 import AmbiguousMatches from "./16-AmbiguousMatches";
 import RouteConfig from "./17-RouteConfig";
+import ModalGallery from "./18-ModalGallery";
 
 const Header = (
   <nav>
@@ -109,7 +110,8 @@ class App extends Component {
       // <Sidebar />
       // <AnimatedTransitions />
       // <AmbiguousMatches />
-      <RouteConfig />
+      // <RouteConfig />
+      <ModalGallery />
     );
   }
 }
