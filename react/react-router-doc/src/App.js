@@ -29,83 +29,11 @@ import ModalGallery from "./EXAMPLES/12-ModalGallery";
 import StaticRouterExample from "./EXAMPLES/13-StaticRouterExample";
 import QueryParameters from "./EXAMPLES/14-QueryParameters";
 
-import QuickStart from "./GUIDES/1-QuickStart";
-
-const Header = (
-  <nav>
-    <ul style={{ width: "100", marginTop: "200" }}>
-      <li>
-        <Link to="/">Page1</Link>
-      </li>
-      <li>
-        <NavLink to="/page2" activeClassName="hurray">
-          Page2
-        </NavLink>
-        {/*<a href="/page2">Page2</a>  */}
-        {/* 被激活时变成 <a href="/page2" class="hurray" aria-current="page">Page2</a>  */}
-      </li>
-      <li>
-        <Link to="/page3">Page3</Link>
-      </li>
-      <li>
-        <Link to="/page4">Page4</Link>
-      </li>
-      <li>
-        <Link to="/page5">Page5</Link>
-      </li>
-    </ul>
-  </nav>
-);
-
-const Page3 = ({ match }) => <h3>Requested Param: {match.params.id}</h3>;
-
-const Page3Parent = ({ match }) => {
-  console.log(match, "match"); //{isExact: true, params: {}, path: "/page3", url: "/page3"}
-  return (
-    <div>
-      <ul>
-        <li>
-          <Link to={`${match.url}/components`}>Components</Link>
-        </li>
-        <li>
-          <Link to={`${match.url}/props-v-state`}>Props v. State</Link>
-        </li>
-      </ul>
-      <Route path={`${match.path}/:id`} component={Page3} />
-      <Route
-        exact
-        path={match.path}
-        render={() => <h3>Please select a topic.</h3>}
-      />
-    </div>
-  );
-};
+import { BasicRouting, NestedRouting } from "./GUIDES/1-QuickStart";
 
 class App extends Component {
   render() {
     return (
-      // <Router>
-      //   <div style={{ display: "flex" }}>
-      //     {Header}
-      //     <div style={{ flex: 1 }}>
-      //       <Switch>
-      //         <ScrollToTop>
-      //           <Route path="/login" component={Login} />
-      //           <Route path="/" exact component={Page1} />
-      //           <Route
-      //             path="/page2"
-      //             render={props => <Page2 {...props} extra={"abc"} />}
-      //           />
-      //           <Route path="/page3" component={Page3Parent} />
-      //           <Route path="/page4" component={Page4} />
-      //           <Route path="/page5" component={Page5} />
-      //           <Route component={NoContent} />
-      //         </ScrollToTop>
-      //       </Switch>
-      //     </div>
-      //   </div>
-      // </Router>
-
       // <Basic />
       // <URLParameters />
       // <Redirects />
@@ -121,7 +49,8 @@ class App extends Component {
       // <StaticRouterExample />
       // <QueryParameters />
 
-      <QuickStart />
+      // <BasicRouting />
+      <NestedRouting />
     );
   }
 }
