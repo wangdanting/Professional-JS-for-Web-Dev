@@ -30,6 +30,13 @@ import StaticRouterExample from "./EXAMPLES/13-StaticRouterExample";
 import QueryParameters from "./EXAMPLES/14-QueryParameters";
 
 import { BasicRouting, NestedRouting } from "./GUIDES/1-QuickStart";
+import {
+  Routers,
+  RouteMatching,
+  SwitchMatching,
+  RouteRenderingProps,
+  Navigation
+} from "./GUIDES/2-BasicComponents";
 
 class App extends Component {
   render() {
@@ -50,7 +57,12 @@ class App extends Component {
       // <QueryParameters />
 
       // <BasicRouting />
-      <NestedRouting />
+      // <NestedRouting />
+      // <Routers />
+      // <RouteMatching />
+      // <SwitchMatching />
+      // <RouteRenderingProps />
+      <Navigation />
     );
   }
 }
