@@ -22,6 +22,7 @@ import NoMatch from "./12-NoMatch";
 import RecursivePaths from "./13-RecursivePaths";
 import Sidebar from "./14-Sidebar";
 import AnimatedTransitions from "./15-AnimatedTransitions";
+import AmbiguousMatches from "./16-AmbiguousMatches";
 
 const Header = (
   <nav>
@@ -105,7 +106,8 @@ class App extends Component {
       // <NoMatch />
       // <RecursivePaths />
       // <Sidebar />
-      <AnimatedTransitions />
+      // <AnimatedTransitions />
+      <AmbiguousMatches />
     );
   }
 }
