@@ -6,14 +6,6 @@ import {
   Switch,
   NavLink
 } from "react-router-dom";
-import Page1 from "./1-Page1";
-import Page2 from "./2-Page2";
-import NoContent from "./no-content";
-import Login from "./4-Login";
-import Page4 from "./5-Page4";
-import Page5 from "./6-Page5";
-import ScrollToTop from "./ScrollToTop";
-
 import Basic from "./EXAMPLES/1-Basic";
 import URLParameters from "./EXAMPLES/2-URLParameters";
 import Redirects from "./EXAMPLES/3-Redirects";
@@ -37,6 +29,7 @@ import {
   RouteRenderingProps,
   Navigation
 } from "./GUIDES/2-BasicComponents";
+import { ScrollToTop } from "./GUIDES/3-ScrollRestoration";
 
 class App extends Component {
   render() {
@@ -62,7 +55,8 @@ class App extends Component {
       // <RouteMatching />
       // <SwitchMatching />
       // <RouteRenderingProps />
-      <Navigation />
+      // <Navigation />
+      <ScrollToTop />
     );
   }
 }
