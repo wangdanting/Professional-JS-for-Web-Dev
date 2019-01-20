@@ -42,7 +42,14 @@ import {
 // } from "./API/1-BrowserRouter";
 
 // import { Basename, GetUserConfirmation, HashType } from "./API/2-HashRouter";
-import { ToString, ToObject, Replace, InnerRef } from "./API/3-Link";
+// import { ToString, ToObject, Replace, InnerRef } from "./API/3-Link";
+import {
+  ActiveClassName,
+  ActiveStyle,
+  Exact,
+  Strict,
+  IsActive
+} from "./API/4-NavLink";
 class App extends Component {
   render() {
     return (
@@ -83,7 +90,12 @@ class App extends Component {
       // <ToString />
       // <ToObject />
       // <Replace />
-      <InnerRef />
+      // <InnerRef />
+      // <ActiveClassName />
+      // <ActiveStyle />
+      // <Exact />
+      // <Strict />
+      <IsActive />
     );
   }
 }
