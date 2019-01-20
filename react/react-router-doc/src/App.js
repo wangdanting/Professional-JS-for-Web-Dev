@@ -31,6 +31,7 @@ import {
 } from "./GUIDES/2-BasicComponents";
 import { ScrollToTop } from "./GUIDES/3-ScrollRestoration";
 import ResponsiveRoutes from "./GUIDES/4-ResponsiveRoutes";
+import { UpdateBlocker, Solution } from "./GUIDES/5-UpdateBlocking";
 
 class App extends Component {
   render() {
@@ -58,7 +59,9 @@ class App extends Component {
       // <RouteRenderingProps />
       // <Navigation />
       // <ScrollToTop />
-      <ResponsiveRoutes />
+      // <ResponsiveRoutes />
+      // <UpdateBlocker />
+      <Solution />
     );
   }
 }

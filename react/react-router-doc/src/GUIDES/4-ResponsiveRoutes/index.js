@@ -26,6 +26,7 @@ const ResponsiveRoutes = () => (
           <Link to="/about">About</Link>
         </li>
       </ul>
+
       <Switch>
         <Route path="/home" component={Home} />
         <Route path="/about" component={About} />
