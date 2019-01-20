@@ -41,8 +41,8 @@ import {
 //   KeyLength
 // } from "./API/1-BrowserRouter";
 
-import { Basename, GetUserConfirmation, HashType } from "./API/2-HashRouter";
-
+// import { Basename, GetUserConfirmation, HashType } from "./API/2-HashRouter";
+import { ToString, ToObject, Replace, InnerRef } from "./API/3-Link";
 class App extends Component {
   render() {
     return (
@@ -79,7 +79,11 @@ class App extends Component {
       // <KeyLength />
       // <Basename />
       // <GetUserConfirmation />
-      <HashType />
+      // <HashType />
+      // <ToString />
+      // <ToObject />
+      // <Replace />
+      <InnerRef />
     );
   }
 }
