@@ -32,6 +32,12 @@ import {
 import { ScrollToTop } from "./GUIDES/3-ScrollRestoration";
 import ResponsiveRoutes from "./GUIDES/4-ResponsiveRoutes";
 import { UpdateBlocker, Solution } from "./GUIDES/5-UpdateBlocking";
+import {
+  Basename,
+  GetUserConfirmation,
+  ForceRefresh,
+  KeyLength
+} from "./API/1-BrowserRouter";
 
 class App extends Component {
   render() {
@@ -61,7 +67,12 @@ class App extends Component {
       // <ScrollToTop />
       // <ResponsiveRoutes />
       // <UpdateBlocker />
-      <Solution />
+      // <Solution />
+
+      // <Basename />
+      // <GetUserConfirmation />
+      // <ForceRefresh />
+      <KeyLength />
     );
   }
 }
