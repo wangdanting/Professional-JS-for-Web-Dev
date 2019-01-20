@@ -30,6 +30,7 @@ import {
   Navigation
 } from "./GUIDES/2-BasicComponents";
 import { ScrollToTop } from "./GUIDES/3-ScrollRestoration";
+import ResponsiveRoutes from "./GUIDES/4-ResponsiveRoutes";
 
 class App extends Component {
   render() {
@@ -56,7 +57,8 @@ class App extends Component {
       // <SwitchMatching />
       // <RouteRenderingProps />
       // <Navigation />
-      <ScrollToTop />
+      // <ScrollToTop />
+      <ResponsiveRoutes />
     );
   }
 }
