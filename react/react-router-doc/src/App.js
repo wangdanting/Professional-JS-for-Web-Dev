@@ -43,13 +43,19 @@ import {
 
 // import { Basename, GetUserConfirmation, HashType } from "./API/2-HashRouter";
 // import { ToString, ToObject, Replace, InnerRef } from "./API/3-Link";
-import {
-  ActiveClassName,
-  ActiveStyle,
-  Exact,
-  Strict,
-  IsActive
-} from "./API/4-NavLink";
+// import {
+//   ActiveClassName,
+//   ActiveStyle,
+//   Exact,
+//   Strict,
+//   IsActive
+// } from "./API/4-NavLink";
+// import { InitialEntries, MemoryRouter } from "./API/5-MemoryRouter";
+// import { ToString, ToObject, Push, From } from "./API/6-Redirect";
+// import { ComponentCom, Render, Children, Path } from "./API/7-Route";
+// import { NoMatch } from "./API/8-Switch";
+// import History from "./API/9-History";
+import WithRouter from "./API/10-WithRouter";
 class App extends Component {
   render() {
     return (
@@ -95,7 +101,20 @@ class App extends Component {
       // <ActiveStyle />
       // <Exact />
       // <Strict />
-      <IsActive />
+      // <IsActive />
+      // <MemoryRouter />
+      // <InitialEntries />
+      // <ToString />
+      // <ToObject />
+      // <Push />
+      // <From />
+      // <ComponentCom />
+      // <Render />
+      // <Children />
+      // <Path />
+      // <NoMatch />
+      // <History />
+      <WithRouter />
     );
   }
 }
