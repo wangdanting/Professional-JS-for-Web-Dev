@@ -1,7 +1,7 @@
 import React from "react";
 import { NoUseRedux, UseRedux } from "./1-Summary";
 import { CoreConcepts } from "./2-Introduction";
-import Counter from "./Example/1-counter";
+import { Counter, Todos } from "./Example";
 
 const routes = [
   {
@@ -29,6 +29,11 @@ const routes = [
     path: "/example/counter",
     name: "counter",
     main: () => <Counter />
+  },
+  {
+    path: "/example/todos",
+    name: "todos",
+    main: () => <Todos />
   }
 ];
 
