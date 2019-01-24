@@ -1,4 +1,5 @@
 import React, { PureComponent, Fragment } from "react";
+import { combineReducers, createStore } from "redux";
 
 const visibilityFilter = (state = "SHOW_ALL", action) => {
   switch (action.type) {
@@ -12,27 +13,32 @@ const visibilityFilter = (state = "SHOW_ALL", action) => {
 const todos = (state = [], action) => {
   switch (action.type) {
     case "ADD_TODO":
-      return state.concat([{ text: action.text, completed: false }]);
+      return [
+        ...state,
+        {
+          text: action.text,
+          completed: false
+        }
+      ];
     case "TOGGLE_TODO":
-      return state.map((todo, index) =>
-        action.index === index
-          ? { text: todo.text, completed: !todo.completed }
-          : todo
-      );
+      return state.map((todo, index) => {
+        if (index === action.index) {
+          return Object.assign({}, todo, {
+            completed: true
+          });
+        }
+        return todo;
+      });
     default:
       return state;
   }
 };
 
-const todoApp = (state = {}, action) => {
-  return {
-    todos: todos(state.todos, action),
-    visibilityFilter: visibilityFilter(state.visibilityFilter, action)
-  };
-};
+const reducer = combineReducers({ visibilityFilter, todos });
+const store = createStore(reducer);
 
 class CoreConcepts extends PureComponent {
-  state = todoApp(
+  state = store(
     {
       todos: [
         {
@@ -48,10 +54,6 @@ class CoreConcepts extends PureComponent {
     },
     {}
   );
-
-  dispatch(action) {
-    this.setState(prevState => todoApp(prevState, action));
-  }
 
   AddTodo = () => {
     this.dispatch({ type: "ADD_TODO", text: "Go to swimming pool" });

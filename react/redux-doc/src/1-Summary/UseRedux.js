@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import { createStore } from "redux";
 
 const counter = (state = { value: 0 }, action) => {
@@ -14,25 +14,24 @@ const counter = (state = { value: 0 }, action) => {
 
 const store = createStore(counter);
 
-store.subscribe(() => console.log(store.getState()));
+const increment = () => {
+  store.dispatch({ type: "INCREMENT" });
+};
 
-class UseRedux extends Component {
-  increment = () => {
-    store.dispatch({ type: "INCREMENT" });
-  };
+const decrement = () => {
+  store.dispatch({ type: "DECREMENT" });
+};
 
-  decrement = () => {
-    store.dispatch({ type: "DECREMENT" });
-  };
+const UseRedux = () => {
+  return (
+    <Fragment>
+      {store.getState().value}
+      <button onClick={increment}>+</button>
+      <button onClick={decrement}>-</button>
+    </Fragment>
+  );
+};
 
-  render() {
-    return (
-      <Fragment>
-        <button onClick={this.increment}>+</button>
-        <button onClick={this.decrement}>-</button>
-      </Fragment>
-    );
-  }
-}
+store.subscribe(() => console.log(store.getState(), "dd"));
 
 export default UseRedux;
