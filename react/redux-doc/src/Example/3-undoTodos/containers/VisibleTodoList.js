@@ -21,12 +21,8 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onUTodoClick: id => {
-      return dispatch(toggleUTodo(id));
-    }
-  };
+const mapDispatchToProps = {
+  onUTodoClick: id => toggleUTodo(id)
 };
 
 export default connect(

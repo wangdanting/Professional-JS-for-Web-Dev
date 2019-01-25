@@ -21,11 +21,9 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onUndo: UndoActionCreators.undo,
-    onRedo: UndoActionCreators.redo
-  };
+const mapDispatchToProps = {
+  onUndo: UndoActionCreators.undo,
+  onRedo: UndoActionCreators.redo
 };
 
 UndoRedo = connect(
