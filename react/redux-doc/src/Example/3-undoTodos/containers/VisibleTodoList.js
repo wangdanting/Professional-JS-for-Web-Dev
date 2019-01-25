@@ -3,7 +3,6 @@ import TodoList from "../components/TodoList";
 import { toggleUTodo } from "../../actions/undoTodos";
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state, "state");
   return {
     uTodos: state.uTodos.present
   };
@@ -11,7 +10,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onUTodoClick: toggleUTodo
+    onUTodoClick: id => {
+      return dispatch(toggleUTodo(id));
+    }
   };
 };
 

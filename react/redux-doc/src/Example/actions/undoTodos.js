@@ -5,13 +5,10 @@ export const addUTodos = text => ({
   text
 });
 
-export const toggleUTodo = id => {
-  console.log(id, "id1");
-  return {
-    type: "TOGGLE_UTODO",
-    id
-  };
-};
+export const toggleUTodo = id => ({
+  type: "TOGGLE_UTODO",
+  id
+});
 
 export const VisibilityFilters = {
   SHOW_ALL: "SHOW_ALL",

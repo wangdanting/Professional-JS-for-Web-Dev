@@ -9,7 +9,6 @@ const todo = (state, action) => {
         completed: false
       };
     case "TOGGLE_UTODO":
-      console.log("xx");
       if (state.id !== action.id) {
         return state;
       }
