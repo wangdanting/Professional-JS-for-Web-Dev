@@ -10,6 +10,11 @@ export const toggleUTodo = id => ({
   id
 });
 
+export const setVisibilityFilter = filter => ({
+  type: "SET_UVISIBILITY_FILTER",
+  filter
+});
+
 export const VisibilityFilters = {
   SHOW_ALL: "SHOW_ALL",
   SHOW_COMPLETED: "SHOW_COMPLETED",

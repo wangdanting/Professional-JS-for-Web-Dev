@@ -26,13 +26,23 @@ const uTodos = (state = [], action) => {
     case "ADD_UTODOS":
       return [...state, todo(undefined, action)];
     case "TOGGLE_UTODO":
-      console.log("xx1");
       return state.map(t => todo(t, action));
     default:
       return state;
   }
 };
 
-// export const uVisibilityFilter = (state)
+export const uVisibilityFilter = (state = "SHOW_ALL", action) => {
+  switch (action.type) {
+    case "SET_UVISIBILITY_FILTER":
+      return action.filter;
+    default:
+      return state;
+  }
+};
+
+// export const undoableTodos = undoable(uTodos, {
+//   filter: includeAction(["ADD_UTODOS", "TOGGLE_UTODO"])
+// });
 
 export const undoableTodos = undoable(uTodos);
