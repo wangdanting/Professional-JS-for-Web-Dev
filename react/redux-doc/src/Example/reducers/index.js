@@ -1,8 +1,9 @@
 import { combineReducers } from "redux";
 import counter from "./counter";
-import { todos } from "./todos";
+import { todos, visibilityFilter } from "./todos";
 
 export default combineReducers({
   counter,
-  todos
+  todos,
+  visibilityFilter
 });
