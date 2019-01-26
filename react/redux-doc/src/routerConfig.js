@@ -1,7 +1,7 @@
 import React from "react";
 import { NoUseRedux, UseRedux } from "./1-Summary";
 import { CoreConcepts } from "./2-Introduction";
-import { Counter, Todos, UndoTodos } from "./Example";
+import { Counter, Todos, UndoTodos, Todomvc } from "./Example";
 
 const routes = [
   {
@@ -39,6 +39,11 @@ const routes = [
     path: "/example/undoTodos",
     name: "undoTodos",
     main: () => <UndoTodos />
+  },
+  {
+    path: "/example/todomvc",
+    name: "todomvc",
+    main: () => <Todomvc />
   }
 ];
 
