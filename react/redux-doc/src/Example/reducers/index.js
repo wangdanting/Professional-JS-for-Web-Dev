@@ -2,7 +2,10 @@ import { combineReducers } from "redux";
 import counter from "./counter";
 import { todos, visibilityFilter } from "./todos";
 import { undoableTodos as uTodos, uVisibilityFilter } from "./undoTodos";
-import { todos as mTodos } from "./todomvc";
+import {
+  todos as mTodos,
+  visibilityFilter as mVisibilityFilter
+} from "./todomvc";
 
 export default combineReducers({
   counter,
@@ -10,5 +13,6 @@ export default combineReducers({
   visibilityFilter,
   uTodos,
   uVisibilityFilter,
-  mTodos
+  mTodos,
+  mVisibilityFilter
 });
