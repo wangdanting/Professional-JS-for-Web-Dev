@@ -1,4 +1,7 @@
-import { ADD_TODO } from "../4-todomvc/constants/ActionTypes";
+import {
+  ADD_TODO,
+  COMPLETE_ALL_TODOS
+} from "../4-todomvc/constants/ActionTypes";
 
 const initialState = [
   {
@@ -19,6 +22,12 @@ export const todos = (state = initialState, action) => {
           text: action.text
         }
       ];
+    case COMPLETE_ALL_TODOS:
+      const areAllMarked = state.every(todo => todo.completed);
+      return state.map(todo => ({
+        ...todo,
+        completed: !areAllMarked
+      }));
     default:
       return state;
   }
