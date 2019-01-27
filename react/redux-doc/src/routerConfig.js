@@ -1,7 +1,7 @@
 import React from "react";
 import { NoUseRedux, UseRedux } from "./1-Summary";
 import { CoreConcepts } from "./2-Introduction";
-import { Counter, Todos, UndoTodos, Todomvc } from "./Example";
+import { Counter, Todos, UndoTodos, Todomvc, ShoppingCart } from "./Example";
 
 const routes = [
   {
@@ -45,6 +45,11 @@ const routes = [
     name: "todomvc",
     main: () => <Todomvc />
   }
+  // {
+  //   path: "/example/shoppingCart",
+  //   name: "shoppingCart",
+  //   main: () => <ShoppingCart />
+  // }
 ];
 
 export default routes;

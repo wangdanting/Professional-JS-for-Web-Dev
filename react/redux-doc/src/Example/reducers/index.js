@@ -6,6 +6,7 @@ import {
   todos as mTodos,
   visibilityFilter as mVisibilityFilter
 } from "./todomvc";
+import { products } from "./shoppingCart";
 
 export default combineReducers({
   counter,
@@ -14,5 +15,6 @@ export default combineReducers({
   uTodos,
   uVisibilityFilter,
   mTodos,
-  mVisibilityFilter
+  mVisibilityFilter,
+  products
 });
