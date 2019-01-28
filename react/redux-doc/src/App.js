@@ -1,13 +1,23 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
+import { createLogger } from "redux-logger";
+import thunk from "redux-thunk";
 
 import rootReducer from "./Example/reducers";
 import routes from "./routerConfig";
 import "./App.css";
+import { getAllProducts } from "./Example/actions/shoppingCart";
 
-const store = createStore(rootReducer);
+const middleware = [thunk];
+if (process.env.NODE_ENV !== "production") {
+  middleware.push(createLogger());
+}
+
+const store = createStore(rootReducer, applyMiddleware(...middleware));
+
+store.dispatch(getAllProducts());
 
 class App extends Component {
   render() {

@@ -44,12 +44,12 @@ const routes = [
     path: "/example/todomvc",
     name: "todomvc",
     main: () => <Todomvc />
+  },
+  {
+    path: "/example/shoppingCart",
+    name: "shoppingCart",
+    main: () => <ShoppingCart />
   }
-  // {
-  //   path: "/example/shoppingCart",
-  //   name: "shoppingCart",
-  //   main: () => <ShoppingCart />
-  // }
 ];
 
 export default routes;
