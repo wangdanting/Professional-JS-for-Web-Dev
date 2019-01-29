@@ -1,7 +1,9 @@
 import { combineReducers } from "redux";
 import {
   RECEIVE_PRODUCTS,
-  ADD_TO_CART
+  ADD_TO_CART,
+  CHECKOUT_REQUEST,
+  CHECKOUT_SUCCESS
 } from "../5-shopping-cart/constants/ActionTypes";
 
 const initialState = {
@@ -90,10 +92,17 @@ const quantityById = (state = initialState.quantityById, action) => {
   }
 };
 
-export const cart = combineReducers({
-  addedIds,
-  quantityById
-});
+export const cart = (state = initialState, action) => {
+  switch (action.type) {
+    case CHECKOUT_REQUEST:
+      return initialState;
+    default:
+      return {
+        addedIds: addedIds(state.addedIds, action),
+        quantityById: quantityById(state.quantityById, action)
+      };
+  }
+};
 
 export const getAddedIds = state => state.addedIds;
 export const getQuantity = (state, productId) =>
@@ -111,7 +120,6 @@ export const getTotal = state => {
 };
 
 export const getCartProducts = state => {
-  console.log(state, "state");
   return getAddedIds(state.cart).map(id => ({
     ...getProduct(state.products, id),
     quantity: getQuantity(state.cart, id)
