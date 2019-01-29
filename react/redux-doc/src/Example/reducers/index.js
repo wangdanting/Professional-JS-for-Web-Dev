@@ -7,6 +7,7 @@ import {
   visibilityFilter as mVisibilityFilter
 } from "./todomvc";
 import { products, cart } from "./shoppingCart";
+import tree from "./treeView";
 
 export default combineReducers({
   counter,
@@ -17,5 +18,6 @@ export default combineReducers({
   mTodos,
   mVisibilityFilter,
   products,
-  cart
+  cart,
+  tree
 });

@@ -1,7 +1,14 @@
 import React from "react";
 import { NoUseRedux, UseRedux } from "./1-Summary";
 import { CoreConcepts } from "./2-Introduction";
-import { Counter, Todos, UndoTodos, Todomvc, ShoppingCart } from "./Example";
+import {
+  Counter,
+  Todos,
+  UndoTodos,
+  Todomvc,
+  ShoppingCart,
+  TreeView
+} from "./Example";
 
 const routes = [
   {
@@ -49,6 +56,11 @@ const routes = [
     path: "/example/shoppingCart",
     name: "shoppingCart",
     main: () => <ShoppingCart />
+  },
+  {
+    path: "/example/treeView",
+    name: "treeView",
+    main: () => <TreeView />
   }
 ];
 
