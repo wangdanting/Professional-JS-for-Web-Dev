@@ -8,6 +8,7 @@ import {
 } from "./todomvc";
 import { products, cart } from "./shoppingCart";
 import tree from "./treeView";
+import async from "./async";
 
 export default combineReducers({
   counter,
@@ -19,5 +20,6 @@ export default combineReducers({
   mVisibilityFilter,
   products,
   cart,
-  tree
+  tree,
+  async
 });

@@ -7,7 +7,8 @@ import {
   UndoTodos,
   Todomvc,
   ShoppingCart,
-  TreeView
+  TreeView,
+  Async
 } from "./Example";
 
 const routes = [
@@ -61,6 +62,11 @@ const routes = [
     path: "/example/treeView",
     name: "treeView",
     main: () => <TreeView />
+  },
+  {
+    path: "/example/async",
+    name: "async",
+    main: () => <Async />
   }
 ];
 
