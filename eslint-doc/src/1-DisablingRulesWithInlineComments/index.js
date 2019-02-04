@@ -8,3 +8,6 @@ export {
 export {
 	default as EslintDisableForSpecificRulesInEntireFile
 } from './4-EslintDisableForSpecificRulesInEntireFile';
+export {
+	default as EslintDisableRulesOnASpecificLine
+} from './5-EslintDisableRulesOnASpecificLine';
