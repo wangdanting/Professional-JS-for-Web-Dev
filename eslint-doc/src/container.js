@@ -11,7 +11,9 @@ import {
 	ForDirection,
 	GetterReturn,
 	NoAwaitInLoop,
-	NoCompareNegZero
+	NoCompareNegZero,
+	NoCondAssign,
+	NoConsole
 } from './2-Rules';
 const Container = () => (
 	<Fragment>
@@ -24,6 +26,8 @@ const Container = () => (
 		<GetterReturn />
 		<NoAwaitInLoop />
 		<NoCompareNegZero />
+		<NoCondAssign />
+		<NoConsole />
 	</Fragment>
 );
 
