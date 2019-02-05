@@ -19,3 +19,8 @@ export { default as NoExtraSemi } from './18-NoExtraSemi';
 export { default as NoFuncAssign } from './19-NoFuncAssign';
 export { default as NoInnerDeclarations } from './20-NoInnerDeclarations';
 export { default as NoInvalidRegexp } from './21-NoInvalidRegexp';
+export { default as NoIrregularWhiteSpace } from './22-NoIrregularWhiteSpace';
+export { default as NoObjCalls } from './23-NoObjCalls';
+export { default as NoPrototypeBuiltins } from './24-NoPrototypeBuiltins';
+export { default as NoRegexSpaces } from './25-NoRegexSpaces';
+export { default as NoSparseArrays } from './26-NoSparseArrays';

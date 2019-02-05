@@ -28,7 +28,12 @@ import {
 	NoExtraSemi,
 	NoFuncAssign,
 	NoInnerDeclarations,
-	NoInvalidRegexp
+	NoInvalidRegexp,
+	NoIrregularWhiteSpace,
+	NoObjCalls,
+	NoPrototypeBuiltins,
+	NoRegexSpaces,
+	NoSparseArrays
 } from './2-Rules';
 const Container = () => (
 	<Fragment>
@@ -58,6 +63,11 @@ const Container = () => (
 		<NoFuncAssign />
 		<NoInnerDeclarations />
 		<NoInvalidRegexp />
+		<NoIrregularWhiteSpace />
+		<NoObjCalls />
+		<NoPrototypeBuiltins />
+		<NoRegexSpaces />
+		<NoSparseArrays />
 	</Fragment>
 );
 
