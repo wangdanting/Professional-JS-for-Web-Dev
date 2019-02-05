@@ -13,7 +13,12 @@ import {
 	NoAwaitInLoop,
 	NoCompareNegZero,
 	NoCondAssign,
-	NoConsole
+	NoConsole,
+	NoConstantCondition,
+	NoControlRegex,
+	NoDebugger,
+	NoDupeArgs,
+	NoDupeKeys
 } from './2-Rules';
 const Container = () => (
 	<Fragment>
@@ -28,6 +33,11 @@ const Container = () => (
 		<NoCompareNegZero />
 		<NoCondAssign />
 		<NoConsole />
+		<NoConstantCondition />
+		<NoControlRegex />
+		<NoDebugger />
+		<NoDupeArgs />
+		<NoDupeKeys />
 	</Fragment>
 );
 

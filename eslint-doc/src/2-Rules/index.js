@@ -4,3 +4,8 @@ export { default as NoAwaitInLoop } from './3-NoAwaitInLoop';
 export { default as NoCompareNegZero } from './4-NoCompareNegZero';
 export { default as NoCondAssign } from './5-NoCondAssign';
 export { default as NoConsole } from './6-NoConsole';
+export { default as NoConstantCondition } from './7-NoConstantCondition';
+export { default as NoControlRegex } from './8-NoControlRegex';
+export { default as NoDebugger } from './9-NoDebugger';
+export { default as NoDupeArgs } from './10-NoDupeArgs';
+export { default as NoDupeKeys } from './11-NoDupeKeys';
