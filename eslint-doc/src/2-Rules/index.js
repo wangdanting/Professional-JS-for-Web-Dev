@@ -14,3 +14,8 @@ export { default as NoEmpty } from './13-NoEmpty';
 export { default as NoEmptyCharacterClass } from './14-NoEmptyCharacterClass';
 export { default as NoExAssign } from './15-NoExAssign';
 export { default as NoExtraBooleanCast } from './16-NoExtraBooleanCast';
+export { default as NoExtraParens } from './17-NoExtraParens';
+export { default as NoExtraSemi } from './18-NoExtraSemi';
+export { default as NoFuncAssign } from './19-NoFuncAssign';
+export { default as NoInnerDeclarations } from './20-NoInnerDeclarations';
+export { default as NoInvalidRegexp } from './21-NoInvalidRegexp';

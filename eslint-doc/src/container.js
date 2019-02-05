@@ -23,7 +23,12 @@ import {
 	NoEmpty,
 	NoEmptyCharacterClass,
 	NoExAssign,
-	NoExtraBooleanCast
+	NoExtraBooleanCast,
+	NoExtraParens,
+	NoExtraSemi,
+	NoFuncAssign,
+	NoInnerDeclarations,
+	NoInvalidRegexp
 } from './2-Rules';
 const Container = () => (
 	<Fragment>
@@ -48,6 +53,11 @@ const Container = () => (
 		<NoEmptyCharacterClass />
 		<NoExAssign />
 		<NoExtraBooleanCast />
+		<NoExtraParens />
+		<NoExtraSemi />
+		<NoFuncAssign />
+		<NoInnerDeclarations />
+		<NoInvalidRegexp />
 	</Fragment>
 );
 
