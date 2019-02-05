@@ -33,7 +33,13 @@ import {
 	NoObjCalls,
 	NoPrototypeBuiltins,
 	NoRegexSpaces,
-	NoSparseArrays
+	NoSparseArrays,
+	NoTemplateCurly,
+	NoUnexpectedMultiline,
+	NoUnreachable,
+	NoUnsafeFinally,
+	NoUnsafeNegation,
+	UseIsnan
 } from './2-Rules';
 const Container = () => (
 	<Fragment>
@@ -68,6 +74,12 @@ const Container = () => (
 		<NoPrototypeBuiltins />
 		<NoRegexSpaces />
 		<NoSparseArrays />
+		<NoTemplateCurly />
+		<NoUnexpectedMultiline />
+		<NoUnreachable />
+		<NoUnsafeFinally />
+		<NoUnsafeNegation />
+		<UseIsnan />
 	</Fragment>
 );
 
