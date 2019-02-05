@@ -18,7 +18,12 @@ import {
 	NoControlRegex,
 	NoDebugger,
 	NoDupeArgs,
-	NoDupeKeys
+	NoDupeKeys,
+	NoDuplicateCase,
+	NoEmpty,
+	NoEmptyCharacterClass,
+	NoExAssign,
+	NoExtraBooleanCast
 } from './2-Rules';
 const Container = () => (
 	<Fragment>
@@ -38,6 +43,11 @@ const Container = () => (
 		<NoDebugger />
 		<NoDupeArgs />
 		<NoDupeKeys />
+		<NoDuplicateCase />
+		<NoEmpty />
+		<NoEmptyCharacterClass />
+		<NoExAssign />
+		<NoExtraBooleanCast />
 	</Fragment>
 );
 

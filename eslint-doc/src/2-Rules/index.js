@@ -9,3 +9,8 @@ export { default as NoControlRegex } from './8-NoControlRegex';
 export { default as NoDebugger } from './9-NoDebugger';
 export { default as NoDupeArgs } from './10-NoDupeArgs';
 export { default as NoDupeKeys } from './11-NoDupeKeys';
+export { default as NoDuplicateCase } from './12-NoDuplicateCase';
+export { default as NoEmpty } from './13-NoEmpty';
+export { default as NoEmptyCharacterClass } from './14-NoEmptyCharacterClass';
+export { default as NoExAssign } from './15-NoExAssign';
+export { default as NoExtraBooleanCast } from './16-NoExtraBooleanCast';
