@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React, { Fragment } from "react";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 function Sandwiches() {
   return <h2>Sandwiches</h2>;
@@ -13,7 +13,7 @@ function Cart() {
   return <h3>Cart</h3>;
 }
 
-function Tacos({ routes }) {
+function Tacos({ children }) {
   return (
     <div>
       <h2>Tacos</h2>
@@ -26,9 +26,7 @@ function Tacos({ routes }) {
         </li>
       </ul>
 
-      {routes.map((route, i) => (
-        <RouteWithSubRoutes key={route.path} {...route} />
-      ))}
+      {children}
     </div>
   );
 }
@@ -54,17 +52,24 @@ const routes = [
   }
 ];
 
-function RouteWithSubRoutes(route) {
-  return (
-    <Route
-      path={route.path}
-      render={() => {
-        const Component = route.component;
-        return <Component routes={route.routes} />;
-      }}
-    />
-  );
-}
+const RouteWithSubRoutes = route => (
+  <Route
+    path={route.path}
+    render={props => {
+      let child = null;
+      if (route.routes) {
+        child = route.routes.map(item => (
+          <RouteWithSubRoutes key={item.path} {...item} />
+        ));
+      }
+      return (
+        <route.component {...props} routes={route.routes}>
+          <Switch>{child}</Switch>
+        </route.component>
+      );
+    }}
+  />
+);
 
 function RouteConfig() {
   return (
@@ -78,9 +83,12 @@ function RouteConfig() {
             <Link to="/sandwiches">Sandwiches</Link>
           </li>
         </ul>
-        {routes.map(route => (
-          <RouteWithSubRoutes key={route.path} {...route} />
-        ))}
+
+        <Switch>
+          {routes.map(route => (
+            <RouteWithSubRoutes key={route.path} {...route} />
+          ))}
+        </Switch>
       </div>
     </Router>
   );

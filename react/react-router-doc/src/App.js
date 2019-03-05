@@ -17,7 +17,7 @@ import {
 // import Sidebar from "./EXAMPLES/8-Sidebar";
 // import AnimatedTransitions from "./EXAMPLES/9-AnimatedTransitions";
 // import AmbiguousMatches from "./EXAMPLES/10-AmbiguousMatches";
-// import RouteConfig from "./EXAMPLES/11-RouteConfig";
+import RouteConfig from "./EXAMPLES/11-RouteConfig";
 // import ModalGallery from "./EXAMPLES/12-ModalGallery";
 // import StaticRouterExample from "./EXAMPLES/13-StaticRouterExample";
 // import QueryParameters from "./EXAMPLES/14-QueryParameters";
@@ -55,7 +55,7 @@ import {
 // import { ComponentCom, Render, Children, Path } from "./API/7-Route";
 // import { NoMatch } from "./API/8-Switch";
 // import History from "./API/9-History";
-import WithRouter from "./API/10-WithRouter";
+// import WithRouter from "./API/10-WithRouter";
 class App extends Component {
   render() {
     return (
@@ -69,7 +69,7 @@ class App extends Component {
       // <Sidebar />
       // <AnimatedTransitions />
       // <AmbiguousMatches />
-      // <RouteConfig />
+      <RouteConfig />
       // <ModalGallery />
       // <StaticRouterExample />
       // <QueryParameters />
@@ -114,7 +114,7 @@ class App extends Component {
       // <Path />
       // <NoMatch />
       // <History />
-      <WithRouter />
+      // <WithRouter />
     );
   }
 }
