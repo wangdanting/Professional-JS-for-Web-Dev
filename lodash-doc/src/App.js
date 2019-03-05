@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { chunk } from "./Array";
+import { chunk, slice } from "./Array";
 
 class App extends Component {
   componentDidMount() {
     chunk([1, 2, 3, 4, { r: 1 }], 2);
+    console.log(slice([1, 2, 3, 4, { r: 1 }], 0, 1), "dd");
   }
   render() {
     return (
