@@ -15,6 +15,8 @@
  * // => [['a', 'b', 'c'], ['d']]
  */
 
+import slice from "./slice";
+
 function chunk(array, size) {
   size = Math.max(size, 0);
   const length = array === null ? 0 : array.length;
@@ -25,9 +27,10 @@ function chunk(array, size) {
   let resIndex = 0;
   const result = new Array(Math.ceil(length / size));
 
-  // while(index < length) {
-  //   result[resIndex ++] =
-  // }
+  while (index < length) {
+    result[resIndex++] = slice(array, index, (index += size));
+  }
+  return result;
 }
 
 export default chunk;
