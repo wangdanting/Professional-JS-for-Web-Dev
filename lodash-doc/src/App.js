@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import { isObjectLike } from "./Lang";
 
 class App extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(isObjectLike(this.abc), "p");
+  }
+  abc = () => {};
   render() {
     return (
       <div className="App">
