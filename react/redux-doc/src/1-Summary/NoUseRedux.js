@@ -39,7 +39,7 @@ class NoUseRedux extends Component {
   render() {
     return (
       <Fragment>
-        {this.state.value}
+        Clicked:{this.state.value} times
         <button onClick={this.increment}>+</button>
         <button onClick={this.decrement}>-</button>
         <button onClick={this.IncrementIfOdd}>Increment if odd</button>

@@ -26,6 +26,7 @@ export const visibilityFilter = (
   state = VisibilityFilters.SHOW_ALL,
   action
 ) => {
+  console.log("xxx");
   switch (action.type) {
     case "SET_VISIBILITY_FILTER":
       return action.filter;

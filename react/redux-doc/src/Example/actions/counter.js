@@ -1,5 +1,5 @@
 export const increment = () => ({
-  type: "INCREMENT"
+  type: "INCREMENT1"
 });
 
 export const decrement = () => ({
