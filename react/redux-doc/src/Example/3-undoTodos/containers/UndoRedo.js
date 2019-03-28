@@ -5,10 +5,10 @@ import { ActionCreators as UndoActionCreators } from "redux-undo";
 let UndoRedo = ({ canUndo, canRedo, onUndo, onRedo }) => (
   <p>
     <button onClick={onUndo} disabled={!canUndo}>
-      Undo
+      Undo撤销
     </button>
     <button onClick={onRedo} disabled={!canRedo}>
-      Redo
+      Redo恢复
     </button>
   </p>
 );
