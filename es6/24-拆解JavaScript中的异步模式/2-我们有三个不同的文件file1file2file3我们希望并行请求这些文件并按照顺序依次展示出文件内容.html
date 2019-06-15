@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  // const fakeAjax = (fileName, cb) => {
+  //   const time = ~~(Math.random() * 3 + 1) * 1000;
+  //   console.log(time);
+  //   setTimeout(cb, time);
+  // }
+
+  // const fileReceived = (file, text) => {
+  //   console.log(text);
+  //   if(!responses[file]) {
+  //     responses[file] = text;
+  //   }
+  //   const files = ['file1', 'file2', 'file3'];
+
+  //   for(let i = 0; i < files.length; i++) {
+  //     if(files[i] in responses) {
+  //       if(responses[files[i]] !== true) {
+  //         console.log(responses[files[i]]);
+  //         responses[files[i]] = true;
+  //       }
+  //     } else {
+  //      return false;
+  //     }
+  //   }
+  // }
+
+  // const getFile = (fileName) => {
+  //   fakeAjax(fileName, () => {
+  //     fileReceived(fileName, `${fileName}book`)
+  //   })
+  // };
+
+  // const responses = {}
+
+  // getFile('file1')
+  // getFile('file2')
+  // getFile('file3')
+
+  // const fakeAjax = (fileName, cb) => {
+  //   const time = ~~(Math.random() * 3 + 1) * 1000;
+  //   console.log(time);
+  //   setTimeout(() => cb(fileName), time);
+  // };
+
+
+  // const getFile = (file) => {
+  //   return new Promise((resolve) => {
+  //     fakeAjax(file, resolve);
+  //   })
+  // };
+
+  // const output = (text) => {
+  //   console.log(text);
+  // }
+
+  // const p1 = getFile('file1');
+  // const p2 = getFile('file2');
+  // const p3 = getFile('file3');
+
+  // p1.then(output)
+  //   .then(() => p2)
+  //   .then(output)
+  //   .then(() => p3)
+  //   .then(output)
+  //   .then(() => console.log('complete'))
+
+  // const getFile = (file) => {
+  //   return new Promise((resolve) => {
+  //     fakeAjax(file, resolve);
+  //   })
+  // };
+
+  // const fakeAjax = (fileName, cb) => {
+  //   const time = ~~(Math.random() * 3 + 1) * 1000;
+  //   console.log(time);
+  //   setTimeout(() => cb(fileName), time);
+  // };
+
+  // const output = (text) => {
+  //   console.log(text);
+  // }
+
+
+  // ['file1', 'file2', 'file3'].map(getFile).reduce((chain, filePromise) => {
+  //   return chain.then(() => filePromise).then(output)
+  // }, Promise.resolve()).then(() => console.log('complete'))
+
+  
+
+</script>
+</body>
+</html>

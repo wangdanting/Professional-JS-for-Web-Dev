@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+  setTimeout(() => {
+    console.log('one');
+    setTimeout(() => {
+      console.log('two');
+      setTimeout(() => {
+        console.log('three');
+      }, 1000)
+    }, 1000)
+  }, 1000)
+
+  const one = (cb) => {
+    console.log('one');
+    setTimeout(cb, 1000);
+  }
+
+  const two = (cb) => {
+    console.log('two');
+    setTimeout(cb, 1000);
+  }
+
+  const three = () => {
+    console.log('three');
+  }
+
+  one(() => two(three))
+
+</script>
+</body>
+</html>
