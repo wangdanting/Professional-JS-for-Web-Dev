@@ -8,6 +8,8 @@
 
 <script>
   //有时需要将现有对象转为 Promise 对象，Promise.resolve方法就起到这个作用
+  const promise = Promise.resolve('foo');
+  promise.then(value => console.log(value)); //'foo'
 </script>
 </body>
 </html>

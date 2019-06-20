@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+// 题目
+// 1. 最短时间内找出
+// 2. 响应速度最快
+// 3. 且成功的接口
+// 只要第一个Promise完成（注意必须是完成，而非拒绝，这也是这题Promise.race()不符合的原因，它就会忽略后续的任何拒绝和完成）
+const urls = [
+  'https://www.toutiao.com/a',
+  'https://www.toutiao.com/b',
+  'https://www.toutiao.com/bb',
+  'https://www.toutiao.com/d',
+  'https://www.toutiao.com/e',
+]
+// findFatest(urls).then(url => console.log(url)
+
+// 解题思路
+// 1. 最短时间找出相当于限制 ->只能用fetch()，它返回一个promise。
+// 2. 同时发送的话相当于限制 -> 用Promise.all() 或 Promise.race()
+// 3. 响应速度最快且成功的接口，最快或者说第一个就用Promise.race()了， 但是Promise.race()在第一个拒绝时候也返回，所以不符合。
+
+if(!Promise.first) {
+  Promise.first = function (promises) {
+    return new Promise((resolve, reject) => {
+      let rejectNum = 0;
+      promises.resolve(promises).then(resolve, () => {
+        if(++rejectNum === promises.length) {
+          reject();
+        }
+      })
+    })
+  }
+}
+</script>
+</body>
+</html>

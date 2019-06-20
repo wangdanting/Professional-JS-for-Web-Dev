@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { isObjectLike } from "./Lang";
+import React, { Component } from "react"
+import logo from "./logo.svg"
+import "./App.css"
+import { chunk } from "./Array"
 
 class App extends Component {
   componentDidMount() {
-    console.log(isObjectLike(this.abc), "p");
+    console.log(chunk([1, 2, 3], 4))
   }
-  abc = () => {};
+  abc = () => {}
   render() {
     return (
       <div className="App">
@@ -26,8 +26,8 @@ class App extends Component {
           </a>
         </header>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

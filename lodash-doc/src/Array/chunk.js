@@ -15,22 +15,28 @@
  * // => [['a', 'b', 'c'], ['d']]
  */
 
-import slice from "./slice";
+import slice from "./slice"
 
 function chunk(array, size) {
-  size = Math.max(size, 0);
-  const length = array === null ? 0 : array.length;
+  size = Math.max(size, 0)
+  const length = array === null ? 0 : array.length
   if (!length || size < 1) {
-    return [];
+    return []
   }
-  let index = 0;
-  let resIndex = 0;
-  const result = new Array(Math.ceil(length / size));
+  let index = 0
+  let resIndex = 0
+  const result = new Array(Math.ceil(length / size))
 
   while (index < length) {
-    result[resIndex++] = slice(array, index, (index += size));
+    result[resIndex++] = slice(array, index, (index += size))
   }
-  return result;
+  return result
 }
 
-export default chunk;
+// 优化版本
+// 1. 当没有传入第二个参数之前默认参数为
+// const chunk = (array, size = 0) => {
+
+// }
+
+export default chunk
