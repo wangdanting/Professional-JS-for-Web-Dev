@@ -1,0 +1,17 @@
+p {
+  margin: 0;
+}
+
+.code {
+  margin-top: 20px;
+  color: #121212;
+}
+
+.code:first-child {
+  margin-top: 0px;
+}
+
+.comment {
+  color: #999;
+  font-size: 12px;
+}
