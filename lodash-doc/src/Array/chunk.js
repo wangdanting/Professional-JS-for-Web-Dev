@@ -17,7 +17,7 @@
 
 import slice from "./slice"
 
-function chunk(array, size) {
+function chunk(array, size = 1) {
   size = Math.max(size, 0)
   const length = array === null ? 0 : array.length
   if (!length || size < 1) {
@@ -32,11 +32,5 @@ function chunk(array, size) {
   }
   return result
 }
-
-// 优化版本
-// 1. 当没有传入第二个参数之前默认参数为
-// const chunk = (array, size = 0) => {
-
-// }
 
 export default chunk

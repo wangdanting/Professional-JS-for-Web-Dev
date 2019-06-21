@@ -16,29 +16,29 @@
  */
 
 function slice(array, start, end) {
-  let length = array == null ? 0 : array.length;
+  let length = array == null ? 0 : array.length
   if (!length) {
-    return [];
+    return []
   }
-  start = start == null ? 0 : start;
-  end = end === undefined ? length : end;
+  start = start == null ? 0 : start
+  end = end === undefined ? length : end
 
   if (start < 0) {
-    start = -start > length ? 0 : length + start;
+    start = -start > length ? 0 : length + start
   }
-  end = end > length ? length : end;
+  end = end > length ? length : end
   if (end < 0) {
-    end += length;
+    end += length
   }
-  length = start > end ? 0 : (end - start) >>> 0;
-  start >>>= 0;
+  length = start > end ? 0 : (end - start) >>> 0 // 取整
+  start >>>= 0 // 取整
 
-  let index = -1;
-  const result = new Array(length);
+  let index = -1
+  const result = new Array(length)
   while (++index < length) {
-    result[index] = array[index + start];
+    result[index] = array[index + start]
   }
-  return result;
+  return result
 }
 
 // const slice = (array = [], start = 0, end = array.length) => {
@@ -64,4 +64,4 @@ function slice(array, start, end) {
 //   return result;
 // };
 
-export default slice;
+export default slice

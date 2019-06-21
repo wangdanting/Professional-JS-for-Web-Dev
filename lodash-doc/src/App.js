@@ -1,31 +1,39 @@
 import React, { Component } from "react"
-import logo from "./logo.svg"
 import "./App.css"
-import { chunk } from "./Array"
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import Slice from "./Pages/Array/slice"
+import Chunk from "./Pages/Array/chunk"
+const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
-  componentDidMount() {
-    console.log(chunk([1, 2, 3], 4))
-  }
-  abc = () => {}
+  componentDidMount() {}
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div className="page">
+          <nav className="left">
+            <ul className="nav">
+              <li className="title">Array</li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/slice/">slice</Link>
+              </li>
+              <li>
+                <Link to="/chunk/">chunk</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <div className="right">
+            <Route path="/" exact component={Index} />
+            <Route path="/slice/" component={Slice} />
+            <Route path="/chunk/" component={Chunk} />
+          </div>
+        </div>
+      </Router>
     )
   }
 }
