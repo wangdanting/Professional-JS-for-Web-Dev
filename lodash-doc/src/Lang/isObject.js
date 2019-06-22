@@ -6,18 +6,31 @@
  * @returns {boolean} Returns `true` if `value` is an object, else `false`.
  * @example
  *
+ * isObject({})
+ * // => true
  *
+ * isObject([1, 2, 3])
+ * // => true
+ *
+ * isObject(new RegExp())
+ * // => true
+ *
+ * isObject(()=>{})
+ * // => true
+ *
+ * isObject(new Number(0))
+ * // => true
+ *
+ * isObject(null)
+ * // => false
+ *
+ * isObject(Symbol())
+ * // => false
  */
 
 function isObject(value) {
   var type = typeof value
   return value != null && (type === "object" || type === "function")
 }
-
-// es6版
-// const isObject = value => {
-//   let type = typeof value;
-//   return value != null && (type === "object" || type === "function")
-// }
 
 export default isObject

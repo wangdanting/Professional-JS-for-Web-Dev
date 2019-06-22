@@ -1,14 +1,17 @@
 /** Used as references for various `Number` constants. */
-const MAX_SAFE_INTEGER = 9007199254740991;
+const MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER || 9007199254740991
 
 /**
  * 检查values是否为有效的类数组长度
- * Checks if 'value' is a valid array-like length
+ * Checks if `value` is a valid array-like length
  * @param {*} value the value to check
- * @returns {boolean} Returns 'true' if 'value' is a valid length, else 'false'
+ * @returns {boolean} Returns `true` if `value` is a valid length, else `false`
  * @example
  *
  * isLength(3)
+ * // => true
+ *
+ * isLength(Number.MAX_SAFE_INTEGER)
  * // => true
  *
  * isLength(Number.MIN_VALUE)
@@ -27,11 +30,12 @@ function isLength(value) {
     value > -1 &&
     value % 1 === 0 &&
     value <= MAX_SAFE_INTEGER
-  );
+  )
 }
 
+// es6
 // const isLength = value => {
 //   return Number.isInteger(value);
 // };
 
-export default isLength;
+export default isLength

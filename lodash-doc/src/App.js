@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 import Slice from "./Pages/Array/slice"
 import Chunk from "./Pages/Array/chunk"
 import IsObject from "./Pages/Lang/isObject"
+import IsLength from "./Pages/Lang/isLength"
+import IsFunction from "./Pages/Lang/isFunction"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -29,6 +31,12 @@ class App extends Component {
               <li>
                 <Link to="/isObject/">isObject</Link>
               </li>
+              <li>
+                <Link to="/isLength/">isLength</Link>
+              </li>
+              <li>
+                <Link to="/isFunction/">isFunction</Link>
+              </li>
             </ul>
           </nav>
 
@@ -37,6 +45,8 @@ class App extends Component {
             <Route path="/slice/" component={Slice} />
             <Route path="/chunk/" component={Chunk} />
             <Route path="/isObject/" component={IsObject} />
+            <Route path="/isLength/" component={IsLength} />
+            <Route path="/isFunction/" component={IsFunction} />
           </div>
         </div>
       </Router>
