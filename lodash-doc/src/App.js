@@ -7,7 +7,9 @@ import IsObject from "./Pages/Lang/isObject"
 import IsLength from "./Pages/Lang/isLength"
 import IsFunction from "./Pages/Lang/isFunction"
 import IsArrayLike from "./Pages/Lang/isArrayLike"
+import IsObjectLike from "./Pages/Lang/isObjectLike"
 import Eq from "./Pages/Lang/eq"
+import IsSymbol from "./Pages/Lang/isSymbol"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -45,6 +47,12 @@ class App extends Component {
               <li>
                 <Link to="/eq/">eq</Link>
               </li>
+              <li>
+                <Link to="/isObjectLike/">isObjectLike</Link>
+              </li>
+              <li>
+                <Link to="/isSymbol/">isSymbol</Link>
+              </li>
             </ul>
           </nav>
 
@@ -57,6 +65,8 @@ class App extends Component {
             <Route path="/isFunction/" component={IsFunction} />
             <Route path="/isArrayLike/" component={IsArrayLike} />
             <Route path="/eq/" component={Eq} />
+            <Route path="/isObjectLike/" component={IsObjectLike} />
+            <Route path="/isSymbol/" component={IsSymbol} />
           </div>
         </div>
       </Router>
