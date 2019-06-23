@@ -20,9 +20,10 @@
  */
 
 import isLength from "./isLength.js"
+import isFunction from "./isFunction"
 
 function isArrayLike(value) {
-  return value != null && typeof value != "function" && isLength(value.length)
+  return value != null && !isFunction(value) && isLength(value.length)
 }
 
 export default isArrayLike

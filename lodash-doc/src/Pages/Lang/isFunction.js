@@ -13,8 +13,6 @@ const Demo = () => {
       )}`}</p>
       <p className="code">{`isFunction(async () => {})`}</p>
       <p className="comment">{`// => ${String(isFunction(async () => {}))}`}</p>
-      <p className="code">{`isFunction(async () => {})`}</p>
-      <p className="comment">{`// => ${String(isFunction(async () => {}))}`}</p>
       <p className="code">{`isFunction(new Proxy({}, {}))`}</p>
       <p className="comment">{`// => ${String(
         isFunction(new Proxy({}, {}))
