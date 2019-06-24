@@ -10,6 +10,7 @@ import IsArrayLike from "./Pages/Lang/isArrayLike"
 import IsObjectLike from "./Pages/Lang/isObjectLike"
 import Eq from "./Pages/Lang/eq"
 import IsSymbol from "./Pages/Lang/isSymbol"
+import ToNumber from "./Pages/Lang/toNumber"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -53,6 +54,9 @@ class App extends Component {
               <li>
                 <Link to="/isSymbol/">isSymbol</Link>
               </li>
+              <li>
+                <Link to="/toNumber/">toNumber</Link>
+              </li>
             </ul>
           </nav>
 
@@ -67,6 +71,7 @@ class App extends Component {
             <Route path="/eq/" component={Eq} />
             <Route path="/isObjectLike/" component={IsObjectLike} />
             <Route path="/isSymbol/" component={IsSymbol} />
+            <Route path="/toNumber/" component={ToNumber} />
           </div>
         </div>
       </Router>
