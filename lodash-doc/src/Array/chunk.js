@@ -13,6 +13,12 @@
  *
  * chunk(['a', 'b', 'c', 'd'], 3)
  * // => [['a', 'b', 'c'], ['d']]
+ *
+ * chunk(['a', 'b', 'c', 'd'], -1)
+ * // => []
+ *
+ * chunk('66666', 2)
+ * // => [['6', '6'], ['6', '6'], ['6']]
  */
 
 import slice from "./slice"
@@ -25,7 +31,7 @@ function chunk(array, size = 1) {
   }
   let index = 0
   let resIndex = 0
-  const result = new Array(Math.ceil(length / size))
+  const result = new Array(Math.ceil(length / size)) //向上取整
 
   while (index < length) {
     result[resIndex++] = slice(array, index, (index += size))
