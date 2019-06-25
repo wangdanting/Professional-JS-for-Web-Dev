@@ -11,6 +11,8 @@ import IsObjectLike from "./Pages/Lang/isObjectLike"
 import Eq from "./Pages/Lang/eq"
 import IsSymbol from "./Pages/Lang/isSymbol"
 import ToNumber from "./Pages/Lang/toNumber"
+import ToFinite from "./Pages/Lang/toFinite"
+import ToInteger from "./Pages/Lang/toInteger"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -57,6 +59,12 @@ class App extends Component {
               <li>
                 <Link to="/toNumber/">toNumber</Link>
               </li>
+              <li>
+                <Link to="/toFinite/">toFinite</Link>
+              </li>
+              <li>
+                <Link to="/toInteger/">toInteger</Link>
+              </li>
             </ul>
           </nav>
 
@@ -72,6 +80,8 @@ class App extends Component {
             <Route path="/isObjectLike/" component={IsObjectLike} />
             <Route path="/isSymbol/" component={IsSymbol} />
             <Route path="/toNumber/" component={ToNumber} />
+            <Route path="/toFinite/" component={ToFinite} />
+            <Route path="/toInteger/" component={ToInteger} />
           </div>
         </div>
       </Router>

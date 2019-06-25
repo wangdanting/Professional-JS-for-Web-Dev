@@ -66,22 +66,7 @@ function toNumber(value) {
 //     return NAN
 //   }
 
-//   if (isObject(value)) {
-//     var other = typeof value.valueOf === "function" ? value.valueOf() : value
-//     value = isObject(other) ? `${other}` : +other
-//   }
-
-//   if (typeof value !== "string") {
-//     return +value
-//   }
-
-//   value = value.trim()
-//   const isBinary = reIsBinary.test(value)
-//   return isBinary || reIsOctal.test(value)
-//     ? Number.parseInt(value.slice(2), isBinary ? 2 : 8)
-//     : reIsBadHex.test(value)
-//     ? NAN
-//     : +value
+//   return Number(value)
 // }
 
 export default toNumber
