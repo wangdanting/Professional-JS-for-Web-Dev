@@ -14,6 +14,7 @@ import ToNumber from "./Pages/Lang/toNumber"
 import ToFinite from "./Pages/Lang/toFinite"
 import ToInteger from "./Pages/Lang/toInteger"
 import CastArray from "./Pages/Lang/castArray"
+import Gt from "./Pages/Lang/gt"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -69,6 +70,9 @@ class App extends Component {
               <li>
                 <Link to="/castArray/">castArray</Link>
               </li>
+              <li>
+                <Link to="/gt/">gt</Link>
+              </li>
             </ul>
           </nav>
 
@@ -87,6 +91,7 @@ class App extends Component {
             <Route path="/toFinite/" component={ToFinite} />
             <Route path="/toInteger/" component={ToInteger} />
             <Route path="/castArray/" component={CastArray} />
+            <Route path="/gt/" component={Gt} />
           </div>
         </div>
       </Router>
