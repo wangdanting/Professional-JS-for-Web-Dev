@@ -17,6 +17,8 @@ const Demo = () => {
       <p className="comment">{`// => ${String(
         lte(new Date("2019-05-05"), new Date("2019-03-03"))
       )}`}</p>
+      <p className="code">{`lte('a', 'b')`}</p>
+      <p className="comment">{`// => ${String(lte("a", "b"))}`}</p>
     </>
   )
 }

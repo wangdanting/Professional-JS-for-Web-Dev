@@ -19,6 +19,8 @@ const Demo = () => {
       <p className="comment">{`// => ${String(
         gte(new Date("2019-05-05"), new Date("2019-05-05"))
       )}`}</p>
+      <p className="code">{`gte('a', 'b')`}</p>
+      <p className="comment">{`// => ${String(gte("a", "b"))}`}</p>
     </>
   )
 }

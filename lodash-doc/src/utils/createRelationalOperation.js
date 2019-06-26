@@ -7,6 +7,7 @@
  */
 
 import toNumber from "../Lang/toNumber"
+
 function createRelationalOperation(operator) {
   return function(value, other) {
     if (typeof value !== "number") {
