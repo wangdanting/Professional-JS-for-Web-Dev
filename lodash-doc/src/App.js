@@ -16,6 +16,7 @@ import ToInteger from "./Pages/Lang/toInteger"
 import CastArray from "./Pages/Lang/castArray"
 import Gt from "./Pages/Lang/gt"
 import Gte from "./Pages/Lang/gte"
+import Lt from "./Pages/Lang/lt"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -77,6 +78,9 @@ class App extends Component {
               <li>
                 <Link to="/gte/">gte</Link>
               </li>
+              <li>
+                <Link to="/lt/">lt</Link>
+              </li>
             </ul>
           </nav>
 
@@ -97,6 +101,7 @@ class App extends Component {
             <Route path="/castArray/" component={CastArray} />
             <Route path="/gt/" component={Gt} />
             <Route path="/gte/" component={Gte} />
+            <Route path="/lt/" component={Lt} />
           </div>
         </div>
       </Router>

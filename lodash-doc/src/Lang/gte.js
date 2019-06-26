@@ -6,6 +6,19 @@
  * @returns {boolean} Returns `true` if `value` is greater than or equal to `other`, else `false`
  * @example
  *
+ * gte(3, 1)
+ * // => true
+ * gte(3, 3)
+ * // => true
+ *
+ * gte(1, 3)
+ * // => false
+ *
+ * gte('1', '1')
+ * // => true
+ *
+ * gte(new Date('2019-05-05'), new Date('2019-05-05'))
+ * // => true
  */
 
 import createRelationalOperation from "../utils/createRelationalOperation"
