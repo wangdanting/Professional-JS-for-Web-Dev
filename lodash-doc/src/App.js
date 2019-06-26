@@ -20,6 +20,8 @@ import Lt from "./Pages/Lang/lt"
 import Lte from "./Pages/Lang/lte"
 import IsArray from "./Pages/Lang/isArray"
 import IsBoolean from "./Pages/Lang/isBoolean"
+import IsNumber from "./Pages/Lang/isNumber"
+import IsNaN from "./Pages/Lang/isNaN"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -90,6 +92,12 @@ class App extends Component {
               <li>
                 <Link to="/isBoolean/">isBoolean</Link>
               </li>
+              <li>
+                <Link to="/isNumber/">isNumber</Link>
+              </li>
+              <li>
+                <Link to="/isNaN/">isNaN</Link>
+              </li>
             </ul>
           </nav>
 
@@ -114,6 +122,8 @@ class App extends Component {
             <Route path="/lte/" component={Lte} />
             <Route path="/isArray/" component={IsArray} />
             <Route path="/isBoolean/" component={IsBoolean} />
+            <Route path="/isNumber/" component={IsNumber} />
+            <Route path="/isNaN/" component={IsNaN} />
           </div>
         </div>
       </Router>
