@@ -4,7 +4,7 @@ import lt from "../../Lang/lt"
 const Demo = () => {
   return (
     <>
-      <p className="code">Checks if `value` is greater than `other`</p>
+      <p className="code">Checks if `value` is less than `other`</p>
       <p className="code">{`lt(3, 1)`}</p>
       <p className="comment">{`// => ${String(lt(3, 1))}`}</p>
       <p className="code">{`lt(3, 3)`}</p>

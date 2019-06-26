@@ -4,7 +4,9 @@ import gte from "../../Lang/gte"
 const Demo = () => {
   return (
     <>
-      <p className="code">Checks if `value` is greater than `other`</p>
+      <p className="code">
+        Checks if `value` is greater than or equal to `other`
+      </p>
       <p className="code">{`gte(3, 1)`}</p>
       <p className="comment">{`// => ${String(gte(3, 1))}`}</p>
       <p className="code">{`gte(3, 3)`}</p>
