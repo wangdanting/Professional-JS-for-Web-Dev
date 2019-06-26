@@ -14,15 +14,15 @@
  * isArrayLikeObject('abc')
  * // => false
  *
- * isArrayLikeObject(Function)
+ * isArrayLikeObject(() => {})
  * // => false
  */
 
-import isArrayLike from "./isArrayLike.js";
-import isObjectLike from "./isObjectLike.js";
+import isArrayLike from "./isArrayLike.js"
+import isObjectLike from "./isObjectLike.js"
 
 function isArrayLikeObject(value) {
-  return isArrayLike(value) && isObjectLike(value);
+  return isArrayLike(value) && isObjectLike(value)
 }
 
-export default isArrayLikeObject;
+export default isArrayLikeObject

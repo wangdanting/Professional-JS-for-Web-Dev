@@ -18,6 +18,8 @@ import Gt from "./Pages/Lang/gt"
 import Gte from "./Pages/Lang/gte"
 import Lt from "./Pages/Lang/lt"
 import Lte from "./Pages/Lang/lte"
+import IsArray from "./Pages/Lang/isArray"
+import IsBoolean from "./Pages/Lang/isBoolean"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -30,9 +32,6 @@ class App extends Component {
           <nav className="left">
             <ul className="nav">
               <li className="title">Array</li>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
               <li>
                 <Link to="/slice/">slice</Link>
               </li>
@@ -85,6 +84,12 @@ class App extends Component {
               <li>
                 <Link to="/lte/">lte</Link>
               </li>
+              <li>
+                <Link to="/isArray/">isArray</Link>
+              </li>
+              <li>
+                <Link to="/isBoolean/">isBoolean</Link>
+              </li>
             </ul>
           </nav>
 
@@ -107,6 +112,8 @@ class App extends Component {
             <Route path="/gte/" component={Gte} />
             <Route path="/lt/" component={Lt} />
             <Route path="/lte/" component={Lte} />
+            <Route path="/isArray/" component={IsArray} />
+            <Route path="/isBoolean/" component={IsBoolean} />
           </div>
         </div>
       </Router>
