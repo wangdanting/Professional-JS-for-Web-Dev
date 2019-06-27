@@ -22,6 +22,7 @@ import IsArray from "./Pages/Lang/isArray"
 import IsBoolean from "./Pages/Lang/isBoolean"
 import IsNumber from "./Pages/Lang/isNumber"
 import IsNaN from "./Pages/Lang/isNaN"
+import IsNil from "./Pages/Lang/isNil"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -98,6 +99,9 @@ class App extends Component {
               <li>
                 <Link to="/isNaN/">isNaN</Link>
               </li>
+              <li>
+                <Link to="/isNil/">isNil</Link>
+              </li>
             </ul>
           </nav>
 
@@ -124,6 +128,7 @@ class App extends Component {
             <Route path="/isBoolean/" component={IsBoolean} />
             <Route path="/isNumber/" component={IsNumber} />
             <Route path="/isNaN/" component={IsNaN} />
+            <Route path="/isNil/" component={IsNil} />
           </div>
         </div>
       </Router>
