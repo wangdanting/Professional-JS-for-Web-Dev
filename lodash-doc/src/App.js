@@ -24,6 +24,8 @@ import IsNumber from "./Pages/Lang/isNumber"
 import IsNaN from "./Pages/Lang/isNaN"
 import IsNil from "./Pages/Lang/isNil"
 import IsNull from "./Pages/Lang/isNull"
+import IsSafeInteger from "./Pages/Lang/isSafeInteger"
+import IsInteger from "./Pages/Lang/isInteger"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -106,6 +108,12 @@ class App extends Component {
               <li>
                 <Link to="/isNull/">isNull</Link>
               </li>
+              <li>
+                <Link to="/isSafeInteger/">isSafeInteger</Link>
+              </li>
+              <li>
+                <Link to="/isInteger/">isInteger</Link>
+              </li>
             </ul>
           </nav>
 
@@ -134,6 +142,8 @@ class App extends Component {
             <Route path="/isNaN/" component={IsNaN} />
             <Route path="/isNil/" component={IsNil} />
             <Route path="/isNull/" component={IsNull} />
+            <Route path="/isSafeInteger/" component={IsSafeInteger} />
+            <Route path="/isInteger/" component={IsInteger} />
           </div>
         </div>
       </Router>
