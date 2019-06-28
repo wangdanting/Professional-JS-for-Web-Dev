@@ -28,6 +28,7 @@ import IsSafeInteger from "./Pages/Lang/isSafeInteger"
 import IsInteger from "./Pages/Lang/isInteger"
 import IsString from "./Pages/Lang/isString"
 import IsUndefined from "./Pages/Lang/isUndefined"
+import IsWeakMap from "./Pages/Lang/isWeakMap"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -122,6 +123,9 @@ class App extends Component {
               <li>
                 <Link to="/isUndefined/">isUndefined</Link>
               </li>
+              <li>
+                <Link to="/isWeakMap/">isWeakMap</Link>
+              </li>
             </ul>
           </nav>
 
@@ -154,6 +158,7 @@ class App extends Component {
             <Route path="/isInteger/" component={IsInteger} />
             <Route path="/isString/" component={IsString} />
             <Route path="/isUndefined/" component={IsUndefined} />
+            <Route path="/isWeakMap/" component={IsWeakMap} />
           </div>
         </div>
       </Router>

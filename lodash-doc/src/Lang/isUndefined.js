@@ -5,6 +5,15 @@
  * @param {*} value The value to check
  * @returns {boolean} Returns `true` if `value` is `undefined`, else `false`
  * @example
+ *
+ * isUndefined(undefined)
+ * // => true
+ *
+ * isUndefined(void 0)
+ * // => true
+ *
+ * isUndefined(0)
+ * // => false
  */
 
 function isUndefined(value) {
