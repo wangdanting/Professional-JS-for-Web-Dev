@@ -29,6 +29,8 @@ import IsInteger from "./Pages/Lang/isInteger"
 import IsString from "./Pages/Lang/isString"
 import IsUndefined from "./Pages/Lang/isUndefined"
 import IsWeakMap from "./Pages/Lang/isWeakMap"
+import IsWeakSet from "./Pages/Lang/isWeakSet"
+import Clamp from "./Pages/Number/clamp"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -126,6 +128,13 @@ class App extends Component {
               <li>
                 <Link to="/isWeakMap/">isWeakMap</Link>
               </li>
+              <li>
+                <Link to="/isWeakSet/">isWeakSet</Link>
+              </li>
+              <li className="title">Number</li>
+              <li>
+                <Link to="/clamp/">clamp</Link>
+              </li>
             </ul>
           </nav>
 
@@ -159,6 +168,8 @@ class App extends Component {
             <Route path="/isString/" component={IsString} />
             <Route path="/isUndefined/" component={IsUndefined} />
             <Route path="/isWeakMap/" component={IsWeakMap} />
+            <Route path="/isWeakSet/" component={IsWeakSet} />
+            <Route path="/clamp/" component={Clamp} />
           </div>
         </div>
       </Router>
