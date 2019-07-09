@@ -68,7 +68,36 @@ function initCloneObject(object) {
     : {}
 }
 
-function copyObject() {}
+/**
+ * Gets the value at `key` of `object`
+ * @param {object} [object] The object to query
+ * @param {string} key The key of the property to get
+ * @returns {*} Returns the property value
+ */
+function getValue(object, key) {
+  return object == null ? undefined : object[key]
+}
+
+function copyObject(source, props, object, customizer) {
+  var isNew = !object
+  object || (object = {})
+  var index = -1,
+    length = props.length
+  while (++index < length) {
+    var key = props[index]
+
+    var newValue = customizer
+      ? customizer(object[key], source[key], key, object, source)
+      : undefined
+
+    if (newValue === undefined) {
+      newValue = source[key]
+    }
+
+    if (isNew) {
+    }
+  }
+}
 
 function baseClone(value, bitmask, customizer, key, object, stack) {
   var result,
