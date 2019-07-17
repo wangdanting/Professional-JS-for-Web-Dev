@@ -33,6 +33,7 @@ import IsWeakSet from "./Pages/Lang/isWeakSet"
 import Clamp from "./Pages/Number/clamp"
 import IsArguments from "./Pages/Lang/isArguments"
 import Times from "./Pages/Util/times"
+import Keys from "./Pages/Object/keys"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -144,6 +145,10 @@ class App extends Component {
               <li>
                 <Link to="/times/">times</Link>
               </li>
+              <li className="title">Object</li>
+              <li>
+                <Link to="/keys/">keys</Link>
+              </li>
             </ul>
           </nav>
 
@@ -181,6 +186,7 @@ class App extends Component {
             <Route path="/clamp/" component={Clamp} />
             <Route path="/isArguments/" component={IsArguments} />
             <Route path="/times/" component={Times} />
+            <Route path="/keys/" component={Keys} />
           </div>
         </div>
       </Router>
