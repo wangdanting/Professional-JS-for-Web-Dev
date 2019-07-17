@@ -37,6 +37,7 @@ import Keys from "./Pages/Object/keys"
 import ConformsTo from "./Pages/Lang/conformsTo"
 import IsDate from "./Pages/Lang/isDate"
 import IsPlainObject from "./Pages/Lang/isPlainObject"
+import IsElement from "./Pages/Lang/isElement"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -147,6 +148,9 @@ class App extends Component {
                 <Link to="/isDate/">isDate</Link>
               </li>
               <li>
+                <Link to="/isElement/">isElement</Link>
+              </li>
+              <li>
                 <Link to="/isPlainObject/">isPlainObject</Link>
               </li>
               <li className="title">Number</li>
@@ -202,6 +206,7 @@ class App extends Component {
             <Route path="/conformsTo/" component={ConformsTo} />
             <Route path="/isDate/" component={IsDate} />
             <Route path="/isPlainObject/" component={IsPlainObject} />
+            <Route path="/isElement/" component={IsElement} />
           </div>
         </div>
       </Router>
