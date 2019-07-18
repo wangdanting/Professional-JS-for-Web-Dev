@@ -1,8 +1,6 @@
 import React from "react"
 import isSafeInteger from "../../Lang/isSafeInteger"
 
-console.log(isSafeInteger(Number.MIN_VALUE), "dd")
-
 const Demo = () => {
   return (
     <>
