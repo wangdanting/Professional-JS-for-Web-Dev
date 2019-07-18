@@ -39,6 +39,7 @@ import IsDate from "./Pages/Lang/isDate"
 import IsPlainObject from "./Pages/Lang/isPlainObject"
 import IsElement from "./Pages/Lang/isElement"
 import IsEmpty from "./Pages/Lang/isEmpty"
+import IsError from "./Pages/Lang/isError"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -157,6 +158,9 @@ class App extends Component {
               <li>
                 <Link to="/isEmpty/">isEmpty</Link>
               </li>
+              <li>
+                <Link to="/isError/">isError</Link>
+              </li>
               <li className="title">Number</li>
               <li>
                 <Link to="/clamp/">clamp</Link>
@@ -212,6 +216,7 @@ class App extends Component {
             <Route path="/isPlainObject/" component={IsPlainObject} />
             <Route path="/isElement/" component={IsElement} />
             <Route path="/isEmpty/" component={IsEmpty} />
+            <Route path="/isError/" component={IsError} />
           </div>
         </div>
       </Router>
