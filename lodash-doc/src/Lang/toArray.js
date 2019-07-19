@@ -52,4 +52,15 @@ function toArray(value) {
   return func(value)
 }
 
+// es6
+// function toArray(value) {
+//   if (!value) {
+//     return []
+//   }
+//   if (Object.prototype.toString.call(value) === "[object Object]") {
+//     return Object.values(value)
+//   }
+//   return Array.from(value)
+// }
+
 export default toArray
