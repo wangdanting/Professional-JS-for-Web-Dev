@@ -44,6 +44,7 @@ import IsFinite from "./Pages/Lang/isFinite"
 import IsMap from "./Pages/Lang/isMap"
 import IsRegExp from "./Pages/Lang/isRegExp"
 import IsSet from "./Pages/Lang/isSet"
+import ToArray from "./Pages/Lang/toArray"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -177,6 +178,9 @@ class App extends Component {
               <li>
                 <Link to="/isSet/">isSet</Link>
               </li>
+              <li>
+                <Link to="/toArray/">toArray</Link>
+              </li>
               <li className="title">Number</li>
               <li>
                 <Link to="/clamp/">clamp</Link>
@@ -237,6 +241,7 @@ class App extends Component {
             <Route path="/isMap/" component={IsMap} />
             <Route path="/isRegExp/" component={IsRegExp} />
             <Route path="/isSet/" component={IsSet} />
+            <Route path="/toArray/" component={ToArray} />
           </div>
         </div>
       </Router>
