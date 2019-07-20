@@ -47,6 +47,7 @@ import IsSet from "./Pages/Lang/isSet"
 import ToArray from "./Pages/Lang/toArray"
 import ToLength from "./Pages/Lang/toLength"
 import ToSafeInteger from "./Pages/Lang/toSafeInteger"
+import ToString from "./Pages/Lang/toString"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -189,6 +190,9 @@ class App extends Component {
               <li>
                 <Link to="/toSafeInteger/">toSafeInteger</Link>
               </li>
+              <li>
+                <Link to="/toString/">toString</Link>
+              </li>
               <li className="title">Number</li>
               <li>
                 <Link to="/clamp/">clamp</Link>
@@ -252,6 +256,7 @@ class App extends Component {
             <Route path="/toArray/" component={ToArray} />
             <Route path="/toLength/" component={ToLength} />
             <Route path="/toSafeInteger/" component={ToSafeInteger} />
+            <Route path="/toString/" component={ToString} />
           </div>
         </div>
       </Router>
