@@ -1,5 +1,3 @@
-import { isArray } from "util"
-
 /**
  * The base implementation of `toString` which doesn't convert nullish values to empty strings
  * @param {*} value The value to process
@@ -12,7 +10,7 @@ function baseToString(value) {
   if (typeof value === "string") {
     return value
   }
-  if (isArray(value)) {
+  if (Array.isArray(value)) {
     return arrayMap(value, baseToString) + ""
   }
   if (isSymbol(value)) {
