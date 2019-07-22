@@ -11,21 +11,22 @@
  */
 
 function compact(array) {
-  let index = 0;
-  const result = [];
+  let index = 0
+  const result = []
 
   if (array == null) {
-    return array;
+    return array
   }
 
   for (const value of array) {
     if (value) {
-      result[index++] = value;
+      result[index++] = value
     }
   }
-  return result;
+  return result
 }
 
+// es6
 // const compact = (array = []) => {
 //   if (!Array.isArray(array)) {
 //     return [];
@@ -33,4 +34,4 @@ function compact(array) {
 //   return array.filter(item => item);
 // };
 
-export default compact;
+export default compact
