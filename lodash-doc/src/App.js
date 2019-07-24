@@ -50,6 +50,7 @@ import ToSafeInteger from "./Pages/Lang/toSafeInteger"
 import ToString from "./Pages/Lang/toString"
 import Concat from "./Pages/Array/concat"
 import Flatten from "./Pages/Array/flatten"
+import IndexOf from "./Pages/Array/indexOf"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -73,6 +74,9 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/flatten/">flatten</Link>
+              </li>
+              <li>
+                <Link to="/indexOf/">indexOf</Link>
               </li>
               <li className="title">Lang</li>
               <li>
@@ -267,6 +271,7 @@ class App extends Component {
             <Route path="/toString/" component={ToString} />
             <Route path="/concat/" component={Concat} />
             <Route path="/flatten/" component={Flatten} />
+            <Route path="/indexOf/" component={IndexOf} />
           </div>
         </div>
       </Router>
