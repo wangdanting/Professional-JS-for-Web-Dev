@@ -6,13 +6,13 @@
  * @param {number} fromIndex The index to search from
  * @returns {number} Returns the index of the matched value, else `-1`
  */
-import trictIndexOf from "./strictIndexOf"
+import strictIndexOf from "./strictIndexOf"
 import baseFindIndex from "./baseFindIndex"
 import baseIsNaN from "./baseIsNaN"
 
 function baseIndexOf(array, value, fromIndex) {
   return value === value
-    ? trictIndexOf(array, value, fromIndex)
+    ? strictIndexOf(array, value, fromIndex)
     : baseFindIndex(array, baseIsNaN, fromIndex)
 }
 
