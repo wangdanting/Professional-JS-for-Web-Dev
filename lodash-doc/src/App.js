@@ -52,6 +52,7 @@ import Concat from "./Pages/Array/concat"
 import Flatten from "./Pages/Array/flatten"
 import IndexOf from "./Pages/Array/indexOf"
 import LastIndexOf from "./Pages/Array/lastIndexOf"
+import Drop from "./Pages/Array/drop"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -81,6 +82,9 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/lastIndexOf/">lastIndexOf</Link>
+              </li>
+              <li>
+                <Link to="/drop/">drop</Link>
               </li>
               <li className="title">Lang</li>
               <li>
@@ -277,6 +281,7 @@ class App extends Component {
             <Route path="/flatten/" component={Flatten} />
             <Route path="/indexOf/" component={IndexOf} />
             <Route path="/lastIndexOf/" component={LastIndexOf} />
+            <Route path="/drop/" component={Drop} />
           </div>
         </div>
       </Router>
