@@ -6,6 +6,8 @@
  * @example
  * fromPairs([['a', 1], ['b', 2]])
  * // => {'a': 1, 'b': 2}
+ * fromPairs([['a'], ['b']])
+ * // => {'a': undefined, 'b': undefined}
  */
 
 function fromPairs(pairs) {

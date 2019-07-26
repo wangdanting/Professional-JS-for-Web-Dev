@@ -59,6 +59,7 @@ import Head from "./Pages/Array/head"
 import FlattenDeep from "./Pages/Array/flattenDeep"
 import FlattenDepth from "./Pages/Array/flattenDepth"
 import FromPairs from "./Pages/Array/fromPairs"
+import Initial from "./Pages/Array/initial"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -109,6 +110,9 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/fromPairs/">fromPairs</Link>
+              </li>
+              <li>
+                <Link to="/initial/">initial</Link>
               </li>
               <li className="title">Lang</li>
               <li>
@@ -312,6 +316,7 @@ class App extends Component {
             <Route path="/flattenDeep/" component={FlattenDeep} />
             <Route path="/flattenDepth/" component={FlattenDepth} />
             <Route path="/fromPairs/" component={FromPairs} />
+            <Route path="/initial/" component={Initial} />
           </div>
         </div>
       </Router>
