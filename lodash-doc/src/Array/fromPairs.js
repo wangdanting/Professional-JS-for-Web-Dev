@@ -1,5 +1,6 @@
 /**
  * 与toPairs正好相反，这个方法返回一个由键值对pairs构成的对象
+ * The inverse of `_.toPairs`; this method returns an object composed from key-value `pairs`.
  * @param {Array} pairs The key-value pairs
  * @returns {Object} Returns the new object
  * @example
