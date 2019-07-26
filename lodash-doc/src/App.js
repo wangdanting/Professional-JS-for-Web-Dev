@@ -54,6 +54,7 @@ import IndexOf from "./Pages/Array/indexOf"
 import LastIndexOf from "./Pages/Array/lastIndexOf"
 import Drop from "./Pages/Array/drop"
 import DropRight from "./Pages/Array/dropRight"
+import Fill from "./Pages/Array/fill"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -89,6 +90,9 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/dropRight/">dropRight</Link>
+              </li>
+              <li>
+                <Link to="/fill/">fill</Link>
               </li>
               <li className="title">Lang</li>
               <li>
@@ -287,6 +291,7 @@ class App extends Component {
             <Route path="/lastIndexOf/" component={LastIndexOf} />
             <Route path="/drop/" component={Drop} />
             <Route path="/dropRight/" component={DropRight} />
+            <Route path="/fill/" component={Fill} />
           </div>
         </div>
       </Router>
