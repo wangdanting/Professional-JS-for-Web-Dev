@@ -57,6 +57,7 @@ import DropRight from "./Pages/Array/dropRight"
 import Fill from "./Pages/Array/fill"
 import Head from "./Pages/Array/head"
 import FlattenDeep from "./Pages/Array/flattenDeep"
+import FlattenDepth from "./Pages/Array/flattenDepth"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -101,6 +102,9 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/flattenDeep/">flattenDeep</Link>
+              </li>
+              <li>
+                <Link to="/flattenDepth/">flattenDepth</Link>
               </li>
               <li className="title">Lang</li>
               <li>
@@ -302,6 +306,7 @@ class App extends Component {
             <Route path="/fill/" component={Fill} />
             <Route path="/head/" component={Head} />
             <Route path="/flattenDeep/" component={FlattenDeep} />
+            <Route path="/flattenDepth/" component={FlattenDepth} />
           </div>
         </div>
       </Router>
