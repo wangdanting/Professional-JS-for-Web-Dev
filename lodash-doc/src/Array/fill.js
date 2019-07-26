@@ -1,5 +1,5 @@
 /**
- * 使用value值来填充(替换)array, 从start位置开啊是，到end位置结束(但不包含end位置)。
+ * 使用value值来填充(替换)array, 从start位置开始，到end位置结束(但不包含end位置)。
  * 这个方法会改变array（不是创建新数组）
  * Fills elements of `array` with `value` from `start` up to, but not including `end`
  * **Note:** This method mutates `array`
