@@ -63,6 +63,7 @@ import Initial from "./Pages/Array/initial"
 import Join from "./Pages/Array/join"
 import Last from "./Pages/Array/last"
 import Nth from "./Pages/Array/nth"
+import Reverse from "./Pages/Array/reverse"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -125,6 +126,9 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/nth/">nth</Link>
+              </li>
+              <li>
+                <Link to="/reverse/">reverse</Link>
               </li>
               <li className="title">Lang</li>
               <li>
@@ -332,6 +336,7 @@ class App extends Component {
             <Route path="/join/" component={Join} />
             <Route path="/last/" component={Last} />
             <Route path="/nth/" component={Nth} />
+            <Route path="/reverse/" component={Reverse} />
           </div>
         </div>
       </Router>
