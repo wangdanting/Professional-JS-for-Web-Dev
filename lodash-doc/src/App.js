@@ -66,6 +66,7 @@ import Nth from "./Pages/Array/nth"
 import Reverse from "./Pages/Array/reverse"
 import SortedIndex from "./Pages/Array/sortedIndex"
 import SortedIndexOf from "./Pages/Array/sortedIndexOf"
+import SortedLastIndex from "./Pages/Array/sortedLastIndex"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -137,6 +138,9 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/sortedIndexOf/">sortedIndexOf</Link>
+              </li>
+              <li>
+                <Link to="/sortedLastIndex/">sortedLastIndex</Link>
               </li>
               <li className="title">Lang</li>
               <li>
@@ -347,6 +351,7 @@ class App extends Component {
             <Route path="/reverse/" component={Reverse} />
             <Route path="/sortedIndex/" component={SortedIndex} />
             <Route path="/sortedIndexOf/" component={SortedIndexOf} />
+            <Route path="/sortedLastIndex/" component={SortedLastIndex} />
           </div>
         </div>
       </Router>
