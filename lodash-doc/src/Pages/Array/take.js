@@ -1,7 +1,4 @@
 import React from "react"
-import take from "../../Array/take"
-
-console.log(take([1, 2, 3], 0), "pp")
 
 const Demo = () => {
   return (

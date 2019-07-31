@@ -5,7 +5,14 @@
  * @param {number} [n=1] The number of elements to take
  * @returns {Array} Returns the slice of `array`
  * @example
- *
+ * take([1, 2, 3])
+ * // => [1]
+ * take([1, 2, 3], 2)
+ * // => [1, 2]
+ * take([1, 2, 3], 5)
+ * // => [1, 2, 3]
+ * take([1, 2, 3], 0)
+ * // => []
  */
 
 import toInteger from "../Lang/toInteger"
