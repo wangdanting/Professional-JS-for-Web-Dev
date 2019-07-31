@@ -71,6 +71,7 @@ import SortedLastIndexOf from "./Pages/Array/sortedLastIndexOf"
 import Uniq from "./Pages/Array/uniq"
 import SortedUniq from "./Pages/Array/sortedUniq"
 import Tail from "./Pages/Array/tail"
+import Take from "./Pages/Array/take"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -157,6 +158,9 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/tail/">tail</Link>
+              </li>
+              <li>
+                <Link to="/take/">take</Link>
               </li>
               <li className="title">Lang</li>
               <li>
@@ -372,6 +376,7 @@ class App extends Component {
             <Route path="/uniq/" component={Uniq} />
             <Route path="/sortedUniq/" component={SortedUniq} />
             <Route path="/tail/" component={Tail} />
+            <Route path="/take/" component={Take} />
           </div>
         </div>
       </Router>
