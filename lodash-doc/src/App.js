@@ -76,6 +76,7 @@ import TakeRight from "./Pages/Array/takeRight"
 import UpperFirst from "./Pages/String/upperFirst"
 import LowerFirst from "./Pages/String/lowerFirst"
 import Capitalize from "./Pages/String/capitalize"
+import Deburr from "./Pages/String/deburr"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -318,6 +319,9 @@ class App extends Component {
               <li>
                 <Link to="/capitalize/">capitalize</Link>
               </li>
+              <li>
+                <Link to="/deburr/">deburr</Link>
+              </li>
             </ul>
           </nav>
 
@@ -398,6 +402,7 @@ class App extends Component {
             <Route path="/upperFirst/" component={UpperFirst} />
             <Route path="/lowerFirst/" component={LowerFirst} />
             <Route path="/capitalize/" component={Capitalize} />
+            <Route path="/deburr/" component={Deburr} />
           </div>
         </div>
       </Router>
