@@ -74,6 +74,7 @@ import Tail from "./Pages/Array/tail"
 import Take from "./Pages/Array/take"
 import TakeRight from "./Pages/Array/takeRight"
 import UpperFirst from "./Pages/String/upperFirst"
+import LowerFirst from "./Pages/String/lowerFirst"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -310,6 +311,9 @@ class App extends Component {
               <li>
                 <Link to="/upperFirst/">upperFirst</Link>
               </li>
+              <li>
+                <Link to="/lowerFirst/">lowerFirst</Link>
+              </li>
             </ul>
           </nav>
 
@@ -388,6 +392,7 @@ class App extends Component {
             <Route path="/take/" component={Take} />
             <Route path="/takeRight/" component={TakeRight} />
             <Route path="/upperFirst/" component={UpperFirst} />
+            <Route path="/lowerFirst/" component={LowerFirst} />
           </div>
         </div>
       </Router>
