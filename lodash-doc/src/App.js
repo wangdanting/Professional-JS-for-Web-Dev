@@ -78,6 +78,7 @@ import LowerFirst from "./Pages/String/lowerFirst"
 import Capitalize from "./Pages/String/capitalize"
 import Deburr from "./Pages/String/deburr"
 import Words from "./Pages/String/words"
+import CamelCase from "./Pages/String/camelCase"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -326,6 +327,9 @@ class App extends Component {
               <li>
                 <Link to="/words/">words</Link>
               </li>
+              <li>
+                <Link to="/camelCase/">camelCase</Link>
+              </li>
             </ul>
           </nav>
 
@@ -408,6 +412,7 @@ class App extends Component {
             <Route path="/capitalize/" component={Capitalize} />
             <Route path="/deburr/" component={Deburr} />
             <Route path="/words/" component={Words} />
+            <Route path="/camelCase/" component={CamelCase} />
           </div>
         </div>
       </Router>

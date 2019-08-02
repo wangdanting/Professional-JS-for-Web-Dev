@@ -9,6 +9,12 @@
  * // =>['fred', 'barney', 'pebbles']
  * words('fred, barney, & pebbles', /[^, ]+/g)
  * // =>['fred', 'barney', '&', 'pebbles']
+ * words("\uD842\uDFB7\uD842\uDFB7")
+ * // => ['𠮷','𠮷']
+ * words("--foo-bar--")
+ * // => ['foo', 'bar']
+ * words("__FOO_BAR__")
+ * // => ['FOO', 'BAR']
  */
 
 import toString from "../Lang/toString"
@@ -139,6 +145,7 @@ function hasUnicodeWord(string) {
 function words(string, pattern) {
   string = toString(string)
   if (pattern === undefined) {
+    // 区分Unicode与ASCII
     return hasUnicodeWord(string) ? unicodeWords(string) : asciiWords(string)
   }
   return string.match(pattern) || []
