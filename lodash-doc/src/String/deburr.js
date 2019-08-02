@@ -11,6 +11,7 @@
  * deburr('déjà vu')
  * // => deja vu
  */
+
 import toString from "../Lang/toString"
 import basePropertyOf from "../utils/basePropertyOf"
 
@@ -29,7 +30,7 @@ var rsCombo = "[" + rsComboRange + "]"
  * Used to match [combining diacritical marks](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks) and
  * [combining diacritical marks for symbols](https://en.wikipedia.org/wiki/Combining_Diacritical_Marks_for_Symbols).
  */
-var reComboMark = RegExp(rsCombo, "g")
+var reComboMark = new RegExp(rsCombo, "g")
 
 // Used to map Latin Unicode letters to basic Latin letters.
 var deburredLetters = {
