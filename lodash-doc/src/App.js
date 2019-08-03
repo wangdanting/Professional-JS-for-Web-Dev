@@ -81,6 +81,7 @@ import Words from "./Pages/String/words"
 import CamelCase from "./Pages/String/camelCase"
 import EndsWith from "./Pages/String/endsWith"
 import Escape from "./Pages/String/escape"
+import EscapeRegExp from "./Pages/String/escapeRegExp"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -338,6 +339,9 @@ class App extends Component {
               <li>
                 <Link to="/escape/">escape</Link>
               </li>
+              <li>
+                <Link to="/escapeRegExp/">escapeRegExp</Link>
+              </li>
             </ul>
           </nav>
 
@@ -423,6 +427,7 @@ class App extends Component {
             <Route path="/camelCase/" component={CamelCase} />
             <Route path="/endsWith/" component={EndsWith} />
             <Route path="/escape/" component={Escape} />
+            <Route path="/escapeRegExp/" component={EscapeRegExp} />
           </div>
         </div>
       </Router>
