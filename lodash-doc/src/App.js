@@ -85,6 +85,7 @@ import EscapeRegExp from "./Pages/String/escapeRegExp"
 import KebabCase from "./Pages/String/kebabCase"
 import LowerCase from "./Pages/String/lowerCase"
 import Repeat from "./Pages/String/repeat"
+import Pad from "./Pages/String/pad"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -354,6 +355,9 @@ class App extends Component {
               <li>
                 <Link to="/repeat/">repeat</Link>
               </li>
+              <li>
+                <Link to="/pad/">pad</Link>
+              </li>
             </ul>
           </nav>
 
@@ -443,6 +447,7 @@ class App extends Component {
             <Route path="/kebabCase/" component={KebabCase} />
             <Route path="/lowerCase/" component={LowerCase} />
             <Route path="/repeat/" component={Repeat} />
+            <Route path="/pad/" component={Pad} />
           </div>
         </div>
       </Router>
