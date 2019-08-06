@@ -8,7 +8,9 @@
  * @returns {number} Returns the converted integer
  * @example
  * parseInt('08')
- * // =>
+ * // => 8
+ * parseInt('18', 16)
+ * // => 24
  */
 
 import toString from "../Lang/toString"
