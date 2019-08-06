@@ -93,6 +93,7 @@ import Replace from "./Pages/String/replace"
 import SnakeCase from "./Pages/String/snakeCase"
 import StartCase from "./Pages/String/startCase"
 import StartsWith from "./Pages/String/startsWith"
+import ToLower from "./Pages/String/toLower"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -386,6 +387,9 @@ class App extends Component {
               <li>
                 <Link to="/startsWith/">startsWith</Link>
               </li>
+              <li>
+                <Link to="/toLower/">toLower</Link>
+              </li>
             </ul>
           </nav>
 
@@ -483,6 +487,7 @@ class App extends Component {
             <Route path="/snakeCase/" component={SnakeCase} />
             <Route path="/startCase/" component={StartCase} />
             <Route path="/startsWith/" component={StartsWith} />
+            <Route path="/toLower/" component={ToLower} />
           </div>
         </div>
       </Router>
