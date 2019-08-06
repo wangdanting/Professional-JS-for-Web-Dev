@@ -88,6 +88,7 @@ import Repeat from "./Pages/String/repeat"
 import Pad from "./Pages/String/pad"
 import PadEnd from "./Pages/String/padEnd"
 import PadStart from "./Pages/String/padStart"
+import ParseInt from "./Pages/String/parseInt"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -366,6 +367,9 @@ class App extends Component {
               <li>
                 <Link to="/padStart/">padStart</Link>
               </li>
+              <li>
+                <Link to="/parseInt/">parseInt</Link>
+              </li>
             </ul>
           </nav>
 
@@ -458,6 +462,7 @@ class App extends Component {
             <Route path="/pad/" component={Pad} />
             <Route path="/padEnd/" component={PadEnd} />
             <Route path="/padStart/" component={PadStart} />
+            <Route path="/parseInt/" component={ParseInt} />
           </div>
         </div>
       </Router>
