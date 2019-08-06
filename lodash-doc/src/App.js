@@ -90,6 +90,7 @@ import PadEnd from "./Pages/String/padEnd"
 import PadStart from "./Pages/String/padStart"
 import ParseInt from "./Pages/String/parseInt"
 import Replace from "./Pages/String/replace"
+import SnakeCase from "./Pages/String/snakeCase"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -374,6 +375,9 @@ class App extends Component {
               <li>
                 <Link to="/replace/">replace</Link>
               </li>
+              <li>
+                <Link to="/snakeCase/">snakeCase</Link>
+              </li>
             </ul>
           </nav>
 
@@ -468,6 +472,7 @@ class App extends Component {
             <Route path="/padStart/" component={PadStart} />
             <Route path="/parseInt/" component={ParseInt} />
             <Route path="/replace/" component={Replace} />
+            <Route path="/snakeCase/" component={SnakeCase} />
           </div>
         </div>
       </Router>
