@@ -95,6 +95,7 @@ import StartCase from "./Pages/String/startCase"
 import StartsWith from "./Pages/String/startsWith"
 import ToLower from "./Pages/String/toLower"
 import ToUpper from "./Pages/String/toUpper"
+import Now from "./Pages/Date/now"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -394,6 +395,9 @@ class App extends Component {
               <li>
                 <Link to="/toUpper/">toUpper</Link>
               </li>
+              <li>
+                <Link to="/now/">now</Link>
+              </li>
             </ul>
           </nav>
 
@@ -493,6 +497,7 @@ class App extends Component {
             <Route path="/startsWith/" component={StartsWith} />
             <Route path="/toLower/" component={ToLower} />
             <Route path="/toUpper/" component={ToUpper} />
+            <Route path="/now/" component={Now} />
           </div>
         </div>
       </Router>
