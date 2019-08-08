@@ -96,6 +96,7 @@ import StartsWith from "./Pages/String/startsWith"
 import ToLower from "./Pages/String/toLower"
 import ToUpper from "./Pages/String/toUpper"
 import Now from "./Pages/Date/now"
+import InRange from "./Pages/Number/inRange"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -320,6 +321,9 @@ class App extends Component {
               <li>
                 <Link to="/clamp/">clamp</Link>
               </li>
+              <li>
+                <Link to="/inRange/">inRange</Link>
+              </li>
               <li className="title">Util</li>
               <li>
                 <Link to="/times/">times</Link>
@@ -498,6 +502,7 @@ class App extends Component {
             <Route path="/toLower/" component={ToLower} />
             <Route path="/toUpper/" component={ToUpper} />
             <Route path="/now/" component={Now} />
+            <Route path="/inRange/" component={InRange} />
           </div>
         </div>
       </Router>
