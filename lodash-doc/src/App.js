@@ -100,6 +100,7 @@ import InRange from "./Pages/Number/inRange"
 import Random from "./Pages/Number/random"
 import Add1 from "./Pages/Math/add"
 import Multiply from "./Pages/Math/multiply"
+import Subtract from "./Pages/Math/subtract"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -327,6 +328,9 @@ class App extends Component {
               <li>
                 <Link to="/multiply/">multiply</Link>
               </li>
+              <li>
+                <Link to="/subtract/">subtract</Link>
+              </li>
 
               <li className="title">Number</li>
               <li>
@@ -520,6 +524,7 @@ class App extends Component {
             <Route path="/random/" component={Random} />
             <Route path="/add/" component={Add1} />
             <Route path="/multiply/" component={Multiply} />
+            <Route path="/subtract/" component={Subtract} />
           </div>
         </div>
       </Router>
