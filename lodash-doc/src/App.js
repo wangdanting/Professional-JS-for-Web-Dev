@@ -98,6 +98,7 @@ import ToUpper from "./Pages/String/toUpper"
 import Now from "./Pages/Date/now"
 import InRange from "./Pages/Number/inRange"
 import Random from "./Pages/Number/random"
+import Add1 from "./Pages/Math/add"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -318,6 +319,10 @@ class App extends Component {
               <li>
                 <Link to="/toString/">toString</Link>
               </li>
+              <li className="title">Math</li>
+              <li>
+                <Link to="/add/">add</Link>
+              </li>
               <li className="title">Number</li>
               <li>
                 <Link to="/clamp/">clamp</Link>
@@ -508,6 +513,7 @@ class App extends Component {
             <Route path="/now/" component={Now} />
             <Route path="/inRange/" component={InRange} />
             <Route path="/random/" component={Random} />
+            <Route path="/add/" component={Add1} />
           </div>
         </div>
       </Router>
