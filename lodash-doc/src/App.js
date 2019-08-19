@@ -102,6 +102,7 @@ import Add1 from "./Pages/Math/add"
 import Multiply from "./Pages/Math/multiply"
 import Subtract from "./Pages/Math/subtract"
 import Divide from "./Pages/Math/divide"
+import Ceil from "./Pages/Math/ceil"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -335,6 +336,9 @@ class App extends Component {
               <li>
                 <Link to="/divide/">divide</Link>
               </li>
+              <li>
+                <Link to="/ceil/">ceil</Link>
+              </li>
 
               <li className="title">Number</li>
               <li>
@@ -530,6 +534,7 @@ class App extends Component {
             <Route path="/multiply/" component={Multiply} />
             <Route path="/subtract/" component={Subtract} />
             <Route path="/divide/" component={Divide} />
+            <Route path="/ceil/" component={Ceil} />
           </div>
         </div>
       </Router>
