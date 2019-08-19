@@ -1,5 +1,6 @@
 /**
  * Adds two numbers
+ * 两个数相加
  * @param {number} augend The first number in an addition
  * @param {number} addend The second number in an addition
  * @returns {number} Returns the total
