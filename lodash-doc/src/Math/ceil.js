@@ -6,9 +6,9 @@
  * @returns {number} Returns the rounded up number
  * @example
  * ceil(4.006)
- * // =>
+ * // => 5
  * ceil(6.004, 2)
- * // =>
+ * // => 6.01
  */
 
 import createRound from "../utils/createRound"
