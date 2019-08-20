@@ -106,6 +106,7 @@ import Ceil from "./Pages/Math/ceil"
 import Floor from "./Pages/Math/floor"
 import Max from "./Pages/Math/max"
 import Mean from "./Pages/Math/mean"
+import Min from "./Pages/Math/min"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -351,6 +352,9 @@ class App extends Component {
               <li>
                 <Link to="/mean/">mean</Link>
               </li>
+              <li>
+                <Link to="/min/">min</Link>
+              </li>
 
               <li className="title">Number</li>
               <li>
@@ -550,6 +554,7 @@ class App extends Component {
             <Route path="/floor/" component={Floor} />
             <Route path="/max/" component={Max} />
             <Route path="/mean/" component={Mean} />
+            <Route path="/min/" component={Min} />
           </div>
         </div>
       </Router>
