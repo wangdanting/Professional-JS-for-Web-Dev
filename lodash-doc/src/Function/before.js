@@ -22,7 +22,6 @@ function before(n, func) {
   }
   n = toInteger(n)
   return function() {
-    console.log(n, "n")
     if (--n > 0) {
       result = func.apply(this, arguments)
     }
