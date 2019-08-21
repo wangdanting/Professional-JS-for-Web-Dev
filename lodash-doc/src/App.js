@@ -109,6 +109,7 @@ import Mean from "./Pages/Math/mean"
 import Min from "./Pages/Math/min"
 import Round from "./Pages/Math/round"
 import Sum from "./Pages/Math/sum"
+import Before from "./Pages/Function/before"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -449,8 +450,13 @@ class App extends Component {
               <li>
                 <Link to="/toUpper/">toUpper</Link>
               </li>
+              <li className="title">Date</li>
               <li>
                 <Link to="/now/">now</Link>
+              </li>
+              <li className="title">Function</li>
+              <li>
+                <Link to="/before/">before</Link>
               </li>
             </ul>
           </nav>
@@ -565,6 +571,7 @@ class App extends Component {
             <Route path="/min/" component={Min} />
             <Route path="/round/" component={Round} />
             <Route path="/sum/" component={Sum} />
+            <Route path="/before/" component={Before} />
           </div>
         </div>
       </Router>
