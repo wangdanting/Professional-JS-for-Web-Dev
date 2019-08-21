@@ -9,7 +9,8 @@
  * @param {Function} func The function to restrict
  * @returns {Function} Returns the new restricted function
  * @example
- *
+ * document.getElementById("btn").addEventListener("click", before(5, this.add))
+ * // this.add函数最多执行4次
  */
 
 import toInteger from "../Lang/toInteger"
