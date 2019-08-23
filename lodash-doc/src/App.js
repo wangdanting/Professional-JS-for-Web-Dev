@@ -111,6 +111,7 @@ import Round from "./Pages/Math/round"
 import Sum from "./Pages/Math/sum"
 import Before from "./Pages/Function/before"
 import After from "./Pages/Function/after"
+import IsNative from "./Pages/Lang/isNative"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -330,6 +331,9 @@ class App extends Component {
               </li>
               <li>
                 <Link to="/toString/">toString</Link>
+              </li>
+              <li>
+                <Link to="/isNative/">isNative</Link>
               </li>
               <li className="title">Math</li>
               <li>
@@ -577,6 +581,7 @@ class App extends Component {
             <Route path="/sum/" component={Sum} />
             <Route path="/before/" component={Before} />
             <Route path="/after/" component={After} />
+            <Route path="/isNative/" component={IsNative} />
           </div>
         </div>
       </Router>
