@@ -113,6 +113,7 @@ import Before from "./Pages/Function/before"
 import After from "./Pages/Function/after"
 import IsNative from "./Pages/Lang/isNative"
 import Constant from "./Pages/Util/constant"
+import Rest from "./Pages/Function/rest"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -470,6 +471,9 @@ class App extends Component {
               <li>
                 <Link to="/after/">after</Link>
               </li>
+              <li>
+                <Link to="/rest/">rest</Link>
+              </li>
             </ul>
           </nav>
 
@@ -587,6 +591,7 @@ class App extends Component {
             <Route path="/after/" component={After} />
             <Route path="/isNative/" component={IsNative} />
             <Route path="/constant/" component={Constant} />
+            <Route path="/rest/" component={Rest} />
           </div>
         </div>
       </Router>
