@@ -114,6 +114,7 @@ import After from "./Pages/Function/after"
 import IsNative from "./Pages/Lang/isNative"
 import Constant from "./Pages/Util/constant"
 import Rest from "./Pages/Function/rest"
+import Noop from "./Pages/Util/noop"
 const Index = () => <div>欢迎使用来到学习lodash世界</div>
 
 class App extends Component {
@@ -389,6 +390,9 @@ class App extends Component {
               <li>
                 <Link to="/constant/">constant</Link>
               </li>
+              <li>
+                <Link to="/noop/">noop</Link>
+              </li>
               <li className="title">Object</li>
               <li>
                 <Link to="/keys/">keys</Link>
@@ -592,6 +596,7 @@ class App extends Component {
             <Route path="/isNative/" component={IsNative} />
             <Route path="/constant/" component={Constant} />
             <Route path="/rest/" component={Rest} />
+            <Route path="/noop/" component={Noop} />
           </div>
         </div>
       </Router>
